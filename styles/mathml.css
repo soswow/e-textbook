@@ -1,0 +1,197 @@
+math{
+  line-height:1.4em;
+  text-indent:0;
+}
+math[display="block"]{
+  display:block;
+  text-align:left;
+  page-break-inside:avoid;
+}
+math[mode="display"]{
+  display:block;
+  text-align:center;
+  page-break-inside:avoid;
+}
+math.eqcenter{
+  display:block;
+  text-align:center;
+  page-break-inside:avoid;
+}
+mfrac{
+  display:inline-block;
+  white-space:nowrap;
+  text-align:center;
+  vertical-align:-0.7em;
+  margin:0 2px;
+  font-size:1em;
+}
+mfrac>*{
+  line-height:1.5em;
+  font-size:0.9em;
+}
+mfrac>*:first-child{
+  border-bottom:solid 1px;
+  display:block;
+}
+mfrac>*+*{
+  display:inline-block;
+  vertical-align:top;
+}
+msub,msup{display:inline-block;}
+msub>*,msup>*{display:inline-block;}
+msub>*+*{
+  display:inline;
+  vertical-align:-0.5em;
+}
+msup>*+*{
+  display:inline;
+  vertical-align:0.7em;
+}
+msub>*+*,msup>*+*,munder>*+*{
+  font-size:0.7em;
+}
+
+msubsup
+	{display:inline-table;
+	white-space:nowrap;
+	text-align:left;
+	table-baseline:2;}
+msubsup > *:first-child::outside(2), msubsup > * + *::outside(3)
+	{display:table-row;}
+msubsup > * + * + *::outside(4)
+	{display:table-header-group;}
+msubsup > *:first-child::outside, msubsup > *:first-child + *::outside(2), 
+msubsup > *:first-child + * + *::outside(2)
+	{display:table-cell;}
+msubsup > *:first-child::outside(2)::after, msubsup > * + *::outside(3)::before
+	{display:table-cell;
+	content:"\A0";
+	line-height:0;}
+msubsup > *:first-child + *::outside(2), msubsup > * + * + *::outside(2)
+	{font-size:0.75em;
+	line-height:1.1em;}
+msubsup > *:first-child + *::outside(2)
+	{vertical-align:top;}
+msubsup > * + * + *::outside(2)
+	{vertical-align:bottom;}
+msubsup > *:first-child + *::outside
+	{display:block;
+	margin-top:-0.7em;}
+msubsup > * + * + *::outside
+	{display:block;
+	margin-bottom:-0.7em;}
+
+munder{
+  display:inline-table;
+  text-align:center;
+}
+munder>*{display:table-row;}
+mover, munderover{
+  display:inline-block;
+  text-align:center;
+}
+mroot{display:inline-table;}
+mroot>*{display:table-cell;}
+mroot>*+*,msqrt>*:first-child{
+  border-top:solid 1px;
+  border-left:groove 2px;
+  padding:2px 5px 0 3px;}
+msqrt:before{
+  display:block;
+  content:"";
+  width:20px;
+  height:20px;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABgElEQVR42q2TMUjDQBhGG5EQkCq4SB20WVwcXYTs4lCk0K5CZ%2Bno4pghmbJk7eIgZCsE2kFC03RVRHEoQUERClaxiEVpq2DP78IVoqXhJPnhQej9eTSPJEUISfGAEbj2OETz4AC0wWosIWYP%2BIAwXDD3byFmC3hUkslkepVK5dw0zWsmPeIWYtbACfhOp9NDTdPOPM8btVotQikWi7c4%2BwLbkULMItDBQBTFcblcvnRdt89EDlBAu9lsDmRZ7mPvDizNeLog%2BLMgCKRQKPiO43SZ6ArsTBZxvQk%2B6vV6R5Ikeqc1S0gURenUarV7JnoA%2B2AqPn4r0R3DMG5Yz9KU0LIsn4lewSGQoqLj%2FJju5%2FP5RwjfwcYvIQ6HwADLPC8u9hZoTzQeZrPZTwgvgBgWrvN%2BLX972rbdZT0N7i8lQhr01HW9A%2BEY7MYShnvmcrk3CJ%2FASlxh0LPRaIzQk%2F7L01jCcM9qtdoLesYVhnuqqvqSiDDcM0lh0DMx4aRnokLKD0gmJM1mPGUFAAAAAElFTkSuQmCC");
+  margin-bottom:-2px;
+}
+msqrt,msqrt>*:first-child{display:inline-block;}
+msqrt:before{
+  display:inline-block;
+  vertical-align:bottom;
+}
+mfenced{
+  display:inline-block;
+  margin:0 2px;
+  border-left:solid 1px;
+  border-right:solid 1px;
+  -webkit-border-radius:1ex;
+}
+mfenced[open=""]{border-left:none;}
+mfenced[close=""]{border-right:none;}
+menclose[notation="top"]{border-top:solid thin;}
+menclose[notation="bottom"]{border-bottom:solid thin;}
+menclose[notation="box"]{border:solid thin;}
+menclose[notation="overbrace"]{caption-side:top;}
+menclose[notation="underbrace"]{caption-side:bottom;}
+menclose[notation="overbrace"]:before,menclose[notation="underbrace"]:before{display:table-caption;}
+menclose>mrow{display:table-cell;}
+mtable{
+  display:inline-table;
+  vertical-align:middle;
+}
+mtr{display:table-row;}
+mtd{
+  display:table-cell;
+  padding:0 0.5ex;
+}
+mtable[columnalign="left"],mtr[columnalign="left"],mtd[columnalign="left"]{text-align:left;}
+mtable[columnalign="right"],mtr[columnalign="right"],mtd[columnalign="right"]{text-align:right;}
+mtable[rowalign="top"] mtd,math mtable mtr[rowalign="top"],math mtable mtr mtd[columnalign="top"]{vertical-align:top}
+mtable[rowalign="bottom"] mtd,math mtable mtr[rowalign="bottom"],math mtable mtr mtd[columnalign="bottom"]{vertical-align:bottom}
+mtable[rowalign="center"] mtd,math mtable mtr[rowalign="center"],math mtable mtr mtd[columnalign="center"]{vertical-align:middle}
+mtable[frame="solid"]{border:solid thin;}
+mtable[frame="dashed"]{border:dashed thin;}
+mtable[rowlines="solid"],mtable[rowlines="dashed"],mtable[columnlines="solid"],mtable[columnlines="dashed"]{border-collapse:collapse;}
+mtable[rowlines="solid"]>mtr+mtr{border-top:solid thin;}
+mtable[rowlines="dashed"]>mtr+mtr{border-top:dashed thin;}
+mtable[columnlines="solid"]>mtr>mtd+mtd{border-left:solid thin;}
+mtable[columnlines="dashed"]>mtr>mtd+mtd{border-left:dashed thin;}
+mspace[linebreak="goodbreak"]:before{
+  content:"\200B";
+  white-space:normal;
+}
+mspace[linebreak="newline"]:before,mspace[linebreak="indentingnewline"]:before{
+  content:"\000A";
+  white-space:pre;
+}
+mglyph[alt]:before{content:attr(alt);}
+mo[largeop="true"]{
+  font-size:1.3em;
+  vertical-align:-0.1ex;
+}
+mo[form="infix"]{padding:0 0.5ex;}
+mi[mathvariant="bold"],mi[mathvariant="bold-italic"],mi[mathvariant="bold-sans-serif"],mi[mathvariant="sans-serif-bold-italic"],mn[mathvariant="bold"],mn[mathvariant="bold-italic"],mn[mathvariant="bold-sans-serif"],mn[mathvariant="sans-serif-bold-italic"],mo[mathvariant="bold"],mo[mathvariant="bold-italic"],mo[mathvariant="bold-sans-serif"],mo[mathvariant="sans-serif-bold-italic"],ms[mathvariant="bold"],ms[mathvariant="bold-italic"],ms[mathvariant="bold-sans-serif"],ms[mathvariant="sans-serif-bold-italic"],mtext[mathvariant="bold"],mtext[mathvariant="bold-italic"],mtext[mathvariant="bold-sans-serif"],mtext[mathvariant="sans-serif-bold-italic"]{
+  font-weight:bold;
+  font-style:normal;
+}
+mi[mathvariant="monospace"],mn[mathvariant="monospace"],mo[mathvariant="monospace"],ms[mathvariant="monospace"],mtext[mathvariant="monospace"]{
+  font-family:monospace;
+  font-style:normal;
+}
+mi[mathvariant="sans-serif"],mi[mathvariant="bold-sans-serif"],mi[mathvariant="bold-sans-serif"],mi[mathvariant="sans-serif-italic"],mi[mathvariant="sans-serif-bold-italic"],mn[mathvariant="bold-sans-serif"],mn[mathvariant="sans-serif"],mn[mathvariant="bold-sans-serif"],mn[mathvariant="sans-serif-italic"],mn[mathvariant="sans-serif-bold-italic"],mo[mathvariant="sans-serif"],mo[mathvariant="bold-sans-serif"],mo[mathvariant="bold-sans-serif"],mo[mathvariant="sans-serif-italic"],mo[mathvariant="sans-serif-bold-italic"],ms[mathvariant="sans-serif"],ms[mathvariant="bold-sans-serif"],ms[mathvariant="bold-sans-serif"],ms[mathvariant="sans-serif-italic"],ms[mathvariant="sans-serif-bold-italic"],mtext[mathvariant="sans-serif"],mtext[mathvariant="bold-sans-serif"],mtext[mathvariant="bold-sans-serif"],mtext[mathvariant="sans-serif-italic"],mtext[mathvariant="sans-serif-bold-italic"]{
+  font-family:sans-serif;
+  font-style:normal;
+}
+mi,mi[mathvariant="italic"],mi[mathvariant="bold-italic"],mi[mathvariant="sans-serif-italic"],mi[mathvariant="sans-serif-bold-italic"],mn[mathvariant="italic"],mn[mathvariant="bold-italic"],mn[mathvariant="sans-serif-italic"],mn[mathvariant="sans-serif-bold-italic"],mo[mathvariant="italic"],mo[mathvariant="bold-italic"],mo[mathvariant="sans-serif-italic"],mo[mathvariant="sans-serif-bold-italic"],ms[mathvariant="italic"],ms[mathvariant="bold-italic"],ms[mathvariant="sans-serif-italic"],ms[mathvariant="sans-serif-bold-italic"],mtext[mathvariant="italic"],mtext[mathvariant="bold-italic"],mtext[mathvariant="sans-serif-italic"],mtext[mathvariant="sans-serif-bold-italic"]{font-style:italic;}
+mi[mathvariant="normal"],mn[mathvariant="normal"],mo[mathvariant="normal"],ms[mathvariant="normal"],mtext[mathvariant="normal"]{font-style:normal;}
+ms:before,ms:after{content:"\0022"}
+ms[lquote]:before{content:attr(lquote)}
+ms[rquote]:after{content:attr(rquote)}
+mphantom{visibility:hidden}
+merror{outline:solid thin red}
+merror:before{content:"Error: "}
+mrow{white-space:nowrap;}
+
+/* user */
+
+math[display="block"]{text-align:left;}
+math[class="center"]{margin:0 auto;text-align:center;}
+mi[class="bold"],mi[class="chem"],mi[class="mathbold"],mi[class="unit"],mi[class="var"]{font-style:normal;}
+mi[class="bold"],mi[class="mathbold"],mi[class="var"]{font-weight:bold;}
+math{font-family:'Linux Libertine','Linux Libertine O',Cambria,Times,'Times New Roman','Cambria Math',STIXGeneral,serif;}
+mo{padding:0 0.25ex;}
+mo:first-child,mo:last-child{padding:0;}
+mi[class="unit"]{padding-left:0.25ex;}
+mfrac[bevelled="true"]>*{font-size:100%;}
+
+/* user */
