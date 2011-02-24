@@ -7,13 +7,14 @@ function getNewSize(limit, containerSize) {
     }
     return newSize;
 }
+
 function pxValInInt(pxVal) {
     return parseInt(pxVal.substr(0, pxVal.length - 2), 10);
 }
 
 var columnsParams = {
     width: 480,
-    gap: 80,
+    gap: 40,
     minWidth: 280,
     maxWidth: 600,
     curWidth: 0,
@@ -25,7 +26,34 @@ var KEYS = {
     RIGHT:39
 };
 
-var debugOnOff = false;
+String.prototype.endsWith = function(end){
+    return this.length - this.lastIndexOf(end) == end.length;
+};
+
+jQuery.fn.appendAndFitTo = function(container, lessOnly){
+    var cw = container.width();
+    var ch = container.height();
+    var tw = this.width() || parseInt(this.attr("width"));
+    var th = this.height() || parseInt(this.attr("height"));
+    var horizontal = tw > th;
+    debug(cw,ch,tw,th,horizontal);
+    var w,h;
+    if(horizontal){
+        h = lessOnly?(th>ch?ch:th):ch;
+        w = h  * tw / th;
+    }else{
+        w = lessOnly?(tw>cw?cw:tw):cw;
+        h = w * th / tw;
+    }
+    var newWHMap = {
+        width:w,
+        height:h
+    };
+    this.attr(newWHMap).css(newWHMap);
+    container.append(this);
+};
+
+var debugOnOff = true;
 function debug() {
     if (console.log && debugOnOff) {
         console.log.apply(console, arguments);
@@ -46,8 +74,8 @@ function ajustColumnWidths() {
     var contWidth = $("#content_pane").width() - 40; //40 - when_opened.padding-left+right
     debug("Container height, width: " + contHeight + " " + contWidth);
 
-    var colMinWidthWGap = columnsParams.minWidth + columnsParams.gap;
-    var colCount = Math.floor(contWidth / colMinWidthWGap);//
+    var colMinWidthWGap = columnsParams.maxWidth + columnsParams.gap;
+    var colCount = Math.ceil(contWidth / colMinWidthWGap);//
     columnsParams.columnsOnScreen = colCount;
     debug("Column count on the list:" + colCount,
             "where Math.floor( " + (contWidth / colMinWidthWGap) + ")"); //+columnsParams.gap
@@ -64,14 +92,18 @@ function ajustColumnWidths() {
     var secHeight = contHeight - pads.top - pads.bottom;
     debug("Section height: " + secHeight);
 
-    art.find("VIDEO, EMBED, SVG").each(function(){
-        var h = $(this).height();
-        var w = $(this).width(); //pxValInInt($(this).css("width")) || $(this).attr("width");
-        var newH = h * colWidth / w;
-        $(this).attr("width", colWidth+"px").css("width",colWidth);
-        $(this).attr("height", newH+"px").css("height", newH);
-        debug(this.tagName, "old height: "+h, "old width: "+w, "new height: "+newH, "new width: "+colWidth);
-    });
+//    art.find("VIDEO, EMBED, SVG, IMG.fullWidth").each(function(){
+//        var h = $(this).height() || $(this).attr("height") || pxValInInt($(this).css("height"));
+//        var w = $(this).width() || $(this).attr("width") || pxValInInt($(this).css("width"));
+//        var newH = h * colWidth / w;
+//        if(!h || !w){
+//            newH = $(this).attr("ratio") * colWidth;
+//        }
+//
+//        $(this).attr("width", colWidth).css("width",colWidth);
+//        $(this).attr("height", newH).css("height", newH);
+//        debug(this.tagName, "old height: "+h, "old width: "+w, "new height: "+newH, "new width: "+colWidth);
+//    });
 
     $("section", art)
         .css({
@@ -79,41 +111,41 @@ function ajustColumnWidths() {
             height: secHeight
         })
         .each(function(i) {
-        debug("\nSECTION - " + i);
-        var sec = $(this);
-        var curCol = 1;
-        var children = sec.children();
-        children.each(function(i) {
-            var pos = $(this).position();
-            var left = pos.left + art.scrollLeft();
-            var h = $(this).height();
-            var bottom = pos.top + h;
-            debug(this.tagName,
-                    "pos.left:" + left,
-                    "pos.top:" + pos.top,
-                    "curCol: " + curCol,
-                    "curCol * colWidth: " + (curCol * colWidth),
-                    "h: " + h,
-                    "bottom: " + bottom);
-            if (left > curCol * colWidth) {
-                colsSkiped = Math.floor((left - curCol * colWidth) / colWidth) + 1;
-                debug("next",
-                        "colsSkiped: " + colsSkiped,
-                        "(left - curCol * colWidth) / colWidth: " + (left - curCol * colWidth) / colWidth);
-                curCol += colsSkiped;
-            }
+            debug("\nSECTION - " + i);
+            var sec = $(this);
+            var curCol = 1;
+            var children = sec.children();
+            children.each(function(i) {
+                var pos = $(this).position();
+                var left = pos.left + art.scrollLeft();
+                var h = $(this).height();
+                var bottom = pos.top + h;
+                debug(this.tagName,
+                        "pos.left:" + left,
+                        "pos.top:" + pos.top,
+                        "curCol: " + curCol,
+                        "curCol * colWidth: " + (curCol * colWidth),
+                        "h: " + h,
+                        "bottom: " + bottom);
+                if (left > curCol * colWidth) {
+                    colsSkiped = Math.floor((left - curCol * colWidth) / colWidth) + 1;
+                    debug("next",
+                            "colsSkiped: " + colsSkiped,
+                            "(left - curCol * colWidth) / colWidth: " + (left - curCol * colWidth) / colWidth);
+                    curCol += colsSkiped;
+                }
 
-            if (children.length == i + 1 && bottom > contHeight) {
-                debug("Last column with continued child");
-                curCol += 1;
-            }
+                if (children.length == i + 1 && bottom > contHeight) {
+                    debug("Last column with continued child");
+                    curCol += 1;
+                }
+            });
+            var newW = curCol * colWidth + (curCol - 1) * columnsParams.gap;
+            sec.css("width", newW);
+            debug("Columns in section: " + curCol, " Section width:" + newW);
+            //totalWidth += newW;
+            totalColumns += curCol;
         });
-        var newW = curCol * colWidth + (curCol - 1) * columnsParams.gap;
-        sec.css("width", newW);
-        debug("Columns in section: " + curCol, " Section width:" + newW);
-        //totalWidth += newW;
-        totalColumns += curCol;
-    });
 
     totalWidth = totalColumns * colWidth + (totalColumns - 1) * columnsParams.gap;
     debug("Columns total in article: " + totalColumns, " Article total width: " + totalWidth);
@@ -123,6 +155,7 @@ function ajustColumnWidths() {
 }
 
 $(function() {
+    var isiPad = navigator.userAgent.match(/iPad/i) != null;
 
     $("section").css("-webkit-column-gap", columnsParams.gap);
 
@@ -203,19 +236,29 @@ $(function() {
         that.siblings().css({
             opacity:0
         });
-        div.css({
+        
+        var beforeState = isiPad?{
             position:'absolute',
-            top:t + scroll,
-            left:l,
-            width:that.width(),
-            height:that.height(),
-            zIndex:100
-        }).animate({
+            zIndex:100,
             top:20 + scroll,
             left:20,
             width:parent.width() - 40,
             height:parent.height() - 20
-        }, {
+        }:{
+            position:'absolute',
+            top:t + scroll,
+            left:l,
+            width:that.width(),
+            height:that.height()
+        };
+        var animateAfter = isiPad?{}:{
+            top:20 + scroll,
+            left:20,
+            width:parent.width() - 40,
+            height:parent.height() - 20
+        };
+
+        div.css(beforeState).animate(animateAfter, {
             complete: function() {
                 div.addClass("opened").css({
                     bottom:20 - scroll,
@@ -241,12 +284,14 @@ $(function() {
         parent.siblings().css({
             opacity:1
         });
-        that.animate({
+        var animateTo = isiPad?{}:{
             top:parent.offset().top + scroll,
             left:parent.offset().left,
             width:w,
             height:h
-        }, {
+        };
+
+        that.animate(animateTo, {
             complete:function() {
                 that.removeClass("opened").css({
                     position:'relative',
@@ -322,4 +367,56 @@ $(function() {
     $(".go_left, .go_right").click(function(){
         swipeConent($(this).hasClass("go_left")?KEYS.LEFT:KEYS.RIGHT);
     });
+
+    $(".float-thumbnail").each(function(){
+        var that = $(this);
+        var media = that.find(".popup");
+        var isVideo = that.is(".video");
+        var isFlash = that.is(".flash");
+        if(!isVideo && !isFlash){
+            media.after(media.clone().removeClass("popup").css({
+                width:250,
+                height:'auto'
+            }));
+        }
+        var mainParent = that.parents(".when_opened").eq(0);
+        var bigParent = mainParent.parents(".inner").eq(0);
+        var mediaBlock = media.parents(".media-block").eq(0);
+        var mediaBlocText = mediaBlock.children(":not(.float-thumbnail)");
+        var figureTitleSmall = that.find(".small").html();
+        var figureTitleBig = that.find(".big").html();
+        that.click(function(){
+            mainParent.addClass("show_popup");
+            bigParent.find(".close").hide();
+            bigParent.find(".back_to_article").show();
+
+            mainParent.find(".popup_content .text").empty().append(mediaBlocText.clone());
+            mainParent.find(".popup_content .header H1").html(figureTitleSmall);
+            mainParent.find(".popup_content .media_title").html(figureTitleBig);
+
+            var mediaContainer = mainParent.find(".popup_content .media");
+            if(isVideo){
+                $.get(media.attr("href"), function(resp){
+                    var video = $(resp);
+                    video.appendAndFitTo(mediaContainer, false);
+                });
+            }else{
+                var mediaClone = media.clone();
+                var tagName = mediaClone.tagName;
+                var couldBeBigger = (tagName == 'img' && mediaClone.attr("src").endsWith(".svg")) ||
+                        tagName == 'embed' || tagName == 'video';
+                mediaClone.appendAndFitTo(mediaContainer, !couldBeBigger);
+            }
+        });
+    });
+
+    $(".back_to_article").click(function(){
+        var that = $(this);
+        var parent = that.parents(".inner");
+        parent.find(".when_opened").removeClass("show_popup");
+        parent.find(".close").show();
+        that.hide();
+        parent.find(".popup_content").find(".header h1, .text, .media, .media_title").empty();
+    });
+
 });
