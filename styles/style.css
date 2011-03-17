@@ -1,6 +1,7 @@
 
 #main_page{
     -webkit-transition: top 1s, bottom 1s, right 1s, left 1s;
+    -moz-transition: top 1s, bottom 1s, right 1s, left 1s;
     overflow:hidden;
     position:absolute;
     top:0;
@@ -78,12 +79,14 @@
     background-color: #ccc;
     height: 50px;
     -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
 }
 
 
 
 #sidebar UL LI{
     -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
     text-transform:uppercase;
     padding:5px;
     font-size: 11px;
@@ -100,6 +103,7 @@
 
 .content_page{
     -webkit-box-shadow: #999 0px 0px 6px;
+    -moz-box-shadow: #999 0px 0px 6px;
     background-color:#fff;
     border: 1px solid transparent;
 
@@ -131,6 +135,10 @@
     -webkit-transition:
         width 0.5s, height 0.5s, margin 0.5s,
         -webkit-box-shadow 0.3s, background-color 0.3s,
+        opacity 0.5s;
+    -moz-transition:
+        width 0.5s, height 0.5s, margin 0.5s,
+        -moz-box-shadow 0.3s, background-color 0.3s,
         opacity 0.5s;
         /*, top 1s, left 1s;*/
     display:block;
@@ -174,6 +182,7 @@
     position:relative;
     background-color:#fff;
     -webkit-box-shadow: 0 0 6px #999;
+    -moz-box-shadow: 0 0 6px #999;
 }
 
 #topic_blocks UL LI.with_content DIV.inner{
@@ -195,14 +204,16 @@
 /*}*/
 
 #topic_blocks UL LI.with_content DIV.inner:hover{
-    -webkit-box-shadow: 0 0 6px #000;
+    -moz-box-shadow: 0 0 6px #000;
 }
 #topic_blocks UL LI.with_content DIV.inner.opened{
     -webkit-box-shadow: 0 0 6px #999;
+    -moz-box-shadow: 0 0 6px #999;
 }
 
 .when_opened{
     -webkit-transition: opacity 0.5s, padding 0.3s;
+    -moz-transition: opacity 0.5s, padding 0.3s;
     opacity:0;
     /*height:100%;*/
     overflow:hidden;
@@ -220,13 +231,14 @@
     top:0;
     right:0;
     bottom:0;
-    left:0;
+    /*left:0;*/
     padding:20px 20px 20px 20px;
     opacity:0;
 }
 .popup_content,
 .main_content{
     -webkit-transition:opacity 0.3s, bottom 0.5s;
+    -moz-transition:opacity 0.3s, bottom 0.5s;
 }
 .main_content{
     opacity:1;
@@ -294,7 +306,7 @@ DIV.inner IMG.back_to_article{
 }
 
 #topic_blocks UL LI DIV.inner.opened .when_opened .media{
-    display:block;
+    display:table-cell;
 }
 
 DIV.inner .when_minimized{
@@ -307,6 +319,7 @@ DIV.inner.opened .when_minimized{
 
 #topic_blocks UL LI.open{
     -webkit-transition:width 1.5s, height 1.5s, right 1.5s, left 1.5s;
+    -moz-transition:width 1.5s, height 1.5s, right 1.5s, left 1.5s;
 }
 .border_gradient{
     position: absolute;
@@ -325,6 +338,7 @@ DIV.inner.opened .when_minimized{
         from(#E0E0E0),
         to(rgba(224,224,224,0))
     );
+    /*TODO*/
 }
 
 #bottom_gradient{
@@ -345,6 +359,7 @@ DIV.inner.opened .when_minimized{
 
 article{
     -webkit-transition:left 0.5s;
+    -moz-transition:left 0.5s;
     position:relative;
     left:0;
     /*-moz-column-count:2;
@@ -543,23 +558,25 @@ math[display="block"]{
     bottom:70px;
     right:10px;
     text-align:center;
-    overflow:hidden;
+    overflow-y:auto;
+    display:table-cell;
+    vertical-align:middle;
     /*background:#ddd;*/
 }
 .popup_content .media_title{
-    position:absolute;
+    /*position:absolute;*/
     /*top:70px;*/
-    left:480px;
-    bottom:20px;
-    right:10px;
-    height:40px;
+    /*left:0;*/
+    /*top:100%;*/
+    /*right:0;*/
+    /*height:40px;*/
     /*background:#ccc;*/
     text-align:center;
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 .popup_content .media .popup{
     display:block;
     margin:0 auto;
-    position:absolute;
-    bottom:0;
+    /*position:absolute;*/
+    /*bottom:0;*/
 }

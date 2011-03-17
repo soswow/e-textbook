@@ -1,3 +1,7 @@
+jQuery.fn.css3 = function(property, value){
+    return $(this).css("-webkit-"+property, value).css("-moz-"+property, value);
+};
+
 function getNewSize(limit, containerSize) {
     var count = Math.floor(containerSize / limit.min);
     var delta = (containerSize - (count * limit.min)) / count;
@@ -30,13 +34,13 @@ String.prototype.endsWith = function(end){
     return this.length - this.lastIndexOf(end) == end.length;
 };
 
-jQuery.fn.appendAndFitTo = function(container, lessOnly){
+jQuery.fn.prependAndFitTo = function(container, lessOnly, minusHeight){
     var cw = container.width();
-    var ch = container.height();
+    var ch = container.height() - (minusHeight || 0);
     var tw = this.width() || parseInt(this.attr("width"));
     var th = this.height() || parseInt(this.attr("height"));
     var horizontal = tw > th;
-    debug(cw,ch,tw,th,horizontal);
+    debug(cw,ch,tw,th,horizontal,minusHeight);
     var w,h;
     if(horizontal){
         h = lessOnly?(th>ch?ch:th):ch;
@@ -50,8 +54,10 @@ jQuery.fn.appendAndFitTo = function(container, lessOnly){
         height:h
     };
     this.attr(newWHMap).css(newWHMap);
-    container.append(this);
+    container.prepend(this);
 };
+
+
 
 var debugOnOff = true;
 function debug() {
@@ -92,22 +98,9 @@ function ajustColumnWidths() {
     var secHeight = contHeight - pads.top - pads.bottom;
     debug("Section height: " + secHeight);
 
-//    art.find("VIDEO, EMBED, SVG, IMG.fullWidth").each(function(){
-//        var h = $(this).height() || $(this).attr("height") || pxValInInt($(this).css("height"));
-//        var w = $(this).width() || $(this).attr("width") || pxValInInt($(this).css("width"));
-//        var newH = h * colWidth / w;
-//        if(!h || !w){
-//            newH = $(this).attr("ratio") * colWidth;
-//        }
-//
-//        $(this).attr("width", colWidth).css("width",colWidth);
-//        $(this).attr("height", newH).css("height", newH);
-//        debug(this.tagName, "old height: "+h, "old width: "+w, "new height: "+newH, "new width: "+colWidth);
-//    });
-
     $("section", art)
+        .css3("column-width", colWidth)
         .css({
-            "-webkit-column-width": colWidth,
             height: secHeight
         })
         .each(function(i) {
@@ -157,7 +150,7 @@ function ajustColumnWidths() {
 $(function() {
     var isiPad = navigator.userAgent.match(/iPad/i) != null;
 
-    $("section").css("-webkit-column-gap", columnsParams.gap);
+    $("section").css3("column-gap", columnsParams.gap);
 
     ajustColumnWidths();
 
@@ -192,6 +185,7 @@ $(function() {
 
     var scrollerTimer;
     var smoothScroll = true;
+    
     /*$("#topic_blocks").scroll(function(e){
      if(!smoothScroll){
      debug("busy");
@@ -389,23 +383,24 @@ $(function() {
             mainParent.addClass("show_popup");
             bigParent.find(".close").hide();
             bigParent.find(".back_to_article").show();
-
+            
             mainParent.find(".popup_content .text").empty().append(mediaBlocText.clone());
             mainParent.find(".popup_content .header H1").html(figureTitleSmall);
-            mainParent.find(".popup_content .media_title").html(figureTitleBig);
 
-            var mediaContainer = mainParent.find(".popup_content .media");
+            var mediaContainer = mainParent.find(".popup_content .media").empty();
+            var figureTitle = $("<span class='media_title'></span>");
+            mediaContainer.append(figureTitle).html(figureTitleBig);
             if(isVideo){
                 $.get(media.attr("href"), function(resp){
                     var video = $(resp);
-                    video.appendAndFitTo(mediaContainer, false);
+                    video.prependAndFitTo(mediaContainer, false);
                 });
             }else{
                 var mediaClone = media.clone();
                 var tagName = mediaClone.tagName;
                 var couldBeBigger = (tagName == 'img' && mediaClone.attr("src").endsWith(".svg")) ||
                         tagName == 'embed' || tagName == 'video';
-                mediaClone.appendAndFitTo(mediaContainer, !couldBeBigger);
+                mediaClone.prependAndFitTo(mediaContainer, !couldBeBigger, figureTitle.height());
             }
         });
     });
