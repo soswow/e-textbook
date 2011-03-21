@@ -34,18 +34,27 @@ String.prototype.endsWith = function(end){
     return this.length - this.lastIndexOf(end) == end.length;
 };
 
+function join(arr, sep){
+    var res = "";
+    for (var i=0;i<arr.length;i++){
+        res += arr[i]+(i==arr.length-1?"":sep || " ");
+    }
+    return res;
+}
+
 jQuery.fn.prependAndFitTo = function(container, lessOnly, minusHeight){
     var cw = container.width();
     var ch = container.height() - (minusHeight || 0);
     var tw = this.width() || parseInt(this.attr("width"));
     var th = this.height() || parseInt(this.attr("height"));
-    var horizontal = tw > th;
-    debug(cw,ch,tw,th,horizontal,minusHeight);
+    var horizontal = tw > th && cw > ch ;
+    debug(cw,ch,tw,th,horizontal,minusHeight, lessOnly);
     var w,h;
     if(horizontal){
         h = lessOnly?(th>ch?ch:th):ch;
         w = h  * tw / th;
-    }else{
+    }
+    if(!horizontal || w > cw){
         w = lessOnly?(tw>cw?cw:tw):cw;
         h = w * th / tw;
     }
@@ -53,16 +62,25 @@ jQuery.fn.prependAndFitTo = function(container, lessOnly, minusHeight){
         width:w,
         height:h
     };
+    debug(w,h);
     this.attr(newWHMap).css(newWHMap);
     container.prepend(this);
 };
 
-
-
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var debugOnOff = true;
+
 function debug() {
     if (console.log && debugOnOff) {
-        console.log.apply(console, arguments);
+        if(arguments.length > 1){
+            if(isiPad){
+                console.log(join(arguments));
+            }else{
+                console.log.apply(console, arguments);
+            }
+        }else{
+            console.log(arguments[0]);
+        }
     }
 }
 
@@ -76,8 +94,20 @@ function ajustColumnWidths() {
     debug("Article: ", art);
 
     var parDiv = art.parents(".when_opened").eq(0);
-    var contHeight = $("#content_pane").height() - 40; //TODO PAddings sizes to use
-    var contWidth = $("#content_pane").width() - 40; //40 - when_opened.padding-left+right
+//    var main_content = $("#content_pane");
+//    var contHeight = main_content.height()-40; //TODO PAddings sizes to use
+//    var contWidth = main_content.width()-40; //4; //TODO PAddings sizes to use
+//
+    var content_pane = $("#content_pane");
+    var main_content = parDiv.find(".main_content");
+    var contHeight = content_pane.height() - 40; //TODO PAddings sizes to use
+    var pop_up_content_width = $(".when_opened.show_popup .popup_content").width() || 0;
+    debug("Visible popup width: "+pop_up_content_width);
+    var main_content_width = main_content.width() - pop_up_content_width - 22;
+    var contWidth = main_content_width + 37; //40 - when_opened.padding-left+right
+
+    main_content.width(main_content_width);
+
     debug("Container height, width: " + contHeight + " " + contWidth);
 
     var colMinWidthWGap = columnsParams.maxWidth + columnsParams.gap;
@@ -146,9 +176,7 @@ function ajustColumnWidths() {
     art.data("columns", totalColumns);
     art.data("curColumn", 0);
 }
-
 $(function() {
-    var isiPad = navigator.userAgent.match(/iPad/i) != null;
 
     $("section").css3("column-gap", columnsParams.gap);
 
@@ -373,35 +401,48 @@ $(function() {
                 height:'auto'
             }));
         }
-        var mainParent = that.parents(".when_opened").eq(0);
-        var bigParent = mainParent.parents(".inner").eq(0);
-        var mediaBlock = media.parents(".media-block").eq(0);
-        var mediaBlocText = mediaBlock.children(":not(.float-thumbnail)");
-        var figureTitleSmall = that.find(".small").html();
-        var figureTitleBig = that.find(".big").html();
-        that.click(function(){
-            mainParent.addClass("show_popup");
-            bigParent.find(".close").hide();
-            bigParent.find(".back_to_article").show();
-            
-            mainParent.find(".popup_content .text").empty().append(mediaBlocText.clone());
-            mainParent.find(".popup_content .header H1").html(figureTitleSmall);
 
-            var mediaContainer = mainParent.find(".popup_content .media").empty();
-            var figureTitle = $("<span class='media_title'></span>");
-            mediaContainer.append(figureTitle).html(figureTitleBig);
+        var elems = (function(){
+            var parent = that.parents(".when_opened").eq(0);
+            var superParent = parent.parents(".inner").eq(0);
+            var contentPopUp = parent.find(".popup_content");
+            return {
+                buttons: {
+                    contentClose: superParent.find(".close"),
+                    popUpClose: superParent.find(".back_to_article")
+                },
+                parent: parent,
+                content: {
+                    popup: contentPopUp,
+                    media: contentPopUp.find(".media")
+                }
+            };
+        })();
+
+        var figureTitleText = that.find(".big").html();
+        that.click(function(){
+            elems.parent.addClass("show_popup");
+            //elems.content.popup.width(columnsParams.curWidth);
+            elems.buttons.contentClose.find(".close").hide();
+            elems.buttons.popUpClose.find(".back_to_article").show();
+
+            var figureTitleSpan = $("<span class='media_title'>"+figureTitleText+"</span>")
+            elems.content.media.empty().append(figureTitleSpan);
+
             if(isVideo){
                 $.get(media.attr("href"), function(resp){
                     var video = $(resp);
-                    video.prependAndFitTo(mediaContainer, false);
+                    video.prependAndFitTo(elems.content.media, false);
                 });
             }else{
                 var mediaClone = media.clone();
                 var tagName = mediaClone.tagName;
                 var couldBeBigger = (tagName == 'img' && mediaClone.attr("src").endsWith(".svg")) ||
                         tagName == 'embed' || tagName == 'video';
-                mediaClone.prependAndFitTo(mediaContainer, !couldBeBigger, figureTitle.height());
+                mediaClone.prependAndFitTo(elems.content.media, !couldBeBigger, figureTitleSpan.height()+12);
             }
+            
+            ajustColumnWidths();
         });
     });
 

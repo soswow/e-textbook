@@ -166,7 +166,7 @@
 #topic_blocks .when_opened H1{
     padding:0;
     position:absolute;
-    top:20px;
+    top:-60px;
     font-size:25px;
 }
 
@@ -231,7 +231,7 @@
     top:0;
     right:0;
     bottom:0;
-    /*left:0;*/
+    left:50%;
     padding:20px 20px 20px 20px;
     opacity:0;
 }
@@ -242,6 +242,7 @@
 }
 .main_content{
     opacity:1;
+    position:relative;
     /*display:block;*/
 }
 .when_opened.show_popup .popup_content{
@@ -250,16 +251,15 @@
     /*display:block;*/
 }
 .when_opened.show_popup .main_content{
-    opacity:0;
-    /*bottom:100%;*/
-    top:-100%;
-    /*display:none;*/
+    /*opacity:0;*/
+    /*top:-100%;*/
+    width:50%;
 }
 .control_arrows{
     width:70px;
     height:32px;
     position:absolute;
-    top:15px;
+    top:-65px;
     right:15px
 }
 .go_left,
@@ -541,42 +541,32 @@ math[display="block"]{
     height:15px;
 }
 
-.popup_content .text{
-    position:absolute;
-    top:70px;
-    left:20px;
-    bottom:20px;
-    width:445px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    padding-right:5px;
-}
+/*.popup_content .text{*/
+    /*position:absolute;*/
+    /*top:70px;*/
+    /*left:20px;*/
+    /*bottom:20px;*/
+    /*width:445px;*/
+    /*overflow-y:auto;*/
+    /*overflow-x:hidden;*/
+    /*padding-right:5px;*/
+/*}*/
+
 .popup_content .media{
     position:absolute;
     top:10px;
-    left:480px;
-    bottom:70px;
+    bottom:10px;
     right:10px;
+    left:10px;
     text-align:center;
     overflow-y:auto;
     display:table-cell;
     vertical-align:middle;
-    /*background:#ddd;*/
 }
 .popup_content .media_title{
-    /*position:absolute;*/
-    /*top:70px;*/
-    /*left:0;*/
-    /*top:100%;*/
-    /*right:0;*/
-    /*height:40px;*/
-    /*background:#ccc;*/
     text-align:center;
-    /*overflow:hidden;*/
 }
 .popup_content .media .popup{
     display:block;
     margin:0 auto;
-    /*position:absolute;*/
-    /*bottom:0;*/
 }
