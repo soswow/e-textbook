@@ -94,19 +94,25 @@ function ajustColumnWidths() {
     debug("Article: ", art);
 
     var parDiv = art.parents(".when_opened").eq(0);
-//    var main_content = $("#content_pane");
-//    var contHeight = main_content.height()-40; //TODO PAddings sizes to use
-//    var contWidth = main_content.width()-40; //4; //TODO PAddings sizes to use
-//
-    var content_pane = $("#content_pane");
-    var main_content = parDiv.find(".main_content");
-    var contHeight = content_pane.height() - 40; //TODO PAddings sizes to use
-    var pop_up_content_width = $(".when_opened.show_popup .popup_content").width() || 0;
-    debug("Visible popup width: "+pop_up_content_width);
-    var main_content_width = main_content.width() - pop_up_content_width - 22;
-    var contWidth = main_content_width + 37; //40 - when_opened.padding-left+right
+    var main_content = $("#content_pane");
+    var contHeight = main_content.height()-40; //TODO PAddings sizes to use
+    var contWidth = main_content.width()-40; //4; //TODO PAddings sizes to use
 
-    main_content.width(main_content_width);
+//    var content_pane = $("#content_pane");
+//    var main_content = parDiv.find(".main_content");
+//    var contHeight = content_pane.height() - 40; //TODO PAddings sizes to use
+
+//    debug("Visible popup width: " + pop_up_content_width);
+//    var main_content_width = main_content.width() - pop_up_content_width;
+//    var contWidth = main_content_width+30; //40 - when_opened.padding-left+right
+//
+//    main_content.width(main_content_width);
+
+    var pop_up_content_width = $(".when_opened.show_popup .popup_content").width() || 0;
+    if(pop_up_content_width){
+        pop_up_content_width+=43;
+    }
+    contWidth -= pop_up_content_width;
 
     debug("Container height, width: " + contHeight + " " + contWidth);
 

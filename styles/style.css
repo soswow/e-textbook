@@ -166,7 +166,7 @@
 #topic_blocks .when_opened H1{
     padding:0;
     position:absolute;
-    top:-60px;
+    top:-50px;
     font-size:25px;
 }
 
@@ -220,7 +220,7 @@
     position:relative;
     /*overflow-y:auto;*/
     /*-webkit-column-gap:30px;*/
-    padding:80px 20px 50px 20px;
+    padding:70px 20px 20px 20px;
 /*    -webkit-column-rule: 1px solid lightgray;*/
 }
 
@@ -234,6 +234,7 @@
     left:50%;
     padding:20px 20px 20px 20px;
     opacity:0;
+    border-left:3px double #ccc;
 }
 .popup_content,
 .main_content{
@@ -256,25 +257,25 @@
     width:50%;
 }
 .control_arrows{
-    width:70px;
-    height:32px;
+    width:65px;
+    height:24px;
     position:absolute;
-    top:-65px;
+    top:-50px;
     right:15px
 }
 .go_left,
 .go_right{
-    width:26px;
-    height:32px;
+    width:24px;
+    height:24px;
     cursor:pointer;
 }
 .go_left{
     float:left;
-    background:url('../images/left-arrow.png') left top no-repeat;
+    background:url('../images/arrow_left_24x24.png') left top no-repeat;
 }
 .go_right{
     float:right;
-    background:url('../images/right-arrow.png') left top no-repeat;
+    background:url('../images/arrow_right_24x24.png') left top no-repeat;
 }
 .go_left.end,
 .go_right.end{
