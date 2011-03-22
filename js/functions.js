@@ -45,8 +45,12 @@ function join(arr, sep){
 jQuery.fn.fitTo = function(container, lessOnly, minusHeight){
     var savedInfo = this.data("fitToInfo");
 
-    var tw = this.width() || parseInt(this.attr("width"));
-    var th = this.height() || parseInt(this.attr("height"));
+    var flashInside = this.find("embed");
+    var media_object = flashInside.length > 0?flashInside:this;
+
+    var tw = media_object.width() || parseInt(media_object.attr("width"));
+    var th = media_object.height() || parseInt(media_object.attr("height"));
+    
     if(!savedInfo && arguments.length > 0){
         this.data("fitToInfo", {
             container:container,
@@ -91,8 +95,7 @@ jQuery.fn.fitTo = function(container, lessOnly, minusHeight){
         height:h
     };
     debug(w,h);
-    this.attr(newWHMap).css(newWHMap);
-
+    media_object.attr(newWHMap).css(newWHMap);
 };
 
 var isiPad = navigator.userAgent.match(/iPad/i) != null;
@@ -457,46 +460,53 @@ $(function() {
         var figureTitleText = that.find(".big").html();
         var splitter = elems.parent.find(".popup_splitter");
         that.click(function(){
-            elems.parent.addClass("show_popup");
-            //elems.content.popup.width(columnsParams.curWidth);
-            elems.buttons.contentClose.find(".close").hide();
-            elems.buttons.popUpClose.find(".back_to_article").show();
-
-            var figureTitleSpan = $("<span class='media_title'>"+figureTitleText+"</span>")
+            var opened = elems.parent.is(".show_popup");
+            if(!opened){
+                elems.parent.addClass("show_popup");
+            }
+            var figureTitleSpan = $("<div class='media_title'>"+figureTitleText+"</div>")
             elems.content.media.empty().append(figureTitleSpan);
+
+            var open_sidepane = function(){
+                var main_content_width = elems.content.main.width();
+                debug("initial width", main_content_width);
+                var popUpLeft = main_content_width / 2;
+                var media_box = elems.content.media.find(".media_box");
+                elems.content.popup.css("left", main_content_width).animate({left: popUpLeft}, {
+                    duration: 500,
+                    step: function(now){
+                        media_box.fitTo();
+                        elems.content.main.css("width", now - 40);
+                        debug(elems.content.main.css("width"));
+                        splitter.css("left", now-splitter.width() / 2);
+                        ajustColumnWidths();
+                    },
+                    complete: function(){
+                        //
+                    }
+                });
+            }
 
             if(isVideo){
                 $.get(media.attr("href"), function(resp){
                     var video = $(resp).addClass("media_box");
-                    video.fitTo(elems.content.media, false);
+                    video.fitTo(elems.content.media, false, figureTitleSpan.height() + 12);
                     elems.content.media.prepend(video);
+                    if(!opened){
+                        open_sidepane();
+                    }
                 });
             }else{
                 var mediaClone = media.clone().addClass("media_box");
                 var tagName = mediaClone[0].tagName.toLowerCase();
                 var couldBeBigger = (tagName == 'img' && mediaClone.attr("src").endsWith(".svg")) ||
-                        tagName == 'embed' || tagName == 'video';
+                        isFlash || isVideo;
                 mediaClone.fitTo(elems.content.media, !couldBeBigger, figureTitleSpan.height() + 12);
                 elems.content.media.prepend(mediaClone);
-            }
-
-            var main_content_width = elems.content.main.width();
-            debug("initial width", main_content_width);
-            var popUpLeft = main_content_width / 2;
-            var media_box = elems.content.media.find(".media_box");
-            elems.content.popup.css("left", main_content_width).animate({left: popUpLeft}, {
-                duration: 500,
-                step: function(now){
-                    media_box.fitTo();
-                    elems.content.main.css("width", now - 40);
-                    debug(elems.content.main.css("width"));
-                    splitter.css("left", now-splitter.width() / 2);
-                    ajustColumnWidths();
-                },
-                complete: function(){
-                    //
+                if(!opened){
+                    open_sidepane();
                 }
-            });
+            }
         });
     });
 
@@ -513,12 +523,31 @@ $(function() {
         var pos = ui.position.left;
         var parent = $(this).parents(".when_opened").eq(0);
         var parent_width = parent.width();
-        if (pos > 400 && pos < parent_width - 300){
-            var width = $(this).width();
-            parent.find(".main_content").css("width", pos-20);
-            parent.find(".popup_content").css("left", pos+width/2-2);
-            parent.find(".media_box").fitTo();
-            ajustColumnWidths();
-        }
+//        if (pos > 400 && pos < parent_width - 300){
+        var width = $(this).width();
+        parent.find(".main_content").css("width", pos-20);
+        parent.find(".popup_content").css("left", pos+width/2-2);
+        parent.find(".media_box").fitTo();
+        ajustColumnWidths();
+//        }
     }});
+
+    $(".popup_splitter .close").click(function(){
+        var parent = $(this).parents(".when_opened").eq(0);
+        var main_content = parent.find(".main_content");
+        var media_box = parent.find(".media_box");
+        var splitter = $(this).parents(".popup_splitter");
+        parent.find(".popup_content").animate({left:parent.width()+40}, {
+            duration:500,
+            step: function(now){
+                media_box.fitTo();
+                main_content.css("width", now - 40);
+                splitter.css("left", now-splitter.width() / 2);
+                ajustColumnWidths();
+            },
+            complete: function(){
+                parent.removeClass("show_popup");
+            }
+        });
+    });
 });

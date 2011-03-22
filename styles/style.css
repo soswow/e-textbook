@@ -231,10 +231,11 @@
     top:0;
     right:0;
     bottom:0;
-    left:100%;
+    left:50%;
     padding:20px 20px 20px 20px;
-    /*opacity:0;*/
+    opacity:0;
     border-left:3px double #ccc;
+    overflow:hidden;
 }
 
 .popup_splitter{
@@ -243,10 +244,11 @@
     bottom:0;
     right:0;
     width:20px;
-    background:#abc;
+    /*background: #f5f2f2;*/
     z-index:600;
-    opacity:0.5;
+    /*opacity:0.5;*/
     cursor:col-resize;
+    display:none;
 }
 
 .popup_content,
@@ -272,7 +274,7 @@
     /*width:50%;*/
 }
 .when_opened.show_popup .popup_splitter{
-    /*right:49%;*/
+    display:block;
 }
 .control_arrows{
     width:65px;
@@ -590,3 +592,29 @@ math[display="block"]{
     margin:0 auto;
 }
 
+.popup_splitter .center{
+    text-align:center;
+    margin:0 auto;
+    position:absolute;
+    top:45%;
+}
+
+.popup_splitter .center .open,
+.popup_splitter .center .close{
+    width:20px;
+    height:20px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    background:#f5f2f2 no-repeat 6px 6px;
+    border:1px solid #ccc;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+.popup_splitter .center .open{
+    background-image:url('../images/first_8x8.png');
+}
+
+.popup_splitter .center .close{
+    background-image:url('../images/last_8x8.png');
+}
