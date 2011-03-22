@@ -367,12 +367,12 @@ $(function() {
         var media = that.find(".popup");
         var isVideo = that.is(".video");
         var isFlash = that.is(".flash");
-        if(!isVideo && !isFlash){
-            media.after(media.clone().removeClass("popup").css({
-                width:250,
-                height:'auto'
-            }));
-        }
+//        if(!isVideo && !isFlash){
+//            media.after(media.clone().removeClass("popup").css({
+//                width:250,
+//                height:'auto'
+//            }));
+//        }
         var mainParent = that.parents(".when_opened").eq(0);
         var bigParent = mainParent.parents(".inner").eq(0);
         var mediaBlock = media.parents(".media-block").eq(0);
