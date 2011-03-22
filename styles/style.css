@@ -571,3 +571,14 @@ math[display="block"]{
     display:block;
     margin:0 auto;
 }
+
+.popup_splitter{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-100%;
+    width:20px;
+    /*background:#abc;*/
+    z-index:600;
+    cursor:col-resize;
+}
