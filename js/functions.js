@@ -448,6 +448,7 @@ $(function() {
                 parent: parent,
                 content: {
                     popup: contentPopUp,
+                    main: parent.find(".main_content"),
                     media: contentPopUp.find(".media")
                 }
             };
@@ -478,8 +479,24 @@ $(function() {
                 mediaClone.fitTo(elems.content.media, !couldBeBigger, figureTitleSpan.height() + 12);
                 elems.content.media.prepend(mediaClone);
             }
-            splitter.css("left", elems.content.popup.css("left"));
-            ajustColumnWidths();
+
+            var main_content_width = elems.content.main.width();
+            debug("initial width", main_content_width);
+            var popUpLeft = main_content_width / 2;
+            var media_box = elems.content.media.find(".media_box");
+            elems.content.popup.css("left", main_content_width).animate({left: popUpLeft}, {
+                duration: 500,
+                step: function(now){
+                    media_box.fitTo();
+                    elems.content.main.css("width", now - 40);
+                    debug(elems.content.main.css("width"));
+                    splitter.css("left", now-splitter.width() / 2);
+                    ajustColumnWidths();
+                },
+                complete: function(){
+                    //
+                }
+            });
         });
     });
 
@@ -495,9 +512,13 @@ $(function() {
     $(".popup_splitter").draggable({ axis: 'x', drag: function(event, ui){
         var pos = ui.position.left;
         var parent = $(this).parents(".when_opened").eq(0);
-        var width = $(this).width();
-        parent.find(".popup_content").css("left", pos+width/2);
-        parent.find(".media_box").fitTo();
-        ajustColumnWidths();
+        var parent_width = parent.width();
+        if (pos > 400 && pos < parent_width - 300){
+            var width = $(this).width();
+            parent.find(".main_content").css("width", pos-20);
+            parent.find(".popup_content").css("left", pos+width/2-2);
+            parent.find(".media_box").fitTo();
+            ajustColumnWidths();
+        }
     }});
 });

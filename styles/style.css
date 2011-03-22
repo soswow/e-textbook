@@ -231,30 +231,48 @@
     top:0;
     right:0;
     bottom:0;
-    left:50%;
+    left:100%;
     padding:20px 20px 20px 20px;
-    opacity:0;
+    /*opacity:0;*/
     border-left:3px double #ccc;
 }
+
+.popup_splitter{
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:20px;
+    background:#abc;
+    z-index:600;
+    opacity:0.5;
+    cursor:col-resize;
+}
+
 .popup_content,
 .main_content{
     -webkit-transition:opacity 0.3s, bottom 0.5s;
     -moz-transition:opacity 0.3s, bottom 0.5s;
 }
 .main_content{
-    opacity:1;
+    /*opacity:1;*/
+    width:100%;
     position:relative;
     /*display:block;*/
 }
 .when_opened.show_popup .popup_content{
     opacity:1;
     z-index:500;
+    /*left:50%;*/
     /*display:block;*/
 }
 .when_opened.show_popup .main_content{
     /*opacity:0;*/
     /*top:-100%;*/
-    width:50%;
+    /*width:50%;*/
+}
+.when_opened.show_popup .popup_splitter{
+    /*right:49%;*/
 }
 .control_arrows{
     width:65px;
@@ -572,13 +590,3 @@ math[display="block"]{
     margin:0 auto;
 }
 
-.popup_splitter{
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:-100%;
-    width:20px;
-    /*background:#abc;*/
-    z-index:600;
-    cursor:col-resize;
-}
