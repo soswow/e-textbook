@@ -618,3 +618,10 @@ math[display="block"]{
 .popup_splitter .center .close{
     background-image:url('../images/last_8x8.png');
 }
+
+.header h1{
+    max-height: 32px;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    text-align: left !important;
+}
