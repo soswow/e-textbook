@@ -166,7 +166,7 @@
 #topic_blocks .when_opened H1{
     padding:0;
     position:absolute;
-    top:20px;
+    top:-50px;
     font-size:25px;
 }
 
@@ -220,7 +220,7 @@
     position:relative;
     /*overflow-y:auto;*/
     /*-webkit-column-gap:30px;*/
-    padding:80px 20px 50px 20px;
+    padding:70px 20px 20px 20px;
 /*    -webkit-column-rule: 1px solid lightgray;*/
 }
 
@@ -231,50 +231,71 @@
     top:0;
     right:0;
     bottom:0;
-    left:0;
+    left:50%;
     padding:20px 20px 20px 20px;
     opacity:0;
+    border-left:3px double #ccc;
+    overflow:hidden;
 }
+
+.popup_splitter{
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:20px;
+    /*background: #f5f2f2;*/
+    z-index:600;
+    /*opacity:0.5;*/
+    cursor:col-resize;
+    display:none;
+}
+
 .popup_content,
 .main_content{
     -webkit-transition:opacity 0.3s, bottom 0.5s;
     -moz-transition:opacity 0.3s, bottom 0.5s;
 }
 .main_content{
-    opacity:1;
+    /*opacity:1;*/
+    width:100%;
+    position:relative;
     /*display:block;*/
 }
 .when_opened.show_popup .popup_content{
     opacity:1;
     z-index:500;
+    /*left:50%;*/
     /*display:block;*/
 }
 .when_opened.show_popup .main_content{
-    opacity:0;
-    /*bottom:100%;*/
-    top:-100%;
-    /*display:none;*/
+    /*opacity:0;*/
+    /*top:-100%;*/
+    /*width:50%;*/
+}
+.when_opened.show_popup .popup_splitter{
+    display:block;
 }
 .control_arrows{
-    width:70px;
-    height:32px;
+    width:65px;
+    height:24px;
     position:absolute;
-    top:15px;
+    top:-50px;
     right:15px
 }
 .go_left,
 .go_right{
-    width:26px;
-    height:32px;
+    width:24px;
+    height:24px;
     cursor:pointer;
 }
 .go_left{
     float:left;
-    background:url('../images/left-arrow.png') left top no-repeat;
+    background:url('../images/arrow_left_24x24.png') left top no-repeat;
 }
 .go_right{
     float:right;
-    background:url('../images/right-arrow.png') left top no-repeat;
+    background:url('../images/arrow_right_24x24.png') left top no-repeat;
 }
 .go_left.end,
 .go_right.end{
@@ -420,15 +441,15 @@ h1,h2,h3,h4,h5,h6{
 body {
  color:#333;
  font-family:'Ubuntu',Verdana,sans-serif;
- font-size:12px;
+ font-size:16px;
 }
 p,li,dl,dt,figcaption{
- font-size:12px;
- line-height:24px;
+ font-size:16px;
+ line-height:32px;
  margin:0;
 }
 p{
- text-indent:24px;
+ text-indent:16px;
 }
 ol,ul{
  margin:0;
@@ -438,7 +459,7 @@ math{
  font-size:12px;
 }
 h1,h2,h3{
- line-height:24px;
+ line-height:32px;
  margin:0;
 }
 h1 {font-size:1.5em;}
@@ -494,8 +515,8 @@ img.inline{
  vertical-align:middle;
 }
 math[display="block"]{
- font-size:13px;
- height:48px;
+ font-size:16px;
+ min-height:32px;
  text-align:center;
 }
 
@@ -541,42 +562,66 @@ math[display="block"]{
     height:15px;
 }
 
-.popup_content .text{
-    position:absolute;
-    top:70px;
-    left:20px;
-    bottom:20px;
-    width:445px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    padding-right:5px;
-}
+/*.popup_content .text{*/
+    /*position:absolute;*/
+    /*top:70px;*/
+    /*left:20px;*/
+    /*bottom:20px;*/
+    /*width:445px;*/
+    /*overflow-y:auto;*/
+    /*overflow-x:hidden;*/
+    /*padding-right:5px;*/
+/*}*/
+
 .popup_content .media{
     position:absolute;
     top:10px;
-    left:480px;
-    bottom:70px;
+    bottom:10px;
     right:10px;
+    left:10px;
     text-align:center;
     overflow-y:auto;
     display:table-cell;
     vertical-align:middle;
-    /*background:#ddd;*/
 }
 .popup_content .media_title{
-    /*position:absolute;*/
-    /*top:70px;*/
-    /*left:0;*/
-    /*top:100%;*/
-    /*right:0;*/
-    /*height:40px;*/
-    /*background:#ccc;*/
     text-align:center;
-    /*overflow:hidden;*/
 }
 .popup_content .media .popup{
     display:block;
     margin:0 auto;
-    /*position:absolute;*/
-    /*bottom:0;*/
+}
+
+.popup_splitter .center{
+    text-align:center;
+    margin:0 auto;
+    position:absolute;
+    top:45%;
+}
+
+.popup_splitter .center .open,
+.popup_splitter .center .close{
+    width:20px;
+    height:20px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    background:#f5f2f2 no-repeat 6px 6px;
+    border:1px solid #ccc;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+.popup_splitter .center .open{
+    background-image:url('../images/first_8x8.png');
+}
+
+.popup_splitter .center .close{
+    background-image:url('../images/last_8x8.png');
+}
+
+.header h1{
+    max-height: 32px;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    text-align: left !important;
 }

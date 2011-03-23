@@ -34,35 +34,84 @@ String.prototype.endsWith = function(end){
     return this.length - this.lastIndexOf(end) == end.length;
 };
 
-jQuery.fn.prependAndFitTo = function(container, lessOnly, minusHeight){
+function join(arr, sep){
+    var res = "";
+    for (var i=0;i<arr.length;i++){
+        res += arr[i]+(i==arr.length-1?"":sep || " ");
+    }
+    return res;
+}
+
+jQuery.fn.fitTo = function(container, lessOnly, minusHeight){
+    var savedInfo = this.data("fitToInfo");
+
+    var flashInside = this.find("embed");
+    var media_object = flashInside.length > 0?flashInside:this;
+
+    var tw = media_object.width() || parseInt(media_object.attr("width"));
+    var th = media_object.height() || parseInt(media_object.attr("height"));
+    
+    if(!savedInfo && arguments.length > 0){
+        this.data("fitToInfo", {
+            container:container,
+            lessOnly:lessOnly,
+            minusHeight:minusHeight,
+            tw:tw,
+            th:th
+        });
+    }else if (savedInfo && arguments.length == 0){
+        container = savedInfo.container;
+        lessOnly = savedInfo.lessOnly;
+        minusHeight = savedInfo.minusHeight;
+        tw = savedInfo.tw;
+        th = savedInfo.th;
+    }
+
     var cw = container.width();
     var ch = container.height() - (minusHeight || 0);
-    var tw = this.width() || parseInt(this.attr("width"));
-    var th = this.height() || parseInt(this.attr("height"));
-    var horizontal = tw > th;
-    debug(cw,ch,tw,th,horizontal,minusHeight);
+
+    var horizontal = tw > th && cw > ch ;
+    debug("cw,ch,tw,th\n",cw,ch,tw,th,"\nhorizontal,minusHeight, lessOnly\n",
+            horizontal,minusHeight, lessOnly);
     var w,h;
     if(horizontal){
         h = lessOnly?(th>ch?ch:th):ch;
+        debug("h=",h);
         w = h  * tw / th;
-    }else{
-        w = lessOnly?(tw>cw?cw:tw):cw;
-        h = w * th / tw;
+        debug("w=",w);
+        debug("w/h=",w/h);
     }
+    
+    if(!horizontal || w > cw){
+        w = lessOnly?(tw>cw?cw:tw):cw;
+        debug("w=",w);
+        h = w * th / tw;
+        debug("h=",h);
+        debug("w/h=",w/h);
+    }
+
     var newWHMap = {
         width:w,
         height:h
     };
-    this.attr(newWHMap).css(newWHMap);
-    container.prepend(this);
+    debug(w,h);
+    media_object.attr(newWHMap).css(newWHMap);
 };
 
-
-
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var debugOnOff = true;
+
 function debug() {
     if (console.log && debugOnOff) {
-        console.log.apply(console, arguments);
+        if(arguments.length > 1){
+            if(isiPad){
+                console.log(join(arguments));
+            }else{
+                console.log.apply(console, arguments);
+            }
+        }else{
+            console.log(arguments[0]);
+        }
     }
 }
 
@@ -76,8 +125,26 @@ function ajustColumnWidths() {
     debug("Article: ", art);
 
     var parDiv = art.parents(".when_opened").eq(0);
-    var contHeight = $("#content_pane").height() - 40; //TODO PAddings sizes to use
-    var contWidth = $("#content_pane").width() - 40; //40 - when_opened.padding-left+right
+    var main_content = $("#content_pane");
+    var contHeight = main_content.height()-40; //TODO PAddings sizes to use
+    var contWidth = main_content.width()-40; //4; //TODO PAddings sizes to use
+
+//    var content_pane = $("#content_pane");
+//    var main_content = parDiv.find(".main_content");
+//    var contHeight = content_pane.height() - 40; //TODO PAddings sizes to use
+
+//    debug("Visible popup width: " + pop_up_content_width);
+//    var main_content_width = main_content.width() - pop_up_content_width;
+//    var contWidth = main_content_width+30; //40 - when_opened.padding-left+right
+//
+//    main_content.width(main_content_width);
+
+    var pop_up_content_width = $(".when_opened.show_popup .popup_content").width() || 0;
+    if(pop_up_content_width){
+        pop_up_content_width+=43;
+    }
+    contWidth -= pop_up_content_width;
+
     debug("Container height, width: " + contHeight + " " + contWidth);
 
     var colMinWidthWGap = columnsParams.maxWidth + columnsParams.gap;
@@ -146,9 +213,10 @@ function ajustColumnWidths() {
     art.data("columns", totalColumns);
     art.data("curColumn", 0);
 }
-
 $(function() {
-    var isiPad = navigator.userAgent.match(/iPad/i) != null;
+    if(!$.browser.mozilla){
+        $("HTML > HEAD").prepend("<link rel='stylesheet' type='text/css' href='styles/mathml.css' />");
+    }
 
     $("section").css3("column-gap", columnsParams.gap);
 
@@ -373,34 +441,74 @@ $(function() {
                 height:'auto'
             }));
         }
-        var mainParent = that.parents(".when_opened").eq(0);
-        var bigParent = mainParent.parents(".inner").eq(0);
-        var mediaBlock = media.parents(".media-block").eq(0);
-        var mediaBlocText = mediaBlock.children(":not(.float-thumbnail)");
-        var figureTitleSmall = that.find(".small").html();
-        var figureTitleBig = that.find(".big").html();
-        that.click(function(){
-            mainParent.addClass("show_popup");
-            bigParent.find(".close").hide();
-            bigParent.find(".back_to_article").show();
-            
-            mainParent.find(".popup_content .text").empty().append(mediaBlocText.clone());
-            mainParent.find(".popup_content .header H1").html(figureTitleSmall);
 
-            var mediaContainer = mainParent.find(".popup_content .media").empty();
-            var figureTitle = $("<span class='media_title'></span>");
-            mediaContainer.append(figureTitle).html(figureTitleBig);
+        var elems = (function(){
+            var parent = that.parents(".when_opened").eq(0);
+            var superParent = parent.parents(".inner").eq(0);
+            var contentPopUp = parent.find(".popup_content");
+            return {
+                buttons: {
+                    contentClose: superParent.find(".close"),
+                    popUpClose: superParent.find(".back_to_article")
+                },
+                parent: parent,
+                content: {
+                    popup: contentPopUp,
+                    main: parent.find(".main_content"),
+                    media: contentPopUp.find(".media")
+                }
+            };
+        })();
+
+        var figureTitleText = that.find(".big").html();
+        var splitter = elems.parent.find(".popup_splitter");
+        that.click(function(){
+            var opened = elems.parent.is(".show_popup");
+            if(!opened){
+                elems.parent.addClass("show_popup");
+            }
+            var figureTitleSpan = $("<div class='media_title'>"+figureTitleText+"</div>")
+            elems.content.media.empty().append(figureTitleSpan);
+
+            var open_sidepane = function(){
+                var main_content_width = elems.content.main.width();
+                debug("initial width", main_content_width);
+                var popUpLeft = main_content_width / 2;
+                var media_box = elems.content.media.find(".media_box");
+                elems.content.popup.css("left", main_content_width).animate({left: popUpLeft}, {
+                    duration: 500,
+                    step: function(now){
+                        media_box.fitTo();
+                        elems.content.main.css("width", now - 40);
+                        debug(elems.content.main.css("width"));
+                        splitter.css("left", now-splitter.width() / 2);
+                        ajustColumnWidths();
+                    },
+                    complete: function(){
+                        //
+                    }
+                });
+            }
+
             if(isVideo){
                 $.get(media.attr("href"), function(resp){
-                    var video = $(resp);
-                    video.prependAndFitTo(mediaContainer, false);
+                    var video = $(resp).addClass("media_box");
+                    video.fitTo(elems.content.media, false, figureTitleSpan.height() + 12);
+                    elems.content.media.prepend(video);
+                    if(!opened){
+                        open_sidepane();
+                    }
                 });
             }else{
-                var mediaClone = media.clone();
-                var tagName = mediaClone.tagName;
+                var mediaClone = media.clone().addClass("media_box");
+                var tagName = mediaClone[0].tagName.toLowerCase();
                 var couldBeBigger = (tagName == 'img' && mediaClone.attr("src").endsWith(".svg")) ||
-                        tagName == 'embed' || tagName == 'video';
-                mediaClone.prependAndFitTo(mediaContainer, !couldBeBigger, figureTitle.height());
+                        isFlash || isVideo;
+                mediaClone.fitTo(elems.content.media, !couldBeBigger, figureTitleSpan.height() + 12);
+                elems.content.media.prepend(mediaClone);
+                if(!opened){
+                    open_sidepane();
+                }
             }
         });
     });
@@ -414,4 +522,40 @@ $(function() {
         parent.find(".popup_content").find(".header h1, .text, .media, .media_title").empty();
     });
 
+    $(".when_opened").each(function(){
+        var parent = $(this);
+        var parent_width = parent.parents("#content_pane").width();
+        parent.find(".popup_splitter")
+            .draggable({ axis: 'x',
+                drag: function(event, ui){
+                    var pos = ui.position.left;
+                    debug("pos", pos);
+                    var width = $(this).width();
+                    parent.find(".main_content").css("width", pos-20);
+                    parent.find(".popup_content").css("left", pos+width/2-2);
+                    parent.find(".media_box").fitTo();
+                    ajustColumnWidths();
+                },
+                containment:[400,0, parent_width - 300,0]
+            });
+    });
+
+    $(".popup_splitter .close").click(function(){
+        var parent = $(this).parents(".when_opened").eq(0);
+        var main_content = parent.find(".main_content");
+        var media_box = parent.find(".media_box");
+        var splitter = $(this).parents(".popup_splitter");
+        parent.find(".popup_content").animate({left:parent.width()+40}, {
+            duration:500,
+            step: function(now){
+                media_box.fitTo();
+                main_content.css("width", now - 40);
+                splitter.css("left", now-splitter.width() / 2);
+                ajustColumnWidths();
+            },
+            complete: function(){
+                parent.removeClass("show_popup");
+            }
+        });
+    });
 });
