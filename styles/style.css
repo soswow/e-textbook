@@ -582,6 +582,8 @@ math[display="block"]{
 }
 .popup_content .media_title{
     text-align:center;
+    position:absolute;
+    bottom:0;
 }
 .popup_content .media .popup{
     display:block;
