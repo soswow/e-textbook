@@ -437,7 +437,7 @@ $(function() {
         var isFlash = that.is(".flash");
         if(!isVideo && !isFlash){
             media.after(media.clone().removeClass("popup").css({
-                width:250,
+                width:150,
                 height:'auto'
             }));
         }
