@@ -282,7 +282,7 @@ $(function() {
      }, timeoutTime) ;
      });*/
 
-    $("#topic_blocks_list .when_minimized").click(function() {
+    $("#topic_blocks_list .with_content .when_minimized").click(function() {
         debug("Open Window");
         var that = $(this).parents("li").eq(0);
         var div = that.find("div.inner");
