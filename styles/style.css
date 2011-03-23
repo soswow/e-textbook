@@ -520,17 +520,22 @@ math[display="block"]{
  text-align:center;
 }
 
+.float-thumbnail div {
+    display: none;
+}
 
 .float-thumbnail{
     float:left;
     vertical-align:bottom;
     cursor:pointer;
     position:relative;
+    background-position:center center !important;
+    /*width:55px !important;*/
 }
 
 .float-thumbnail.video,
 .float-thumbnail.flash{
-    width:150px;
+    width:55px;
     height:55px;
     background-position:55px 5px;
     background-repeat:no-repeat;
@@ -561,17 +566,6 @@ math[display="block"]{
     right:0;
     height:15px;
 }
-
-/*.popup_content .text{*/
-    /*position:absolute;*/
-    /*top:70px;*/
-    /*left:20px;*/
-    /*bottom:20px;*/
-    /*width:445px;*/
-    /*overflow-y:auto;*/
-    /*overflow-x:hidden;*/
-    /*padding-right:5px;*/
-/*}*/
 
 .popup_content .media{
     position:absolute;
