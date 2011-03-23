@@ -214,6 +214,9 @@ function ajustColumnWidths() {
     art.data("curColumn", 0);
 }
 $(function() {
+    if(!$.browser.mozilla){
+        $("HTML > HEAD").prepend("<link rel='stylesheet' type='text/css' href='styles/mathml.css' />");
+    }
 
     $("section").css3("column-gap", columnsParams.gap);
 
