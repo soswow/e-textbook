@@ -30,6 +30,9 @@ var KEYS = {
     RIGHT:39
 };
 
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
+var debugOnOff = false;
+
 String.prototype.endsWith = function(end){
     return this.length - this.lastIndexOf(end) == end.length;
 };
@@ -98,8 +101,7 @@ jQuery.fn.fitTo = function(container, lessOnly, minusHeight){
     media_object.attr(newWHMap).css(newWHMap);
 };
 
-var isiPad = navigator.userAgent.match(/iPad/i) != null;
-var debugOnOff = true;
+
 
 function debug() {
     if (console.log && debugOnOff) {
