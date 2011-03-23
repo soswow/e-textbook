@@ -441,15 +441,15 @@ h1,h2,h3,h4,h5,h6{
 body {
  color:#333;
  font-family:'Ubuntu',Verdana,sans-serif;
- font-size:12px;
+ font-size:16px;
 }
 p,li,dl,dt,figcaption{
- font-size:12px;
- line-height:24px;
+ font-size:16px;
+ line-height:32px;
  margin:0;
 }
 p{
- text-indent:24px;
+ text-indent:16px;
 }
 ol,ul{
  margin:0;
@@ -459,7 +459,7 @@ math{
  font-size:12px;
 }
 h1,h2,h3{
- line-height:24px;
+ line-height:32px;
  margin:0;
 }
 h1 {font-size:1.5em;}
@@ -515,8 +515,8 @@ img.inline{
  vertical-align:middle;
 }
 math[display="block"]{
- font-size:13px;
- height:48px;
+ font-size:16px;
+ min-height:32px;
  text-align:center;
 }
 
