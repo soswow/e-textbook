@@ -17,10 +17,10 @@ function pxValInInt(pxVal) {
 }
 
 var columnsParams = {
-    width: 480,
+    width: 600,
     gap: 40,
-    minWidth: 280,
-    maxWidth: 600,
+    minWidth: 400,
+    maxWidth: 800,
     curWidth: 0,
     columnsOnScreen:0
 };
