@@ -520,12 +520,22 @@ math[display="block"]{
  text-align:center;
 }
 
+.float-thumbnail div{
+    display:none;
+}
 
+/*.float-thumbnail{*/
+    /*float:left;*/
+    /*vertical-align:bottom;*/
+    /*cursor:pointer;*/
+    /*position:relative;*/
+/*}*/
 .float-thumbnail{
-    float:left;
-    vertical-align:bottom;
-    cursor:pointer;
-    position:relative;
+    background-position:center center !important;
+    float:none;
+    margin-left:555px;
+    position:absolute;
+    width:55px !important;
 }
 
 .float-thumbnail.video,
