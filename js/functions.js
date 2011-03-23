@@ -522,18 +522,23 @@ $(function() {
         parent.find(".popup_content").find(".header h1, .text, .media, .media_title").empty();
     });
 
-    $(".popup_splitter").draggable({ axis: 'x', drag: function(event, ui){
-        var pos = ui.position.left;
-        var parent = $(this).parents(".when_opened").eq(0);
-        var parent_width = parent.width();
-//        if (pos > 400 && pos < parent_width - 300){
-        var width = $(this).width();
-        parent.find(".main_content").css("width", pos-20);
-        parent.find(".popup_content").css("left", pos+width/2-2);
-        parent.find(".media_box").fitTo();
-        ajustColumnWidths();
-//        }
-    }});
+    $(".when_opened").each(function(){
+        var parent = $(this);
+        var parent_width = parent.parents("#content_pane").width();
+        parent.find(".popup_splitter")
+            .draggable({ axis: 'x',
+                drag: function(event, ui){
+                    var pos = ui.position.left;
+                    debug("pos", pos);
+                    var width = $(this).width();
+                    parent.find(".main_content").css("width", pos-20);
+                    parent.find(".popup_content").css("left", pos+width/2-2);
+                    parent.find(".media_box").fitTo();
+                    ajustColumnWidths();
+                },
+                containment:[400,0, parent_width - 300,0]
+            });
+    });
 
     $(".popup_splitter .close").click(function(){
         var parent = $(this).parents(".when_opened").eq(0);
