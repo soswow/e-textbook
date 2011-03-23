@@ -18,7 +18,7 @@ function pxValInInt(pxVal) {
 
 var columnsParams = {
     width: 480,
-    gap: 40,
+    gap: 60,
     minWidth: 280,
     maxWidth: 600,
     curWidth: 0,
@@ -165,6 +165,8 @@ function ajustColumnWidths() {
     var secHeight = contHeight - pads.top - pads.bottom;
     debug("Section height: " + secHeight);
 
+    $(".float-thumbnail").css("margin-left", colWidth);
+    
     $("section", art)
         .css3("column-width", colWidth)
         .css({
@@ -437,7 +439,7 @@ $(function() {
         var isFlash = that.is(".flash");
         if(!isVideo && !isFlash){
             media.after(media.clone().removeClass("popup").css({
-                width:250,
+                width:55,
                 height:'auto'
             }));
         }

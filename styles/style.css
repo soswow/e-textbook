@@ -533,7 +533,7 @@ math[display="block"]{
 .float-thumbnail{
     background-position:center center !important;
     float:none;
-    margin-left:555px;
+    /*right:10px;*/
     position:absolute;
     width:55px !important;
 }
