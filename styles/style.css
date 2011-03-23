@@ -531,15 +531,15 @@ math[display="block"]{
     position:relative;
     background-position:center center !important;
     /*width:55px !important;*/
-}
-
-.float-thumbnail.video,
-.float-thumbnail.flash{
     width:55px;
     height:55px;
-    background-position:55px 5px;
+    background-image:url('../images/icons/image-g.png');
     background-repeat:no-repeat;
 }
+.float-thumbnail:hover{
+    background-image:url('../images/icons/image.png');
+}
+
 .float-thumbnail.video{
     background-image:url('../images/icons/video-g.png');
 }
