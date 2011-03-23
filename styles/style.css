@@ -167,6 +167,7 @@
     padding:0;
     position:absolute;
     top:-50px;
+    left:100px;
     font-size:25px;
 }
 
@@ -280,8 +281,8 @@
     width:65px;
     height:24px;
     position:absolute;
-    top:-50px;
-    right:15px
+    top:-45px;
+    left:0;
 }
 .go_left,
 .go_right{
@@ -461,6 +462,7 @@ math{
 h1,h2,h3{
  line-height:32px;
  margin:0;
+ text-overflow: ellipsist;
 }
 h1 {font-size:1.5em;}
 h2 {font-size:1.2em;}
@@ -531,15 +533,15 @@ math[display="block"]{
     position:relative;
     background-position:center center !important;
     /*width:55px !important;*/
-}
-
-.float-thumbnail.video,
-.float-thumbnail.flash{
     width:55px;
     height:55px;
-    background-position:55px 5px;
+    background-image:url('../images/icons/image-g.png');
     background-repeat:no-repeat;
 }
+.float-thumbnail:hover{
+    background-image:url('../images/icons/image.png');
+}
+
 .float-thumbnail.video{
     background-image:url('../images/icons/video-g.png');
 }
