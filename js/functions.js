@@ -435,12 +435,12 @@ $(function() {
         var media = that.find(".popup");
         var isVideo = that.is(".video");
         var isFlash = that.is(".flash");
-        if(!isVideo && !isFlash){
-            media.after(media.clone().removeClass("popup").css({
-                width:150,
-                height:'auto'
-            }));
-        }
+//        if(!isVideo && !isFlash){
+//            media.after(media.clone().removeClass("popup").css({
+//                width:150,
+//                height:'auto'
+//            }));
+//        }
 
         var elems = (function(){
             var parent = that.parents(".when_opened").eq(0);
