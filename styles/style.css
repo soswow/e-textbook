@@ -526,6 +526,14 @@ math[display="block"]{
     display: none;
 }
 
+.media-block.selected{
+    -webkit-transition:backround 1.5s;
+    -moz-transition:backround  1.5s;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background:#eee;
+}
+
 .float-thumbnail{
     float:left;
     vertical-align:bottom;
@@ -538,7 +546,8 @@ math[display="block"]{
     background-image:url('../images/icons/image-g.png');
     background-repeat:no-repeat;
 }
-.float-thumbnail:hover{
+.float-thumbnail:hover,
+.media-block.selected .float-thumbnail{
     background-image:url('../images/icons/image.png');
 }
 
@@ -548,10 +557,12 @@ math[display="block"]{
 .float-thumbnail.flash{
     background-image:url('../images/icons/image-g.png');
 }
-.float-thumbnail.video:hover{
+.float-thumbnail.video:hover,
+.media-block.selected .float-thumbnail.video{
     background-image:url('../images/icons/video.png');
 }
-.float-thumbnail.flash:hover{
+.float-thumbnail.flash:hover,
+.media-block.selected .float-thumbnail.flash{
     background-image:url('../images/icons/image.png');
 }
 .float-thumbnail .thumbnail{
@@ -604,7 +615,7 @@ math[display="block"]{
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
     background:#f5f2f2 no-repeat 6px 6px;
-    border:1px solid #ccc;
+    border:1px solid #ffffe3;
     margin-bottom:10px;
     cursor:pointer;
 }

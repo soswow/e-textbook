@@ -27,7 +27,9 @@ var columnsParams = {
 
 var KEYS = {
     LEFT:37,
-    RIGHT:39
+    UP:38,
+    RIGHT:39,
+    DOWN:40
 };
 
 var isiPad = navigator.userAgent.match(/iPad/i) != null;
@@ -417,6 +419,16 @@ $(function() {
         if (e.keyCode == KEYS.LEFT || e.keyCode == KEYS.RIGHT) {
             swipeConent(e.keyCode);
         }
+        if(e.keyCode == KEYS.UP || e.keyCode == KEYS.DOWN ){
+            var selectedMediaBox = $("article:visible .media-block.selected");
+            if(selectedMediaBox.length > 0){
+                if(e.keyCode == KEYS.UP){
+                    selectedMediaBox.prevAll(".media-block:eq(0)").find(".float-thumbnail").click();
+                }else if(e.keyCode == KEYS.DOWN){
+                    selectedMediaBox.nextAll(".media-block:eq(0)").find(".float-thumbnail").click();
+                }
+            }
+        }
     });
 
     $(".when_opened").touchwipe({
@@ -453,7 +465,10 @@ $(function() {
                     contentClose: superParent.find(".close"),
                     popUpClose: superParent.find(".back_to_article")
                 },
-                parent: parent,
+                parents:{
+                    main:parent,
+                    mediaBlock:that.parents(".media-block")
+                },
                 content: {
                     popup: contentPopUp,
                     main: parent.find(".main_content"),
@@ -463,11 +478,15 @@ $(function() {
         })();
 
         var figureTitleText = that.find(".big").html();
-        var splitter = elems.parent.find(".popup_splitter");
+        var splitter = elems.parents.main.find(".popup_splitter");
+        var allMediaBlocks = elems.parents.main.find(".media-block");
         that.click(function(){
-            var opened = elems.parent.is(".show_popup");
+            allMediaBlocks.removeClass("selected");
+            elems.parents.mediaBlock.addClass("selected");
+            
+            var opened = elems.parents.main.is(".show_popup");
             if(!opened){
-                elems.parent.addClass("show_popup");
+                elems.parents.main.addClass("show_popup");
             }
             var figureTitleSpan = $("<div class='media_title'>"+figureTitleText+"</div>")
             elems.content.media.empty().append(figureTitleSpan);
@@ -490,7 +509,7 @@ $(function() {
                         //
                     }
                 });
-            }
+            };
 
             if(isVideo){
                 $.get(media.attr("href"), function(resp){
@@ -557,6 +576,7 @@ $(function() {
             },
             complete: function(){
                 parent.removeClass("show_popup");
+                parent.find(".media-block").removeClass("selected");
             }
         });
     });
