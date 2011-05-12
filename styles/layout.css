@@ -7,7 +7,7 @@
 }
 #content_pane{
   background:transparent;
-  border:0px solid #DDD;
+  border:0 solid #DDD;
   height:auto;
   overflow:hidden;
   padding:0;
@@ -20,7 +20,7 @@
   position:absolute;top:0;right:0;bottom:0;left:0;
   height:auto;
   overflow:auto;
-  padding:20px 20px 20px 0px;
+  padding:20px 20px 20px 0;
   display:none;
   width:120px;
 }
@@ -39,7 +39,7 @@
   font-weight:bold;
   font-family:sans-serif;
   padding:5px;
-  text-shadow:white 0px 1px 0px;
+  text-shadow:white 0 1px 0;
   text-transform:uppercase;
  -webkit-transition:color 0.5s;
  -moz-transition:color 0.5s;
@@ -51,7 +51,7 @@
 /* END - SIDEBAR */
 
 .content_page{
-  box-shadow:#999 0px 0px 6px;
+  box-shadow:#999 0 0 6px;
   background-color:#fff;
   border:1px solid transparent;
   height:auto;
@@ -94,7 +94,7 @@
   margin-top:0;
   padding:12px 0;
   text-align:center;
-  text-shadow:#ccc 1px 1px 0px;
+  text-shadow:#ccc 1px 1px 0§;
   /*-webkit-transition:text-shadow 0.2s;*/
 }
 #topic_blocks .when_opened h1{
