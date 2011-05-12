@@ -1,0 +1,37 @@
+CACHE MANIFEST
+# rev 19.04.11-3
+js/functions.js
+js/localstorage.js
+js/jquery.fancybox-1.3.4.pack.js
+js/jquery.easing-1.3.pack.js
+js/jquery.jswipe-0.1.2.js
+js/jquery.mousewheel-3.0.4.pack.js
+js/jquery.scrollTo-1.4.2-min.js
+js/jquery.touchwipe.1.1.1.js
+js/jquery-1.5.2.min.js
+js/jquery-ui-1.8.11.custom.min.js
+js/math.js
+images/arrow_left_24x24.png
+images/arrow_right_24x24.png
+images/close.png
+images/back.png
+images/browser_logos-64.png
+images/last_12x12.png
+images/icons/flash.png
+images/icons/flash-g.png
+images/icons/image.png
+images/icons/image-g.png
+images/icons/kumer.svg
+images/icons/math.png
+images/icons/math-g.png
+images/icons/nogu.svg
+images/icons/video.png
+images/icons/video-g.png
+media/Concave_lens.jpg
+media/lens.svg
+media/Optika.1.3.png
+styles/mathml.css
+styles/style.css
+styles/jquery.fancybox-1.3.4.css
+NETWORK:
+*

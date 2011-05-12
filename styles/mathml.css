@@ -1,5 +1,6 @@
 math{
-  line-height:24px;
+  font-size:16px;
+  line-height:32px;
   text-indent:0;
 }
 math[display="block"]{
@@ -20,7 +21,7 @@ mfrac{
   display:inline-block;
   white-space:nowrap;
   text-align:center;
-  vertical-align:-0.7em;
+  vertical-align:-1.2em;
   margin:0 2px;
   font-size:1em;
 }
@@ -182,16 +183,5 @@ merror{outline:solid thin red}
 merror:before{content:"Error: "}
 mrow{white-space:nowrap;}
 
-/* user */
-
-math[display="block"]{text-align:left;}
-math[class="center"]{margin:0 auto;text-align:center;}
-mi[class="bold"],mi[class="chem"],mi[class="mathbold"],mi[class="unit"],mi[class="var"]{font-style:normal;}
-mi[class="bold"],mi[class="mathbold"],mi[class="var"]{font-weight:bold;}
-math{font-family:'Linux Libertine','Linux Libertine O',Cambria,Times,'Times New Roman','Cambria Math',STIXGeneral,serif;}
-mo{padding:0 0.25ex;}
-mo:first-child,mo:last-child{padding:0;}
-mi[class="unit"]{padding-left:0.25ex;}
-mfrac[bevelled="true"]>*{font-size:100%;}
 
 /* user */
