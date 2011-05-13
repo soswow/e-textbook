@@ -32,7 +32,7 @@
       width: 360px;
       z-index: 1000;
     }
-      #eo-controls dl {
+    #eo-controls dl {
       clear: both;
       margin: 0;
       overflow: hidden;
@@ -99,20 +99,20 @@
   </style>
 
 
-  <link rel="stylesheet" type="text/css" href="../styles/article.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/article.css"/>
   <meta charset="UTF-8" />
   <script src="js/jquery-1.6.min.js"></script>
   <script src="js/jquery.noisy.min.js"></script>
   <script src="js/math.js"></script>
   <script>
   $(function(){
-    $("article").noisy({
-      'intensity' : 1,
-      'size' : '200',
-      'opacity' : 0.05,
-      'fallback' : 'fff4c9',
-      'monochrome' : false
-    }).css('background-color', '#fff4c9');
+//    $("article").noisy({
+//      'intensity' : 1,
+//      'size' : '200',
+//      'opacity' : 0.05,
+//      'fallback' : 'fff4c9',
+//      'monochrome' : false
+//    }).css('background-color', '#fff4c9');
 
     $(".eo-article-font").change(function(){
       $("article").css("font-family", $(this).val());
@@ -181,7 +181,7 @@
       </select>
     </dd>
     <dt>Column width:</dt>  
-    <dd><input id="eo-article-column-width" type="number" min="300" max="1000" step="100" value="400"></dd>  
+    <dd><input id="eo-article-column-width" type="number" min="300" max="1000" step="100" value="400"></dd>
     <dt>Column gap:</dt>  
     <dd><input id="eo-article-column-gap" type="number" min="0" max="100" step="20" value="40"></dd>  
     <dt>Margin:</dt>  

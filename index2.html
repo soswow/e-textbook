@@ -1,9 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="et" manifest="eopik.manifest">
 <head>
-  <title></title>
+  <meta charset="UTF-8" />
+  <title>e-õpik</title>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet'
+        type='text/css'/>
+  <link rel="stylesheet" type="text/css" href="styles/article.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/layout.css" />
+
+  <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
+
+  <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+  <script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+  <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="js/localstorage.js"></script>
+  <!--<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/functions.js"></script>-->
+  <!--<script type="text/javascript" src="js/math.js"></script>-->
 </head>
 <body>
-
+<div id="eo-viewport">
+<article lang="et">
+  <header>
+    <h1>Kujutise tekitamine läätse abil</h1>
+  </header>
+  <section>
+    <figure>
+    <img src="media/lens.svg" width="40%">
+    <figcaption><b>Joonis.</b> Kaks kera keskpunktidega O<sub>1</sub> ja O<sub>2</sub>, mille pinna osad moodustavad läätse pinnad. Lääts on joonisel viirutatud ja selle optiline peatelg on sirge läbi O<sub>1</sub> ja O<sub>2</sub>.</figcaption>
+    </figure>
+    <p><span title="Läätse nimetus tuleneb söödava taime harilik lääts ladinakeelsest nimetusest Lens culinaris. Selle taime viljad meenutavad oma kujult kumerläätsi.">Läätsedi</span> on optilised detailid, mida kasutatakse kas valguse koondamiseks või hajutamiseks. Neid on vaja optilistes seadmetes nagu fotoaparaadid, mikroskoobid, pikksilmad. Tavaelus kasutame ka läätse, mida nimetatakse luubiks ehk suurendusklaasiks. <em>Läätseks</em> nimetatakse kõverpindadega piiratud läbipaistvat keha. Tavaliselt on kõverpindadeks kerapinna ehk sfääri osad ja materjaliks klaas. Sirget, mis läbib läätse pindade  kõveruskeskpunkte, nimetatakse <em>optiliseks peateljeks</em>.</p>
+  </section>
+  <section>
+    <figure>
+      <video controls width="40%" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.1.webm" type="video/webm"><source src="media/Optika.1.3.1.m4v" type="video/mp4"></video>
+      <figcaption><b>Video.</b> peale kumerlätse läbimist valguskiired koonduvad.</figcaption>
+    </figure>
+    <p>Läätsesid jaotatakse kumer- ja nõgusläätsedeks. <em>Kumerläätsed</em> on keskelt paksemad kui äärtest ja need koondavad valgust. <em>Nõgusläätsed</em> on keskelt õhemad kui äärtest ja need hajutavad valgust.</p>
+    <p>Kumerläätse sümbol on <img src="images/icons/kumer.svg" height="15" class="inline" />, nõgusläätse sümbol on <img src="images/icons/nogu.svg" height="15" class="inline" />.</p>
+  </section>
+  <section>
+    <figure>
+      <video controls width="40%" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.4.webm" type="video/webm"><source src="media/Optika.1.3.4.m4v" type="video/mp4"></video>
+      <figcaption><b>Video:</b> peale nõguslätse läbimist valguskiired hajuvad.</figcaption>
+    </figure>
+    <p>Kui kumerläätsele suunata paralleelnen kiirtekimp, siis pärast läätse läbimist kiired lõikuvad ühes peatelje punktis. Seda punkti nimetatakse läätse <i>fookuseks</i>. Fookuse kaugust läätse <i>keskpunktist O</i>, nimetatakse läätse <i>fookuskauguseks <math><mi>f</mi></math></i>. Valgust koondava toime tõttu nimetatakse kumerläätsi ka <i>koondavateks läätsedeks</i>.</p>
+    <p>Nõgusläätsele langev paralleelene kiirtekimp hajub pärast läätse läbimist. Hajunud kiirte pikendused lõikuvad kõik ühes peatelje punktis. Seda punkti nimetatakse näivaks fookuseks ja selle kaugust läätse keskpunktist nimetatakse samuti fookuskauguseks. Ainult nõgusläätse fookuskaugust loetakse negatiivseks.</p>
+    <p>Valgust hajutava toime tõttu nimetatakse nõgusläätsi ka hajutavataeks läätsedeks.</p>
+    <p>Järgnevalt vaatame, kuidas läätsedega on võimalik <span title="Esemeks on optikas tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole ots määrab ära ka terve noole kujutise, sest noole kujutis on ikka risti teljega (seda siin ei tõestata).">esemestest</span> kujutisi saada. Alustame kumerläätsest. Kujutise asukoha leidmiseks ehk kujutise konstrueerimiseks valime vähemalt kaks esemest väljuvat kiirt, joonistame nende tee läbi läätse ja kohas kus need kiired lõikuvad on ka vastav kujutise punkt.</p>
+  </section>
+  <section>
+    <figure>
+      <embed src="media/lens_simulation.swf" />
+      <figcaption><b>Simulatsioon.</b> Uuri kujutise asukoha ja suuruse sõltuvust eseme kaugusest ja läätse fookuskaugusest.</figcaption>
+    </figure>
+    <p>Kujutise konstrueerimiseks kasutame esemest väljuvaid kiiri, mille käik on meil teada.</p>
+    <ul>
+      <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist <span title="Miks see nii on?">läheb läbi fookuse</span>;</li>
+      <li>fookust läbivat kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
+      <li>läätse keskpunkti  läbiva kiir, mis pärast läätse <span title="Miks see nii on? Vihje: lääts on kaunis õhuke">läbimist suunda ei muuda</span>.</li>
+    </ul>
+    <p>Optikas on esemeks tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole otsa asukoht määrab ära ka terve noole kujutise asukoha. Eeldatakse, et noole kujutis on ikka risti teljega, kuigi tavaliselt seda ei tõestata.</p>
+    <p>Kui oleme leidnud kujutise otspunkti asukoha, siis tõmmates ristsirge optilise peateljeni olemegi leidnud <i>kujutise</i>.</p>
+  </section>
+  <section>
+    <p><b>Nõgusläätse</b> korral toimime kujutise asukoha leidmisel sarnaselt eelmisega. Ikka valime vähemalt kaks kiirt, mille tee läätse läbimisel on teada. Nendeks võivad olla</p>
+    <ul>
+     <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist läheb nii, et selle pikendus <span title="Miks see nii on?">läheb läbi näiva fookuse</span>;</li>
+     <li>näivasse fookusse suunatud kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
+     <li>läätse keskpunkti  läbiv kiir, mis pärast läätse läbimist suunda ei muuda.</li>
+    </ul>
+    <p>Nõgusläätse korral ei määra kujutise asukohta mitte kiirte lõikumise koht, vaid nende pikenduste lõikumise koht. See aga asub samal pool läätse kui ese ja sellepärast pole seda võimalik ekraanil nähtavaks teha, kuigi <span title="Miks silmaga näeme, aga ekraanile ei saa tekitada?">silmaga me seda näeme</span>. Sellist kujutist nimetatakse <i>näivaks kujutiseks</i>. Seda ei saa projekteerida ekraanile, külla aga silmaga näha.</p>
+  </section>
+  <section id="test">
+    <h2>Läätse valem</h2>
+    <p>Kujutise asukohta saab leida ka arvutuste teel, mitte ainult konstrueerides. Selleks kasutatakse kolme suurust – <i>eseme kaugust</i> läätsest <math><mo>(</mo><mi>a</mi><mo>)</mo></math>, <i>kujutise kaugust</i> läätsest <math><mo>(</mo><mi>k</mi><mo>)</mo></math> ja <i>läätse fookuskaugust</i> <math><mo>(</mo><mi>f</mi><mo>)</mo></math>.</p>
+  </section>
+  <section>
+    <aside>
+      <p>Kui katses asetati küünal läätsest 20 sentimeetri kaugusele, tekkis küünla terav kujutis 25 sentimeetri kaugusel asuvale ekraanile. Arvuta läätse optiline tugevus ja ligikaudne fookuskaugus sentimeetrites.</p>
+      <hr>
+      <p>Lätse optiline tugevus: <math id="id1" class="mode-mathEq" display="block"><mi>D</mi><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo>=</mo><mi class="math-edit">□</mi><mtext> dptr</mtext></math></p>
+      <p>Fookuskaugus: <math id="id2" class="mode-mathEq" display="block"><mi>f</mi><mo>=</mo><mi class="math-edit">□</mi><mo>=</mo><mi class="math-edit">□</mi><mtext> cm</mtext></math></p>
+    </aside>
+    <p>Need kolm suurust on omavahel seotud ja seda seost kutsutakse <i>läätse valemiks</i>.</p>
+    <p>Kumerläätse korral: <math display="block">
+    <mfrac><mn>1</mn><mi>a</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac>
+    </math></p>
+    <p>Nõgusläätse korral kehtib samasugune valem, ainult näivate suuruste (<math><mi>k</mi></math> ja <math><mi>f</mi></math>)  ees kasutame miinusmärki:</p>
+    <math display="block"><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>
+    <p>Sageli kasutatakse fookuskauguse asemel optilist tugevust <math><mi>D</mi><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>. Ühikuks on
+    1 dioptria (dptr), see on läätse optiline tugevus, mille fookuskaugus <math><mi>f</mi><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><mtext>m</mtext></math>,
+    st <math><mn>1</mn><mtext>&#x00A0;</mtext><mtext>dptr</mtext><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><msup><mtext>m</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></math>.</p>
+  </section>
+</article>
+</div>
 </body>
 </html>
