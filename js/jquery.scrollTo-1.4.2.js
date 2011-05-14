@@ -182,7 +182,7 @@
 			animate( settings.onAfter );			
 
 			function animate( callback ){
-				$elem.animate( attr, duration, settings.easing, callback && function(){
+          $elem.animate( attr, duration, settings.easing, callback && function(){
 					callback.call(this, target, settings);
 				});
 			};
@@ -210,6 +210,6 @@
 
 	function both( val ){
 		return typeof val == 'object' ? val : { top:val, left:val };
-	};
+	}
 
 })( jQuery );

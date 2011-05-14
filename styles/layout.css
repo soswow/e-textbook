@@ -7,20 +7,47 @@ div, article, section {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+/*article section:last-child{*/
+  /*margin-right: 60px;*/
+/*}*/
+
+#pleaseWait{
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: #edecec;
+  opacity: 0.7;
+  z-index: 500;
+}
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  font-size: 150%;
+  z-index: 1000;
+}
 
 #eo-viewport {
-  height: 100%;
   position: absolute;
-  width: 100%;
+  top:0; right:20px; bottom:0; left:20px;
+  /*height: 100%;*/
+  /*width: 100%;*/
 }
 
 article {
   font-size: 16px;
-  padding:20px;
-  -moz-column-width: 400px;
-  -webkit-column-width: 400px;
-  -moz-column-gap: 40px;
-  -webkit-column-gap: 40px;
+  padding:60px 0 20px 0;
+  height:100%;
+  position:relative;
+  overflow-x:hidden;
+  /*overflow-x:auto;*/
+  overflow-y:hidden;
+
+  /* --- Set dynamically --- */
+  /*-moz-column-width: 400px;*/
+  /*-webkit-column-width: 400px;*/
+  /*-moz-column-gap: 40px;*/
+  /*-webkit-column-gap: 40px;*/
 }
 
 math {
@@ -35,4 +62,48 @@ article p, article li, article dl, article dt, article figcaption {
 article figure>*:first-child {
   border: 1px dotted gray;
   width: 40%;
+}
+
+/* == HEADER == */
+header{
+  position: fixed;
+  top: 15px;
+  padding-left:80px;
+}
+
+header h1{
+  max-height:32px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left !important;
+}
+
+/* -- arrows -- */
+
+header .control_arrows{
+  width:64px;
+  height:24px;
+  position:absolute;
+  top:8px;
+  left:0;
+}
+
+.go_left,
+.go_right{
+  width:24px;
+  height:24px;
+  cursor:pointer;
+}
+.go_left{
+  float:left;
+  background:url('../images/arrow_left_24x24.png') left top no-repeat;
+}
+.go_right{
+  float:right;
+  background:url('../images/arrow_right_24x24.png') left top no-repeat;
+}
+.go_left.end,
+.go_right.end{
+  opacity:0.5;
+  cursor:auto;
 }

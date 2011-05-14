@@ -1,26 +1,33 @@
+body, html {
+  font-family:'Ubuntu',Verdana,sans-serif;
+}
+
 article {
- color:#131;
- /*font-size:16px;*/
- height:100%;
- position:relative;
- overflow-x:scroll;
- overflow-y:hidden;
+  color:#131;
+  /*font-size:16px;*/
+  /*-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;*/
+  /*-moz-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;*/
 }
 
-article{
- -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
- -moz-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+.centered{
+  font-family:'Ubuntu',Verdana,sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #ccc;
+  color: #2a2a2a;
 }
-
-article h1 {font-size:150%;}
+header h1 {
+  font-size:150%;
+  color:#545454;
+  text-shadow:#ccc 1px 1px 0;
+}
 article h2 {font-size:120%;}
 article h3 {font-size:100%;}
-article h1,
+header h1,
 article h2,
 article h3{
- line-height:150%;
- margin:0;
- text-overflow:ellipsist;
+  line-height:150%;
+  margin:0;
+  text-overflow:ellipsist;
 }
 
 article figure{
@@ -46,7 +53,7 @@ article ul{
  margin:16px 0;
 }
 article math{
- /*font-size:16px;*/
+ /*font-size:16px;*/  
  /*line-height:150%;*/
 }
 article math[display="block"]{

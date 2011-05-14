@@ -21,19 +21,19 @@
     right:0;
     /*right: 20px;*/
     background: transparent;
-    border: 0px solid #DDD;
+    border: 0 solid #DDD;
     overflow: hidden;
-    padding: 0px;
+    padding: 0;
 }
 
 #sidebar{
     position: absolute;
-    bottom: 0px;
-    top: 0px;
-    right: 0px;
+    bottom: 0;
+    top: 0;
+    right: 0;
     width: 120px;
     height: auto;
-    padding: 20px 20px 20px 0px;
+    padding: 20px 20px 20px 0;
     overflow:auto;
     display:none;
 }
@@ -93,7 +93,7 @@
     font-weight: bold;
     font-family:sans-serif;
     color:#646464;
-    text-shadow: white 0px 1px 0px;
+    text-shadow: white 0 1px 0;
     cursor:pointer;
 }
 
@@ -102,8 +102,8 @@
 }
 
 .content_page{
-    -webkit-box-shadow: #999 0px 0px 6px;
-    -moz-box-shadow: #999 0px 0px 6px;
+    -webkit-box-shadow: #999 0 0 6px;
+    -moz-box-shadow: #999 0 0 6px;
     background-color:#fff;
     border: 1px solid transparent;
 
@@ -158,8 +158,8 @@
     text-align:center;
     color: #545454;
     /*color: #cccccc;*/
-    /*text-shadow: white 0px 1px 0px;*/
-    text-shadow: #ccc 1px 1px 0px;
+    /*text-shadow: white 0 1px 0;*/
+    text-shadow: #ccc 1px 1px 0;
     margin-top:0;
     padding-top:13px;
 }
@@ -172,7 +172,7 @@
 }
 
 /*#topic_blocks UL LI:hover H1{*/
-    /*text-shadow: #fff 2px 2px 0px;*/
+    /*text-shadow: #fff 2px 2px 0;*/
 /*}*/
 
 #topic_blocks UL LI DIV.inner{
@@ -414,10 +414,7 @@ article section:first-child{
 #topic_blocks article UL{
     display: block;
     list-style-type: disc;
-    margin-bottom: 24px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 24px;
+    margin: 24px 0;
 }
 
 #topic_blocks article UL LI{
@@ -494,8 +491,8 @@ h3 {font-size:1em;}
     /*top:1px;*/
 /*}*/
 
-.audio{background:url("../images/icons/audio-g.png") left center no-repeat;}
-.audio:hover{background:url("../images/icons/audio.png") left center no-repeat;}
+/*.audio{background:url("../images/icons/audio-g.png") left center no-repeat;}*/
+/*.audio:hover{background:url("../images/icons/audio.png") left center no-repeat;}*/
 
 .math{background:url("../images/icons/math-g.png") left center no-repeat;}
 .math:hover{background:url("../images/icons/math.png") left center no-repeat;}

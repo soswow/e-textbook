@@ -94,7 +94,7 @@
   margin-top:0;
   padding:12px 0;
   text-align:center;
-  text-shadow:#ccc 1px 1px 0§;
+  text-shadow:#ccc 1px 1px 0;
   /*-webkit-transition:text-shadow 0.2s;*/
 }
 #topic_blocks .when_opened h1{
