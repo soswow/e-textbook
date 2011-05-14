@@ -1,3 +1,4 @@
+//Augmenting jQuery and standard objects.
 jQuery.fn.css3 = function() {
   var property, value, map, key;
   if (arguments.length == 1) {
@@ -20,8 +21,8 @@ String.prototype.pxToInt = function(){
   return +val.substring(0, val.length-2);
 };
 
-//var EBOOK =
 (function($) {
+  //Initializing local variables.
   var cons = {
     columnWidth: 400,
     columnGap: 40
@@ -36,40 +37,44 @@ String.prototype.pxToInt = function(){
   article, scrollable;
 
   function getColumnCount(width, colWidth) {
+    //Finds number of columns fitted into specified width.
+
     var i = 1;
     for (; i < 100; i++) {
       if (colWidth * i + cons.columnGap * (i - 1) > width) {
-        return i - 1;
+        break;
       }
     }
+    return i-1;
   }
 
   function swipeContent(keyCode) {
-    var noColumn = false;
-    if (keyCode == keys.left || keyCode == keys.right) {
-      currentColumn += keyCode == keys.right ? 1 : -1;
-      $(".go_left, .go_right").removeClass("end");
-      if (currentColumn <= 0) {
-        $(".go_left").addClass("end");
-        currentColumn = 0;
-      } else if (currentColumn >= totalColumnsCount - onePageColumnsCount) {
-        $(".go_right").addClass("end");
-//        noColumn = true;
-        currentColumn = totalColumnsCount - onePageColumnsCount;
-      }
-//      console.log(currentColumn);
-      scrollToColumn(currentColumn, noColumn);
+    //Swipe content right or left
+    
+    currentColumn += keyCode == keys.right ? 1 : -1;
+    $(".go_left, .go_right").removeClass("end");
+    if (currentColumn <= 0) {
+      $(".go_left").addClass("end");
+      currentColumn = 0;
+    } else if (currentColumn >= totalColumnsCount - onePageColumnsCount) {
+      $(".go_right").addClass("end");
+      currentColumn = totalColumnsCount - onePageColumnsCount;
     }
+    scrollToColumn(currentColumn);
   }
 
-  function scrollToColumn(index, noColumn){
+  function scrollToColumn(index){
+    //Move to specified column index. Starting from 0
+
     article.scrollTo(
-      (columnWidth + (noColumn?0:cons.columnGap)) * index,
+      (columnWidth + cons.columnGap) * index,
       200,
       { easing:'linear', queue:true, axis:'x'});
   }
 
   function updateDynamicValues(){
+    //Update some dynamic local variable
+
     var leftPadding = article.css("paddingLeft").pxToInt(),
         leftScroll = article.get(0).scrollLeft - leftPadding;
     onePageColumnsCount = getColumnCount(article.width(), cons.columnWidth);
@@ -83,28 +88,36 @@ String.prototype.pxToInt = function(){
     article.css3({
           "column-width": cons.columnWidth,
           "column-gap": cons.columnGap
-    });
+    }); //Set column properties
 
-    article.wrapInner($("<div id='scrollableArea'></div>"));
-    scrollable = $("#scrollableArea");
 
     $(".go_left, .go_right").click(function() {
+      //Arrow buttons event handling
       swipeContent($(this).hasClass("go_left") ? keys.left : keys.right);
     });
 
+    $(document).keyup(function(e){
+      //Key handling
+      if (keyCode == keys.left || keyCode == keys.right) {
+        swipeContent(e.keyCode);
+      }
+    });
 
     $(window).resize(function(){
-      updateDynamicValues();
-      scrollToColumn(currentColumn);
+      updateDynamicValues(); //Update dynamic properties on every resize.
+      scrollToColumn(currentColumn); //If resize, make column stay at nearest column start
     }).load(function(){
+      // Update dynamic variables when every image is loaded,
+      // for proper total content length counting
       updateDynamicValues();
-      $("#pleaseWaitContainer").hide("normal");
+      //Hiding Please wait overlay
+      $("#pleaseWaitContainer .centered").html("Go!");
+      setTimeout(function(){
+        $("#pleaseWaitContainer").hide("normal");
+      }, 1000);
     });
-    $(document).keyup(function(e){
-      swipeContent(e.keyCode);
-    });
+
   });
 
-//  return {};
 }(jQuery));
 
