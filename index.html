@@ -1,243 +1,111 @@
 <!DOCTYPE html>
 <html lang="et" manifest="eopik.manifest">
 <head>
-    <title>e-õpik</title>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css' />
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="styles/layout_old.css" />
-    <link rel="stylesheet" type="text/css" href="styles/article.css" />
-    <link rel="stylesheet" type="text/css" href="styles/jquery.fancybox-1.3.4.css" media="screen" />
-    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>
-    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
-    <script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
-    <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
-    <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
-    <script type="text/javascript" src="js/functions-old.js"></script>
-    <script type="text/javascript" src="js/localstorage.js"></script>
+  <meta charset="UTF-8" />
+  <title>e-õpik</title>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet'
+        type='text/css'/>
+  <link rel="stylesheet" type="text/css" href="styles/article.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/layout.css" />
+  <!--<link rel="stylesheet" type="text/css" href="styles/video-js.css" media="screen" title="Video JS" />-->
+  <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
+  <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+  <script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+  <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="js/localstorage.js"></script>
+  <!--<script type="text/javascript" src="js/video.js" charset="utf-8"></script>-->
+  <!--<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>-->
+  <script type="text/javascript" src="js/functions.js"></script>
+  <!--<script type="text/javascript" src="js/math.js"></script>-->
 </head>
 <body>
-<div id="main_page">
-    <div id="top_gradient" class="border_gradient"></div>
-    <div id="bottom_gradient" class="border_gradient"></div>
-    <div id="sidebar">
-        <ul>
-            <li>Ajalugu</li>
-            <li>Bioloogia</li>
-            <li>Eesti kell</li>
-            <li>Geograafia</li>
-            <li>Fuusika</li>
-            <li>Inglise kell</li>
-            <li>Mikro ja makro Elektroonika</li>
-            <li>Vene kell</li>
-            <li>Ajalugu</li>
-            <li>Bioloogia</li>
-            <li>Eesti kell</li>
-            <li>Geograafia</li>
-            <li>Fuusika</li>
-            <li>Inglise kell</li>
-            <li>Keemia</li>
-            <li>Vene kell</li>
-            <li>Ajalugu</li>
-            <li>Bioloogia</li>
-            <li>Eesti kell</li>
-            <li>Geograafia</li>
-            <li>Fuusika</li>
-            <li>Inglise kell</li>
-            <li>Keemia</li>
-            <li>Vene kell</li>
-        </ul>
-    </div>
-    <div id="content_pane">
-        <div id="topic_blocks">
-            <ul id="topic_blocks_list">
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Valgusallikas</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Valguse levimine</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Valguse peegeldumine</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Valguse murdumine</h1></div></div></li>
-                <li class="topic_blocks_list_item with_content"><div class='inner'><div class="when_minimized"><h1>Lääts</h1><img src="media/Concave_lens.jpg" width="100%"></div>
-                    <img src="images/close.png" alt="Close Window" class="close"/>
-                    <img src="images/back.png" alt="Back to article" class="back_to_article"/>
-                    <div class="when_opened">
-                        <div class="popup_splitter">
-                            <div class="center">
-                                <!--<div class="open"></div>-->
-                                <!--<div><img src="images/move_horizontal_6x16.png"/></div>-->
-                                <div class="close"></div>
-                            </div>
-                        </div>
-                        <div class="popup_content">
-                            <div class="media">
-                                  <div class="media_title"></div>
-                            </div>
-                        </div>
-                        <div class="main_content">
-                            <div class="header">
-                                <h1>Kujutise tekitamine läätse abil</h1>
-                                <div class="control_arrows">
-                                    <div class="go_left"></div>
-                                    <div class="go_right"></div>
-                                </div>
-                            </div>
-                            <article id="columns-no-example">
-                                <section>
-                                    <div class="obj-block obj-media image" id="uniqueid0">
-                                      <p class="in-text-fig"><img src="media/lens.svg"></p>
-                                      <p><span title="Läätse nimetus tuleneb söödava taime harilik lääts ladinakeelsest nimetusest Lens culinaris. Selle taime viljad meenutavad oma kujult kumerläätsi.">Läätsedi</span> on optilised detailid, mida kasutatakse kas valguse koondamiseks või hajutamiseks. Neid on vaja optilistes seadmetes nagu fotoaparaadid, mikroskoobid, pikksilmad. Tavaelus kasutame ka läätse, mida nimetatakse luubiks ehk suurendusklaasiks. <em>Läätseks</em> nimetatakse kõverpindadega piiratud läbipaistvat keha. Tavaliselt on kõverpindadeks kerapinna ehk sfääri osad ja materjaliks klaas. Sirget, mis läbib läätse pindade  kõveruskeskpunkte, nimetatakse <em>optiliseks peateljeks</em>.</p>
-                                    </div>
-                                    <div class="" id="uniqueid1">
-                                        <div class="videodiv"><video controls class="media_box" width="400" height="292" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.1.webm" type="video/webm;"><source src="media/Optika.1.3.1.m4v" type="video/mp4;"></video></div>
-                                        <p>Läätsesid jaotatakse kumer- ja nõgusläätsedeks. <em>Kumerläätsed</em> on keskelt paksemad kui äärtest ja need koondavad valgust. <em>Nõgusläätsed</em> on keskelt õhemad kui äärtest ja need hajutavad valgust.</p>
-                                        <p>Kumerläätse sümbol on <img src="images/icons/kumer.svg" height="15" class="inline" />, nõgusläätse sümbol on <img src="images/icons/nogu.svg" height="15" class="inline" />.</p>
-                                    </div>
-                                    <div class="" id="uniqueid2">
-                                        <div class="videodiv"><video controls class="media_box" width="400" height="292" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.4.webm" type="video/webm;"><source src="media/Optika.1.3.4.m4v" type="video/mp4;"></video></div>
-                                        <p>Kui kumerläätsele suunata paralleelnen kiirtekimp, siis pärast läätse läbimist kiired lõikuvad ühes peatelje punktis. Seda punkti nimetatakse läätse <strong>fookuseks</strong>. Fookuse kaugust läätse <strong>keskpunktist O</strong>, nimetatakse läätse <strong>fookuskauguseks <math><mi>f</mi></math></strong>. Valgust koondava toime tõttu nimetatakse kumerläätsi ka <strong>koondavateks läätsedeks</strong>.</p>
-                                        <p>Nõgusläätsele langev paralleelene kiirtekimp hajub pärast läätse läbimist. Hajunud kiirte pikendused lõikuvad kõik ühes peatelje punktis. Seda punkti nimetatakse näivaks fookuseks ja selle kaugust läätse keskpunktist nimetatakse samuti fookuskauguseks. Ainult nõgusläätse fookuskaugust loetakse negatiivseks.</p>
-                                        <p>Valgust hajutava toime tõttu nimetatakse nõgusläätsi ka hajutavataeks läätsedeks.</p>
-                                        <p>Järgnevalt vaatame, kuidas läätsedega on võimalik <span title="Esemeks on optikas tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole ots määrab ära ka terve noole kujutise, sest noole kujutis on ikka risti teljega (seda siin ei tõestata).">esemestest</span> kujutisi saada. Alustame kumerläätsest. Kujutise asukoha leidmiseks ehk kujutise konstrueerimiseks valime vähemalt kaks esemest väljuvat kiirt, joonistame nende tee läbi läätse ja kohas kus need kiired lõikuvad on ka vastav kujutise punkt.</p>
-                                    </div>
-                                    <div class="obj-block obj-media flash" id="uniqueid3">
-                                        <p>Kujutise konstrueerimiseks kasutame esemest väljuvaid kiiri, mille käik on meil teada.</p>
-                                        <ul>
-                                            <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist <span title="Miks see nii on?">läheb läbi fookuse</span>;</li>
-                                            <li>fookust läbivat kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
-                                            <li>läätse keskpunkti  läbiva kiir, mis pärast läätse <span title="Miks see nii on? Vihje: lääts on kaunis õhuke">läbimist suunda ei muuda</span>.</li>
-                                        </ul>
-
-                                        <p>Optikas on esemeks tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole otsa asukoht määrab ära ka terve noole kujutise asukoha. Eeldatakse, et noole kujutis on ikka risti teljega, kuigi tavaliselt seda ei tõestata.</p>
-
-                                        <p>Kui oleme leidnud kujutise otspunkti asukoha, siis tõmmates ristsirge optilise peateljeni olemegi leidnud <strong>kujutise</strong>.</p>
-                                    </div>
-                                    <div class="obj-block">
-                                      <p><strong>Nõgusläätse</strong> korral toimime kujutise asukoha leidmisel sarnaselt eelmisega. Ikka valime vähemalt kaks kiirt, mille tee läätse läbimisel on teada. Nendeks võivad olla</p>
-
-                                      <ul>
-                                       <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist läheb nii, et selle pikendus <span title="Miks see nii on?">läheb läbi näiva fookuse</span>;</li>
-                                       <li>näivasse fookusse suunatud kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
-                                       <li>läätse keskpunkti  läbiv kiir, mis pärast läätse läbimist suunda ei muuda.</li>
-                                      </ul>
-
-                                      <p>Nõgusläätse korral ei määra kujutise asukohta mitte kiirte lõikumise koht, vaid nende pikenduste lõikumise koht. See aga asub samal pool läätse kui ese ja sellepärast pole seda võimalik ekraanil nähtavaks teha, kuigi <span title="Miks silmaga näeme, aga ekraanile ei saa tekitada?">silmaga me seda näeme</span>. Sellist kujutist nimetatakse <strong>näivaks kujutiseks</strong>. Seda ei saa projekteerida ekraanile, külla aga silmaga näha.</p>
-                                    </div>
-                                    <div class="obj-block">
-                                    <h2>Läätse valem</h2>
-                                    <p>Kujutise asukohta saab leida ka arvutuste teel, mitte ainult konstrueerides. Selleks kasutatakse kolme suurust – <strong>eseme kaugust</strong> läätsest <strong><math><mo>(</mo><mi>a</mi><mo>)</mo></math></strong>, <strong>kujutise kaugust</strong> läätsest <strong><math><mo>(</mo><mi>k</mi><mo>)</mo></math></strong> ja <strong>läätse fookuskaugust</strong> <strong><math><mo>(</mo><mi>f</mi><mo>)</mo></math></strong>.</p>
-                                 </div>
-                                 <div class="obj-block obj-media math" id="uniqueid4">
-                                    <p>Need kolm suurust on omavahel seotud ja seda seost kutsutakse <strong>läätse valemiks</strong>.</p>
-                                    <p>Kumerläätse korral: <math display="block">
-                                    <mfrac><mn>1</mn><mi>a</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac>
-                                    </math></p>
-                                    <p>Nõgusläätse korral kehtib samasugune valem, ainult näivate suuruste (<math><mi>k</mi></math> ja <math><mi>f</mi></math>)  ees kasutame miinusmärki:</p>
-                                    <math display="block"><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>
-                                    <p>Sageli kasutatakse fookuskauguse asemel optilist tugevust <math><mi>D</mi><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>. Ühikuks on
-                                    1 dioptria (dptr), see on läätse optiline tugevus, mille fookuskaugus <math><mi>f</mi><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><mtext>m</mtext></math>,
-                                    st <math><mn>1</mn><mtext>&#x00A0;</mtext><mtext>dptr</mtext><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><msup><mtext>m</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></math>.
-                                    </p>
-                                  </div>
-                                </section>
-                                <div class="clear"></div>
-                            </article>
-                        </div>
-                    </div>
-                </div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Kujutis</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Prillid</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Silm</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Valguse spekter</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1> Kehade ja ainete omadused</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Ühikute eesliited</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Mehaaniline liikumine</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Mehaaniline töö ja energia</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Vastastikmõju seaduspärasus</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Võnkliikumine</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Kehade vastastikmõju</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Lihtmehhanismid</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Ujumine</h1></div></div></li>
-                <li class="topic_blocks_list_item"><div class='inner'><div class="when_minimized"><h1>Heli</h1></div></div></li>
-                <li class="topic_blocks_list_item with_content"><div class='inner'><div class="when_minimized"><h1>Staatus</h1></div>
-                    <img src="images/close.png" alt="Close Window" class="close"/>
-                    <img src="images/back.png" alt="Back to article" class="back_to_article"/>
-                    <div class="when_opened">
-                        <div class="popup_splitter">
-                            <div class="center">
-                                <div class="close"></div>
-                            </div>
-                        </div>
-                        <div class="popup_content">
-                            <div class="media">
-                                  <div class="media_title"></div>
-                            </div>
-                        </div>
-                        <div class="main_content">
-                            <div class="header">
-                                <h1>Tech spec, browsers, feature set</h1>
-                                <div class="control_arrows">
-                                    <div class="go_left"></div>
-                                    <div class="go_right"></div>
-                                </div>
-                            </div>
-                            <article id="columns-no-example">
-                                <section>
-                                    <div class="obj-block">
-                                       <h2>Tech requirements</h2>
-                                       <p>e-õpik may consume all the resources at 1GHz processor and up to 256 MB of RAM according to iPad tech specs. Animations should be smooth, response time immediate, and without freezing.</p>
-                                    </div>
-                                    <div class="obj-block">
-                                       <h2>Support for browsers</h2>
-                                       <style>
-                                         #browsers td{
-                                           font-size:10px;
-                                           height:90px;
-                                           overflow:hidden;
-                                           text-align:center;
-                                           vertical-align:bottom;
-                                           width:70px;
-                                         }
-                                         #browser-ff{
-                                           background:url("images/browser_logos-64.png") -77px 0px no-repeat;
-                                         }
-                                         #browser-cr{
-                                           background:url("images/browser_logos-64.png") -2px 0px no-repeat;
-                                         }
-                                         #browser-sf{
-                                           background:url("images/browser_logos-64.png") -212px 0px no-repeat;
-                                         }
-                                         #browser-op{
-                                           background:url("images/browser_logos-64.png") -144px 0px no-repeat;
-                                         }
-                                       </style>
-                                       <table id="browsers">
-                                         <tr>
-                                           <td id="browser-ff">Firefox 4+</td>
-                                           <td id="browser-cr">Chrome 10+</td>
-                                           <td id="browser-sf">Safari 5+</td>
-                                           <td id="browser-op">Opera 10.1+</td>
-                                         </tr>
-                                       </table>
-                                       <p>Approx. 70% of the browser desktop and mobile market shares of Estonia in the near future.</p>
-                                    </div>
-                                    <div class="obj-block">
-                                       <h2>Features</h2>
-                                       <ol>
-                                         <li>Simple manipulations with text: swipe for iPad and scroll for PC</li>
-                                         <li>Hotkeys for navigation: left and right arrows for scrolling text and down and up arrows for switching media objects.</li>
-                                         <li>Native browser video and audio support</li>
-                                         <li>Offline mode</li>
-                                       </ol>
-                                       <p>Coming HTML5 APIs: history, document editing, canvas, offline storage, web workers</p>
-                                    </div>
-                                </section>
-                            </article>
-                        </div>
-                    </div>
-                </div></li>
-            </ul>
-            <div class="clear"></div>
-        </div>
-    </div>
-
+<div id="pleaseWaitContainer">
+  <div class="centered">Please Wait ...</div>
+  <div id="pleaseWait"></div>
+</div>
+<div id="eo-viewport">
+  <article lang="et">
+    <header>
+      <h1>Kujutise tekitamine läätse abil</h1>
+      <div class="control_arrows">
+        <div class="go_left end"></div>
+        <div class="go_right"></div>
+      </div>
+    </header>
+    <section id="first">
+      <figure>
+      <img src="media/lens.svg" width="40%">
+      <figcaption><b>Joonis.</b> Kaks kera keskpunktidega O<sub>1</sub> ja O<sub>2</sub>, mille pinna osad moodustavad läätse pinnad. Lääts on joonisel viirutatud ja selle optiline peatelg on sirge läbi O<sub>1</sub> ja O<sub>2</sub>.</figcaption>
+      </figure>
+      <p><span title="Läätse nimetus tuleneb söödava taime harilik lääts ladinakeelsest nimetusest Lens culinaris. Selle taime viljad meenutavad oma kujult kumerläätsi.">Läätsedi</span> on optilised detailid, mida kasutatakse kas valguse koondamiseks või hajutamiseks. Neid on vaja optilistes seadmetes nagu fotoaparaadid, mikroskoobid, pikksilmad. Tavaelus kasutame ka läätse, mida nimetatakse luubiks ehk suurendusklaasiks. <em>Läätseks</em> nimetatakse kõverpindadega piiratud läbipaistvat keha. Tavaliselt on kõverpindadeks kerapinna ehk sfääri osad ja materjaliks klaas. Sirget, mis läbib läätse pindade  kõveruskeskpunkte, nimetatakse <em>optiliseks peateljeks</em>.</p>
+    </section>
+    <section>
+      <figure>
+        <video controls preload width="400px" class="video-js" poster="media/Optika.1.3.png">
+          <source src="media/Optika.1.3.1.webm" type="video/webm">
+          <source src="media/Optika.1.3.1.m4v" type="video/mp4">
+        </video>
+        <figcaption><b>Video.</b> peale kumerlätse läbimist valguskiired koonduvad.</figcaption>
+      </figure>
+      <p>Läätsesid jaotatakse kumer- ja nõgusläätsedeks. <em>Kumerläätsed</em> on keskelt paksemad kui äärtest ja need koondavad valgust. <em>Nõgusläätsed</em> on keskelt õhemad kui äärtest ja need hajutavad valgust.</p>
+      <p>Kumerläätse sümbol on <img src="images/icons/kumer.svg" height="15" class="inline" />, nõgusläätse sümbol on <img src="images/icons/nogu.svg" height="15" class="inline" />.</p>
+    </section>
+    <section id="second">
+      <figure>
+        <video controls width="40%" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.4.webm" type="video/webm"><source src="media/Optika.1.3.4.m4v" type="video/mp4"></video>
+        <figcaption><b>Video:</b> peale nõguslätse läbimist valguskiired hajuvad.</figcaption>
+      </figure>
+      <p>Kui kumerläätsele suunata paralleelnen kiirtekimp, siis pärast läätse läbimist kiired lõikuvad ühes peatelje punktis. Seda punkti nimetatakse läätse <i>fookuseks</i>. Fookuse kaugust läätse <i>keskpunktist O</i>, nimetatakse läätse <i>fookuskauguseks <math><mi>f</mi></math></i>. Valgust koondava toime tõttu nimetatakse kumerläätsi ka <i>koondavateks läätsedeks</i>.</p>
+      <p>Nõgusläätsele langev paralleelene kiirtekimp hajub pärast läätse läbimist. Hajunud kiirte pikendused lõikuvad kõik ühes peatelje punktis. Seda punkti nimetatakse näivaks fookuseks ja selle kaugust läätse keskpunktist nimetatakse samuti fookuskauguseks. Ainult nõgusläätse fookuskaugust loetakse negatiivseks.</p>
+      <p>Valgust hajutava toime tõttu nimetatakse nõgusläätsi ka hajutavataeks läätsedeks.</p>
+      <p>Järgnevalt vaatame, kuidas läätsedega on võimalik <span title="Esemeks on optikas tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole ots määrab ära ka terve noole kujutise, sest noole kujutis on ikka risti teljega (seda siin ei tõestata).">esemestest</span> kujutisi saada. Alustame kumerläätsest. Kujutise asukoha leidmiseks ehk kujutise konstrueerimiseks valime vähemalt kaks esemest väljuvat kiirt, joonistame nende tee läbi läätse ja kohas kus need kiired lõikuvad on ka vastav kujutise punkt.</p>
+    </section>
+    <section>
+      <figure>
+        <embed src="media/lens_simulation.swf" />
+        <figcaption><b>Simulatsioon.</b> Uuri kujutise asukoha ja suuruse sõltuvust eseme kaugusest ja läätse fookuskaugusest.</figcaption>
+      </figure>
+      <p>Kujutise konstrueerimiseks kasutame esemest väljuvaid kiiri, mille käik on meil teada.</p>
+      <ul>
+        <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist <span title="Miks see nii on?">läheb läbi fookuse</span>;</li>
+        <li>fookust läbivat kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
+        <li>läätse keskpunkti  läbiva kiir, mis pärast läätse <span title="Miks see nii on? Vihje: lääts on kaunis õhuke">läbimist suunda ei muuda</span>.</li>
+      </ul>
+      <p>Optikas on esemeks tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole otsa asukoht määrab ära ka terve noole kujutise asukoha. Eeldatakse, et noole kujutis on ikka risti teljega, kuigi tavaliselt seda ei tõestata.</p>
+      <p>Kui oleme leidnud kujutise otspunkti asukoha, siis tõmmates ristsirge optilise peateljeni olemegi leidnud <i>kujutise</i>.</p>
+    </section>
+    <section>
+      <p><b>Nõgusläätse</b> korral toimime kujutise asukoha leidmisel sarnaselt eelmisega. Ikka valime vähemalt kaks kiirt, mille tee läätse läbimisel on teada. Nendeks võivad olla</p>
+      <ul>
+       <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist läheb nii, et selle pikendus <span title="Miks see nii on?">läheb läbi näiva fookuse</span>;</li>
+       <li>näivasse fookusse suunatud kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
+       <li>läätse keskpunkti  läbiv kiir, mis pärast läätse läbimist suunda ei muuda.</li>
+      </ul>
+      <p>Nõgusläätse korral ei määra kujutise asukohta mitte kiirte lõikumise koht, vaid nende pikenduste lõikumise koht. See aga asub samal pool läätse kui ese ja sellepärast pole seda võimalik ekraanil nähtavaks teha, kuigi <span title="Miks silmaga näeme, aga ekraanile ei saa tekitada?">silmaga me seda näeme</span>. Sellist kujutist nimetatakse <i>näivaks kujutiseks</i>. Seda ei saa projekteerida ekraanile, külla aga silmaga näha.</p>
+    </section>
+    <section id="test">
+      <h2>Läätse valem</h2>
+      <p>Kujutise asukohta saab leida ka arvutuste teel, mitte ainult konstrueerides. Selleks kasutatakse kolme suurust – <i>eseme kaugust</i> läätsest <math><mo>(</mo><mi>a</mi><mo>)</mo></math>, <i>kujutise kaugust</i> läätsest <math><mo>(</mo><mi>k</mi><mo>)</mo></math> ja <i>läätse fookuskaugust</i> <math><mo>(</mo><mi>f</mi><mo>)</mo></math>.</p>
+    </section>
+    <section>
+      <aside>
+        <p>Kui katses asetati küünal läätsest 20 sentimeetri kaugusele, tekkis küünla terav kujutis 25 sentimeetri kaugusel asuvale ekraanile. Arvuta läätse optiline tugevus ja ligikaudne fookuskaugus sentimeetrites.</p>
+        <hr>
+        <p>Lätse optiline tugevus: <math id="id1" class="mode-mathEq" display="block"><mi>D</mi><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo>=</mo><mi class="math-edit">□</mi><mtext> dptr</mtext></math></p>
+        <p>Fookuskaugus: <math id="id2" class="mode-mathEq" display="block"><mi>f</mi><mo>=</mo><mi class="math-edit">□</mi><mo>=</mo><mi class="math-edit">□</mi><mtext> cm</mtext></math></p>
+      </aside>
+      <p>Need kolm suurust on omavahel seotud ja seda seost kutsutakse <i>läätse valemiks</i>.</p>
+      <p>Kumerläätse korral: <math display="block">
+      <mfrac><mn>1</mn><mi>a</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac>
+      </math></p>
+      <p>Nõgusläätse korral kehtib samasugune valem, ainult näivate suuruste (<math><mi>k</mi></math> ja <math><mi>f</mi></math>)  ees kasutame miinusmärki:</p>
+      <math display="block"><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>
+      <p>Sageli kasutatakse fookuskauguse asemel optilist tugevust <math><mi>D</mi><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>. Ühikuks on
+      1 dioptria (dptr), see on läätse optiline tugevus, mille fookuskaugus <math><mi>f</mi><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><mtext>m</mtext></math>,
+      st <math><mn>1</mn><mtext>&#x00A0;</mtext><mtext>dptr</mtext><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><msup><mtext>m</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></math>.</p>
+    </section>
+  </article>
 </div>
 </body>
 </html>

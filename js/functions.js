@@ -1,12 +1,12 @@
 //Augmenting jQuery and standard objects.
 jQuery.fn.css3 = function() {
   var property, value, map, key;
-  if (arguments.length == 1) {
+  if (arguments.length === 1) {
     map = arguments[0];
     for (key in map) {
       this.css3(key, map[key]);
     }
-  } else if (arguments.length == 2) {
+  } else if (arguments.length === 2) {
     property = arguments[0],value = arguments[1];
 
     var that = $(this);
@@ -34,7 +34,7 @@ String.prototype.pxToInt = function(){
     down:40
   },
   onePageColumnsCount, totalColumnsCount, columnWidth, currentColumn,
-  article, scrollable;
+  article;
 
   function getColumnCount(width, colWidth) {
     //Finds number of columns fitted into specified width.
@@ -48,10 +48,10 @@ String.prototype.pxToInt = function(){
     return i-1;
   }
 
-  function swipeContent(keyCode) {
-    //Swipe content right or left
+  function updateArrows() {
+    //Update statuses of arrows (disabling/enabling)
+    //and update current column if needed.
     
-    currentColumn += keyCode == keys.right ? 1 : -1;
     $(".go_left, .go_right").removeClass("end");
     if (currentColumn <= 0) {
       $(".go_left").addClass("end");
@@ -60,16 +60,29 @@ String.prototype.pxToInt = function(){
       $(".go_right").addClass("end");
       currentColumn = totalColumnsCount - onePageColumnsCount;
     }
-    scrollToColumn(currentColumn);
+  }
+
+  function swipeContent(keyCode) {
+    //Swipe content right or left
+    scrollToColumn(currentColumn + (keyCode === keys.right ? 1 : -1));
   }
 
   function scrollToColumn(index){
     //Move to specified column index. Starting from 0
-
-    article.scrollTo(
-      (columnWidth + cons.columnGap) * index,
-      200,
-      { easing:'linear', queue:true, axis:'x'});
+    if(index !== undefined){
+      if(index === currentColumn){
+        return; //Already on place
+      }
+      currentColumn = index;
+      updateArrows();
+      document.location.hash = "#"+currentColumn;
+      article.scrollTo(
+        (columnWidth + cons.columnGap) * currentColumn,
+        200,
+        { easing:'linear', queue:true, axis:'x',
+          onAfter:function(){}
+        });
+    }
   }
 
   function updateDynamicValues(){
@@ -83,13 +96,38 @@ String.prototype.pxToInt = function(){
     currentColumn = Math.round((leftScroll < 0 ? 0 : leftScroll) / columnWidth);
   }
 
+  function hashWatcher(){
+    var oldHash;
+    setInterval(function(){
+      var obj, colIndex, hash = document.location.hash;
+      if(hash && oldHash !== hash){
+        obj = $(hash);
+        if(obj.length > 0){
+          console.log(obj.offset());
+        }else{
+          colIndex = +hash.substr(1);
+        }
+
+        if(colIndex && !isNaN(colIndex)){
+          scrollToColumn(colIndex);
+        }
+      }
+      oldHash = hash;
+    }, 300);
+  }
+
   $(function() {
+    //On DOM load event actions
+
     article = $("article");
     article.css3({
           "column-width": cons.columnWidth,
           "column-gap": cons.columnGap
     }); //Set column properties
 
+    if(!$.browser.mozilla){
+        $("HTML > HEAD").prepend("<link rel='stylesheet' type='text/css' href='styles/mathml.css' />");
+    }
 
     $(".go_left, .go_right").click(function() {
       //Arrow buttons event handling
@@ -98,8 +136,9 @@ String.prototype.pxToInt = function(){
 
     $(document).keyup(function(e){
       //Key handling
-      if (keyCode == keys.left || keyCode == keys.right) {
-        swipeContent(e.keyCode);
+      var keyCode = e.keyCode;
+      if (keyCode === keys.left || keyCode === keys.right) {
+        swipeContent(keyCode);
       }
     });
 
@@ -110,12 +149,15 @@ String.prototype.pxToInt = function(){
       // Update dynamic variables when every image is loaded,
       // for proper total content length counting
       updateDynamicValues();
+      hashWatcher();
       //Hiding Please wait overlay
       $("#pleaseWaitContainer .centered").html("Go!");
       setTimeout(function(){
         $("#pleaseWaitContainer").hide("normal");
-      }, 1000);
+      }, 200);
     });
+
+
 
   });
 
