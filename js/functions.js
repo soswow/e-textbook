@@ -34,7 +34,8 @@ String.prototype.pxToInt = function(){
     down:40
   },
   onePageColumnsCount, totalColumnsCount, columnWidth, currentColumn,
-  article;
+  sectionIndexMap, sectionIndexMapRev,
+  article, sections;
 
   function getColumnCount(width, colWidth) {
     //Finds number of columns fitted into specified width.
@@ -74,8 +75,12 @@ String.prototype.pxToInt = function(){
         return; //Already on place
       }
       currentColumn = index;
+      var hash = index;
+      if(sectionIndexMap[index]){
+        hash = sectionIndexMap[index];
+      }
       updateArrows();
-      document.location.hash = "#"+currentColumn;
+      document.location.hash = "#"+hash;
       article.scrollTo(
         (columnWidth + cons.columnGap) * currentColumn,
         200,
@@ -94,32 +99,53 @@ String.prototype.pxToInt = function(){
     columnWidth = (article.width() - (cons.columnGap * (onePageColumnsCount - 1))) / onePageColumnsCount;
     totalColumnsCount = getColumnCount(article.get(0).scrollWidth, columnWidth);
     currentColumn = Math.round((leftScroll < 0 ? 0 : leftScroll) / columnWidth);
+    sectionIndexMap = sectionIndexMapRev = {};
+    $.each(sections, function(){
+      var that = $(this), id=that.attr("id");
+      if(id){
+        var index = columnOfObject(that);
+        sectionIndexMap[index] = id;
+        sectionIndexMapRev[id] = index;
+      }
+    });
   }
 
   function hashWatcher(){
     var oldHash;
     setInterval(function(){
-      var obj, colIndex, hash = document.location.hash;
+      var colIndex, hash = document.location.hash;
       if(hash && oldHash !== hash){
-        obj = $(hash);
-        if(obj.length > 0){
-          console.log(obj.offset());
+        hash = hash.substr(1);
+//        obj = $(hash);
+        if(sectionIndexMap[hash]){
+          colIndex = sectionIndexMap[hash];
         }else{
-          colIndex = +hash.substr(1);
+          colIndex = +hash;
         }
 
         if(colIndex && !isNaN(colIndex)){
           scrollToColumn(colIndex);
         }
       }
-      oldHash = hash;
+      oldHash = document.location.hash;
     }, 300);
+  }
+
+//  function scrollToObject(obj){
+//    scrollToColumn(columnOfObject(obj));
+//  }
+
+  function columnOfObject(obj){
+    var left = obj.position().left + article.scrollLeft();
+    var colNum = left / (columnWidth + cons.columnGap);
+    return colNum - (colNum>0?1:0);
   }
 
   $(function() {
     //On DOM load event actions
 
     article = $("article");
+    sections = article.find("section");
     article.css3({
           "column-width": cons.columnWidth,
           "column-gap": cons.columnGap
@@ -156,9 +182,6 @@ String.prototype.pxToInt = function(){
         $("#pleaseWaitContainer").hide("normal");
       }, 200);
     });
-
-
-
   });
 
 }(jQuery));
