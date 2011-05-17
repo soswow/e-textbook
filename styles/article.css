@@ -1,25 +1,30 @@
-body, html {
-  font-family:'Ubuntu',Verdana,sans-serif;
-}
-
-article {
+article{
+  box-sizing:border-box; 
+ -moz-box-sizing:border-box;
+ -webkit-box-sizing:border-box;
   color:#131;
-  /*font-size:16px;*/
-  /*-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;*/
-  /*-moz-box-shadow: 4px 4px 4px rgba(0, 0, 120, 0.1), 0 0 40px rgba(0, 0, 0, 0.05) inset;*/
+  font-size:16px;
+  height:100%;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  padding:60px 0 20px 0;
+  position:relative;
 }
 
-.centered{
-  font-family:'Ubuntu',Verdana,sans-serif;
-  font-weight: bold;
-  text-shadow: 2px 2px 0 #ccc;
-  color: #2a2a2a;
+article>header:first-child{
+  position:fixed;top:15px;left:100px;
 }
-header h1 {
-  font-size:150%;
+
+article>headerheader h1 {
   color:#545454;
+  font-size:150%;
+  max-height:32px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left !important;
   text-shadow:#ccc 1px 1px 0;
 }
+
 article h2 {font-size:120%;}
 article h3 {font-size:100%;}
 header h1,
@@ -32,8 +37,13 @@ article h3{
 
 article figure{
  display:inline-block;
+ break-inside:avoid-column;
  text-align:center;
  width:100%;
+}
+article figure>*:first-child {
+  border: 1px dotted gray;
+  width: 40%;
 }
 
 article p,
@@ -41,31 +51,22 @@ article li,
 article dl,
 article dt,
 article figcaption{
- font-size:100%;
- /*line-height:150%;*/
- text-align:justify;
- margin:0;
+  font-size:100%;
+  line-height:150%;
+  margin:0;
+  text-align:justify;
 }
 
 article figure,
 article ol,
 article ul{
- margin:16px 0;
+  margin:16px 0;
 }
-article math{
- /*font-size:16px;*/  
- /*line-height:150%;*/
-}
-article math[display="block"]{
- font-size:100% !important;
- min-height:150%;
- text-align:center;
-}
-article math *[class="math-edit"]{
- color:#08c;
-}
-article math>mo{
- margin:0 2px;
+
+article section{
+  box-sizing:border-box; 
+ -moz-box-sizing:border-box;
+ -webkit-box-sizing:border-box;
 }
 
 /* NOTES */
@@ -83,8 +84,23 @@ article span[title]:after{
   vertical-align:super;
 }
 
-/* MATH EDITOR */
+/* MATH */
 
+article math{
+ font-size:16px;  
+ line-height:150%;
+}
+article math[display="block"]{
+ font-size:100% !important;
+ min-height:150%;
+ text-align:center;
+}
+article math *[class="math-edit"]{
+ color:#08c;
+}
+article math>mo{
+ margin:0 2px;
+}
 #select{
   text-shadow:0 0 1px #00f;
 }
