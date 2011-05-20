@@ -81,6 +81,12 @@ if(!String.prototype.startsWith){
     scrollToColumn(currentColumn + (keyCode === keys.right ? 1 : -1));
   }
 
+  function updateColumnCounter(){
+    /* column conter */
+    colNum = currentColumn + 1;
+    $("#eo-columncounter").html("<span>"+colNum+"</span>/<span>"+totalColumnsCount+"</span>");
+  }
+
   function scrollToColumn(index){
     //Move to specified column index. Starting from 0
     if(index !== undefined){
@@ -94,6 +100,9 @@ if(!String.prototype.startsWith){
       if(sectionIndexMap[index] !== undefined){
         hash = sectionIndexMap[index];
       }
+
+          updateColumnCounter();
+
       document.location.hash = "#"+hash;
       article.scrollTo(
         (columnWidth + cons.columnGap) * currentColumn,
@@ -193,10 +202,12 @@ if(!String.prototype.startsWith){
     $(window).resize(function(){
       updateDynamicValues(); //Update dynamic properties on every resize.
       scrollToColumn(currentColumn); //If resize, make column stay at nearest column start
+      updateColumnCounter(); //Update column counter
     }).load(function(){
       // Update dynamic variables when every image is loaded,
       // for proper total content length counting
       updateDynamicValues();
+      updateColumnCounter();
       hashWatcher();
       //Hiding Please wait overlay
       $("#pleaseWaitContainer .centered").html("Go!");
