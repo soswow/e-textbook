@@ -21,7 +21,7 @@ mfrac{
   display:inline-block;
   white-space:nowrap;
   text-align:center;
-  vertical-align:-1.2em;
+  vertical-align:-0.9em;
   margin:0 2px;
   font-size:1em;
 }
@@ -52,7 +52,7 @@ msub>*+*,msup>*+*,munder>*+*{
 }
 
 msubsup
-	{display:inline-table;
+    {display:inline-table;
 	white-space:nowrap;
 	text-align:left;
 	table-baseline:2;}

@@ -59,3 +59,15 @@ div{
   cursor:auto;
   opacity:0;
 }
+
+/* column counter */
+#eo-columncounter{
+  color:#545454;
+  font-size:150%;
+  line-height:60px;
+  max-height:60px;
+  overflow:hidden;
+  position:fixed;top:0;right:100px;
+  text-align:right !important;
+  text-shadow:#fff 1px 1px 0;
+}

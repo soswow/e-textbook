@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>e-õpik</title>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet'
-        type='text/css'/>
+  <!--<link href='http://fonts.googleapis.com/css?family=Crimson+Text:regular,600italic,bold' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" type="text/css" href="styles/article.css"/>
   <link rel="stylesheet" type="text/css" href="styles/layout.css" />
-  <!--<link rel="stylesheet" type="text/css" href="styles/video-js.css" media="screen" title="Video JS" />-->
   <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
   <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
   <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
   <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
   <script type="text/javascript" src="js/localstorage.js"></script>
-  <!--<script type="text/javascript" src="js/video.js" charset="utf-8"></script>-->
-  <!--<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>-->
   <script type="text/javascript" src="js/functions.js"></script>
-  <!--<script type="text/javascript" src="js/math.js"></script>-->
+  <script type="text/javascript" src="js/math.js"></script>
 </head>
 <body>
 <div id="pleaseWaitContainer">
@@ -27,6 +23,7 @@
 <div id="eo-go-left" class="end"></div>
 <div id="eo-go-right"></div>
 
+<div id="eo-columncounter"></div>
 
 
 <div id="eo-viewport">
@@ -36,17 +33,19 @@
     </header>   
     <section id="first">
       <figure>
-      <img src="media/lens.svg" width="40%">
+      <img src="media/lens.svg" width="360">
       <figcaption><b>Joonis.</b> Kaks kera keskpunktidega O<sub>1</sub> ja O<sub>2</sub>, mille pinna osad moodustavad läätse pinnad. Lääts on joonisel viirutatud ja selle optiline peatelg on sirge läbi O<sub>1</sub> ja O<sub>2</sub>.</figcaption>
       </figure>
       <p><span title="Läätse nimetus tuleneb söödava taime harilik lääts ladinakeelsest nimetusest Lens culinaris. Selle taime viljad meenutavad oma kujult kumerläätsi.">Läätsedi</span> on optilised detailid, mida kasutatakse kas valguse koondamiseks või hajutamiseks. Neid on vaja optilistes seadmetes nagu fotoaparaadid, mikroskoobid, pikksilmad. Tavaelus kasutame ka läätse, mida nimetatakse luubiks ehk suurendusklaasiks. <em>Läätseks</em> nimetatakse kõverpindadega piiratud läbipaistvat keha. Tavaliselt on kõverpindadeks kerapinna ehk sfääri osad ja materjaliks klaas. Sirget, mis läbib läätse pindade  kõveruskeskpunkte, nimetatakse <em>optiliseks peateljeks</em>.</p>
     </section>
     <section>
       <figure>
-        <video controls preload width="400px" class="video-js" poster="media/Optika.1.3.png">
+        <!-- <video controls preload width="400px" class="video-js" poster="media/Optika.1.3.png">
           <source src="media/Optika.1.3.1.webm" type="video/webm">
           <source src="media/Optika.1.3.1.m4v" type="video/mp4">
-        </video>
+        </video> --> <!-- Workaround -->
+        <iframe src="video1.html" width="300" height="219"></iframe>
+
         <figcaption><b>Video.</b> peale kumerlätse läbimist valguskiired koonduvad.</figcaption>
       </figure>
       <p>Läätsesid jaotatakse kumer- ja nõgusläätsedeks. <em>Kumerläätsed</em> on keskelt paksemad kui äärtest ja need koondavad valgust. <em>Nõgusläätsed</em> on keskelt õhemad kui äärtest ja need hajutavad valgust.</p>
@@ -54,7 +53,7 @@
     </section>
     <section id="second">
       <figure>
-        <video controls width="40%" poster="media/Optika.1.3.png"><source src="media/Optika.1.3.4.webm" type="video/webm"><source src="media/Optika.1.3.4.m4v" type="video/mp4"></video>
+        <iframe src="video2.html" width="300" height="219"></iframe>
         <figcaption><b>Video:</b> peale nõguslätse läbimist valguskiired hajuvad.</figcaption>
       </figure>
       <p>Kui kumerläätsele suunata paralleelnen kiirtekimp, siis pärast läätse läbimist kiired lõikuvad ühes peatelje punktis. Seda punkti nimetatakse läätse <i>fookuseks</i>. Fookuse kaugust läätse <i>keskpunktist O</i>, nimetatakse läätse <i>fookuskauguseks <math><mi>f</mi></math></i>. Valgust koondava toime tõttu nimetatakse kumerläätsi ka <i>koondavateks läätsedeks</i>.</p>
@@ -64,7 +63,7 @@
     </section>
     <section>
       <figure>
-        <embed src="media/lens_simulation.swf" />
+        <embed src="media/lens_simulation.swf" width="100%" />
         <figcaption><b>Simulatsioon.</b> Uuri kujutise asukoha ja suuruse sõltuvust eseme kaugusest ja läätse fookuskaugusest.</figcaption>
       </figure>
       <p>Kujutise konstrueerimiseks kasutame esemest väljuvaid kiiri, mille käik on meil teada.</p>
