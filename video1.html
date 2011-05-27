@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="et" manifest="eopik.manifest">
+<head>
+  <meta charset="UTF-8" />
+  <title>e-?pik</title>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic' rel='stylesheet'
+        type='text/css'/>
+  <link rel="stylesheet" type="text/css" href="styles/article.css"/>
+  <link rel="stylesheet" type="text/css" href="styles/layout.css" />
+  <link rel="stylesheet" type="text/css" href="styles/video-js.css" media="screen" title="Video JS" />
+  <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
+  <script type="text/javascript" src="js/video.js" charset="utf-8"></script>
+  <!--<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>-->
+  <!--<script type="text/javascript" src="js/functions.js"></script>-->
+  <script>
+    $(function(){
+      VideoJS.setupAllWhenReady();
+    });
+  </script>
+  <!--<script type="text/javascript" src="js/math.js"></script>-->
+</head>
+<body>
+<!--width="400" height="292"-->
+
+<!--<video controls width="50%">-->
+   <!--<source src="media/Optika.1.3.1.m4v" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
+   <!--<source src="media/Optika.1.3.1.webm" type="video/webm; codecs='vp8, vorbis'">-->
+<!--</video>-->
+
+<!--<div>-->
+<!--<div class="video-js-box" style="width:100%;">-->
+<!--height="292"-->
+<div class="video-js-box">
+  <!--style="width:400px;"-->
+  <video controls preload class="video-js" width="80%" poster="media/Optika.1.3.png">
+    <source src="media/Optika.1.3.1.webm" type="video/webm">
+    <source src="media/Optika.1.3.1.m4v" type="video/mp4">
+  </video>
+</div>
+  <!--</div>-->
+</body>
+</html>
