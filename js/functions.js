@@ -1,25 +1,37 @@
 //Augmenting jQuery and standard objects.
-jQuery.fn.css3 = function() {
-  var property, value, map, key;
-  if (arguments.length === 1) {
-    map = arguments[0];
-    for (key in map) {
-      this.css3(key, map[key]);
-    }
-  } else if (arguments.length === 2) {
-    property = arguments[0],value = arguments[1];
+if(!jQuery.fn.css3){
+  jQuery.fn.css3 = function() {
+    var property, value, map, key;
+    if (arguments.length === 1) {
+      map = arguments[0];
+      for (key in map) {
+        this.css3(key, map[key]);
+      }
+    } else if (arguments.length === 2) {
+      property = arguments[0],value = arguments[1];
 
-    var that = $(this);
-    $.each(["-webkit-", "-moz-", ""], function() {
-      that.css(this + property, value);
-    });
-  }
-  return that;
-};
+      var that = $(this);
+      $.each(["-webkit-", "-moz-", "-o-", ""], function() {
+        that.css(this + property, value);
+      });
+    }
+    return that;
+  };
+}
 String.prototype.pxToInt = function(){
   var val = this.valueOf();
   return +val.substring(0, val.length-2);
 };
+if(!String.prototype.startsWith){
+  String.prototype.startsWith = function(str){
+    var val = this.valueOf();
+    if(str.length > val.length){
+      return false;
+    }else{
+      return val.substring(0, str.length) === str;
+    }
+  };
+}
 
 (function($) {
   //Initializing local variables.
@@ -34,8 +46,9 @@ String.prototype.pxToInt = function(){
     down:40
   },
   onePageColumnsCount, totalColumnsCount, columnWidth, currentColumn,
-  sectionIndexMap, sectionIndexMapRev,
-  article, sections;
+  sectionIndexMap,
+  article, sections,
+  idPrefix = "book-";
 
   function getColumnCount(width, colWidth) {
     //Finds number of columns fitted into specified width.
@@ -53,12 +66,12 @@ String.prototype.pxToInt = function(){
     //Update statuses of arrows (disabling/enabling)
     //and update current column if needed.
     
-    $(".go_left, .go_right").removeClass("end");
+    $("#eo-go-left, #eo-go-right").removeClass("end");
     if (currentColumn <= 0) {
-      $(".go_left").addClass("end");
+      $("#eo-go-left").addClass("end");
       currentColumn = 0;
     } else if (currentColumn >= totalColumnsCount - onePageColumnsCount) {
-      $(".go_right").addClass("end");
+      $("#eo-go-right").addClass("end");
       currentColumn = totalColumnsCount - onePageColumnsCount;
     }
   }
@@ -75,11 +88,12 @@ String.prototype.pxToInt = function(){
         return; //Already on place
       }
       currentColumn = index;
-      var hash = index;
-      if(sectionIndexMap[index]){
+      updateArrows();
+      index = currentColumn;
+      var hash = currentColumn;
+      if(sectionIndexMap[index] !== undefined){
         hash = sectionIndexMap[index];
       }
-      updateArrows();
       document.location.hash = "#"+hash;
       article.scrollTo(
         (columnWidth + cons.columnGap) * currentColumn,
@@ -99,13 +113,13 @@ String.prototype.pxToInt = function(){
     columnWidth = (article.width() - (cons.columnGap * (onePageColumnsCount - 1))) / onePageColumnsCount;
     totalColumnsCount = getColumnCount(article.get(0).scrollWidth, columnWidth);
     currentColumn = Math.round((leftScroll < 0 ? 0 : leftScroll) / columnWidth);
-    sectionIndexMap = sectionIndexMapRev = {};
+    sectionIndexMap = {};
     $.each(sections, function(){
-      var that = $(this), id=that.attr("id");
+      var that = $(this), id=getNoPrefixId(that);
       if(id){
         var index = columnOfObject(that);
         sectionIndexMap[index] = id;
-        sectionIndexMapRev[id] = index;
+        sectionIndexMap[id] = index;
       }
     });
   }
@@ -140,6 +154,14 @@ String.prototype.pxToInt = function(){
     var colNum = left / (columnWidth + cons.columnGap);
     return colNum - (colNum>0?1:0);
   }
+  
+  function getNoPrefixId(obj){
+    var id = obj.attr("id");
+    if(id && id.startsWith(idPrefix)){
+      return id.substr(idPrefix.length);
+    }
+    return id;
+  }
 
   $(function() {
     //On DOM load event actions
@@ -155,9 +177,9 @@ String.prototype.pxToInt = function(){
         $("HTML > HEAD").prepend("<link rel='stylesheet' type='text/css' href='styles/mathml.css' />");
     }
 
-    $(".go_left, .go_right").click(function() {
+    $("#eo-go-left, #eo-go-right").click(function() {
       //Arrow buttons event handling
-      swipeContent($(this).hasClass("go_left") ? keys.left : keys.right);
+      swipeContent($(this).is("#eo-go-left") ? keys.left : keys.right);
     });
 
     $(document).keyup(function(e){
@@ -182,7 +204,13 @@ String.prototype.pxToInt = function(){
         $("#pleaseWaitContainer").hide("normal");
       }, 200);
     });
+    sections.each(function(){
+      var that = $(this), 
+          id = that.attr("id");
+      if(id && !id.startsWith(idPrefix)){
+        that.attr("id", idPrefix+id);
+      }
+    });
   });
 
 }(jQuery));
-
