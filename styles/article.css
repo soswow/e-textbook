@@ -8,15 +8,15 @@ article{
   height:100%;
   overflow-x:hidden;
   overflow-y:hidden;
-  padding:80px 0 20px 0;
+  padding:40px 0 20px 0;
   position:relative;
 }
 
 article>header:first-child{
-  background-color:#87CEEB;
+  /*background-color:#87CEEB;
   position:fixed;top:0;left:0;
   padding-left:100px;
-  width:100%;
+  width:100%;*/
 }
 
 article>header h1 {
@@ -24,10 +24,11 @@ article>header h1 {
   font-size:150%;
   line-height:60px;
   max-height:60px;
-  overflow:hidden;
+  /*overflow:hidden;*/
   text-overflow:ellipsis;
   text-align:left !important;
   text-shadow:#fff 1px 1px 0;
+  /**/
 }
 
 article h2 {font-size:120%;}
