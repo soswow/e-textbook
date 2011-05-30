@@ -48,8 +48,9 @@ if(!String.prototype.startsWith){
   onePageColumnsCount, totalColumnsCount, columnWidth, currentColumn,
   sectionIndexMap,
   article, sections,
-  idPrefix = "book-";
-
+  idPrefix = "book-",
+  noColumnBrowser = !!($.browser.msie && ((+$.browser.version) < 9));
+ 
   function getColumnCount(width, colWidth) {
     //Finds number of columns fitted into specified width.
 
@@ -119,7 +120,14 @@ if(!String.prototype.startsWith){
         leftScroll = article.get(0).scrollLeft - leftPadding;
     onePageColumnsCount = getColumnCount(article.width(), cons.columnWidth);
     columnWidth = (article.width() - (cons.columnGap * (onePageColumnsCount - 1))) / onePageColumnsCount;
-    totalColumnsCount = getColumnCount(article.get(0).scrollWidth, columnWidth);
+    if(noColumnBrowser){
+			article.width(10000).columnize({
+				width : columnWidth,
+				height: article.height()
+				/*buildOnce : false,
+				ignoreImageLoading: false*/});
+		}
+		totalColumnsCount = getColumnCount(article.get(0).scrollWidth, columnWidth);
     currentColumn = Math.round((leftScroll < 0 ? 0 : leftScroll) / columnWidth);
     sectionIndexMap = {};
     $.each(sections, function(){
@@ -171,15 +179,24 @@ if(!String.prototype.startsWith){
     return id;
   }
 
+  function setColumns(obj){
+		if(noColumnBrowser){
+			
+			
+		}else{
+			obj.css3({
+				"column-width": cons.columnWidth,
+				"column-gap": cons.columnGap
+			}); //Set column properties
+		}
+  }
+  
   $(function() {
     //On DOM load event actions
 
-    article = $("article");
+    article = $("#article");
     sections = article.find("section");
-    article.css3({
-          "column-width": cons.columnWidth,
-          "column-gap": cons.columnGap
-    }); //Set column properties
+    setColumns(article);
 
     if(!$.browser.mozilla){
         $("HTML > HEAD").prepend("<link rel='stylesheet' type='text/css' href='styles/mathml.css' />");
@@ -221,6 +238,7 @@ if(!String.prototype.startsWith){
         that.attr("id", idPrefix+id);
       }
     });
+	
   });
 
 }(jQuery));

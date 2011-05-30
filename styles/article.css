@@ -1,4 +1,4 @@
-article{
+#article{
   box-sizing:border-box; 
  -moz-box-sizing:border-box;
  -webkit-box-sizing:border-box;
@@ -7,19 +7,19 @@ article{
   font-size:18px;
   height:100%;
   overflow-x:hidden;
-  overflow-y:hidden;
+  overflow-y:hidden;/**/
   padding:40px 0 20px 0;
   position:relative;
 }
 
-article>header:first-child{
+#article>header:first-child{
   /*background-color:#87CEEB;
   position:fixed;top:0;left:0;
   padding-left:100px;
   width:100%;*/
 }
 
-article>header h1 {
+#article>header h1 {
   color:#545454;
   font-size:150%;
   line-height:60px;
@@ -31,52 +31,52 @@ article>header h1 {
   /**/
 }
 
-article h2 {font-size:120%;}
-article h3 {font-size:100%;}
+#article h2 {font-size:120%;}
+#article h3 {font-size:100%;}
 header h1,
-article h2,
-article h3{
+#article h2,
+#article h3{
   line-height:150%;
   margin:0;
   text-overflow:ellipsist;
 }
 
-article figure{
+#article figure{
  display:inline-block;
  break-inside:avoid-column;
  text-align:center;
  width:100%;
 }
-article figure>*:first-child {
+#article figure>*:first-child {
   border: 1px dotted gray;
   width: 40%;
 }
 
-article iframe{
+#article iframe{
  border:0;
  margin:0;
  overflow:hidden !important;
  padding:0;
 }
 
-article p,
-article li,
-article dl,
-article dt,
-article figcaption{
+#article p,
+#article li,
+#article dl,
+#article dt,
+#article figcaption{
   font-size:100%;
   line-height:150%;
   margin:0;
   text-align:justify;
 }
 
-article figure,
-article ol,
-article ul{
+#article figure,
+#article ol,
+#article ul{
   margin:16px 0;
 }
 
-article section{
+#article section{
   box-sizing:border-box; 
  -moz-box-sizing:border-box;
  -webkit-box-sizing:border-box;
@@ -84,10 +84,10 @@ article section{
 
 /* NOTES */
 
-article span[title]{
+#article span[title]{
   cursor:pointer;
 }
-article span[title]:after{
+#article span[title]:after{
   content:"‡";
   display:inline-block;
   font-size:75%;
@@ -99,19 +99,19 @@ article span[title]:after{
 
 /* MATH */
 
-article math{
+#article math{
  font-size:16px;  
  line-height:150%;
 }
-article math[display="block"]{
+#article math[display="block"]{
  font-size:100% !important;
  min-height:150%;
  text-align:center;
 }
-article math *[class="math-edit"]{
+#article math *[class="math-edit"]{
  color:#08c;
 }
-article math>mo{
+#article math>mo{
  margin:0 2px;
 }
 #select{

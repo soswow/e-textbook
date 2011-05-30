@@ -6,6 +6,9 @@
   <!--<link href='http://fonts.googleapis.com/css?family=Crimson+Text:regular,600italic,bold' rel='stylesheet' type='text/css'>-->
   <link rel="stylesheet" type="text/css" href="styles/article.css"/>
   <link rel="stylesheet" type="text/css" href="styles/layout.css" />
+  <!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
   <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
   <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
   <script type="text/javascript" src="js/jquery.touchwipe.1.1.1.js"></script>
@@ -14,6 +17,7 @@
   <script type="text/javascript" src="js/localstorage.js"></script>
   <script type="text/javascript" src="js/functions.js"></script>
   <script type="text/javascript" src="js/math.js"></script>
+  <script type="text/javascript" src="js/jquery.columnizer.js"></script>
 </head>
 <body>
 <div id="pleaseWaitContainer">
@@ -28,7 +32,7 @@
 </div>
 
 <div id="eo-viewport">
-  <article lang="et"> 
+  <div id="article" lang="et"> 
     <header>
       <h1>Kujutise tekitamine läätse abil</h1>
     </header>
@@ -106,7 +110,7 @@
       1 dioptria (dptr), see on läätse optiline tugevus, mille fookuskaugus <math><mi>f</mi><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><mtext>m</mtext></math>,
       st <math><mn>1</mn><mtext>&#x00A0;</mtext><mtext>dptr</mtext><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><msup><mtext>m</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></math>.</p>
     </section>
-  </article>
+  </div>
 </div>
 </body>
 </html>
