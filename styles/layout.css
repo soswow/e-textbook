@@ -1,6 +1,7 @@
 body, html{
   margin:0;
   padding:0;
+  overflow: hidden;
 }
 
 div{
@@ -39,20 +40,57 @@ div{
 }
 
 /* -- arrows -- */
-
+#eo-left-event,
+#eo-right-event{
+  -webkit-transition: width 0.2s linear;
+  position:absolute;top:0;bottom:0;
+  width: 40px;
+}
+#eo-left-event{
+  left:0;
+}
+#eo-right-event{
+  right:0;
+}
+#eo-left-event:hover,
+#eo-right-event:hover{
+  width: 150px;
+}
 #eo-go-left,
 #eo-go-right{
   cursor:pointer;
   height:100%;
-  width:80px;
+  width:150px;
+  position:absolute;top:0;
+  /*background-image: -webkit-liniar-gradient(left,#fff,#fff);*/
 }
 #eo-go-left{
-  background:url('../images/left-arrow.svg') center right no-repeat;
-  position:absolute;top:0;left:0;
+  right:0;
+  background: -webkit-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 #eo-go-right{
-  background:url('../images/right-arrow.svg') center left no-repeat;
-  position:absolute;top:0;right:0;
+  left:0;
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+/*background-image: -moz-linear-gradient(*/
+    /*center bottom,*/
+    /*rgb(255,255,255) 15%,*/
+    /*rgb(255,255,255) 58%,*/
+    /*rgb(255,255,255) 79%*/
+/*);*/
+
+#eo-go-left .arrow,
+#eo-go-right .arrow{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+}
+#eo-go-left .arrow{
+  background:url('../images/left-arrow.png') center left no-repeat;
+  left:15px;
+}
+#eo-go-right .arrow{
+  background:url('../images/right-arrow.png') center right no-repeat;
+  right:15px;
 }
 #eo-go-left.end,
 #eo-go-right.end{
