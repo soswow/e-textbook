@@ -1,6 +1,13 @@
 body, html{
   margin:0;
   padding:0;
+
+}
+
+body, html,
+#eo-viewport,
+#eo-left-event,
+#eo-right-event{
   overflow: hidden;
 }
 
@@ -33,7 +40,8 @@ div{
 
 #eo-viewport {
   position: absolute;
-  top:0; right:20px; bottom:0; left:20px;
+  top:0; right:40px; bottom:0; left:40px;
+
   /*height: 100%;*/
   /*width: 100%;*/
   z-index:-1;
@@ -43,8 +51,10 @@ div{
 #eo-left-event,
 #eo-right-event{
   -webkit-transition: width 0.2s linear;
+  -moz-transition: width 0.2s linear;
   position:absolute;top:0;bottom:0;
   width: 40px;
+  overflow: hidden;
 }
 #eo-left-event{
   left:0;
@@ -55,6 +65,7 @@ div{
 #eo-left-event:hover,
 #eo-right-event:hover{
   width: 150px;
+  /*overflow: auto;*/
 }
 #eo-go-left,
 #eo-go-right{
@@ -67,10 +78,12 @@ div{
 #eo-go-left{
   right:0;
   background: -webkit-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+  background: -moz-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 #eo-go-right{
   left:0;
   background: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
+  background: -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
 /*background-image: -moz-linear-gradient(*/
