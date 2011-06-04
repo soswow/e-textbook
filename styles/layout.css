@@ -41,7 +41,6 @@ div{
 #eo-viewport {
   position: absolute;
   top:0; right:40px; bottom:0; left:40px;
-
   /*height: 100%;*/
   /*width: 100%;*/
   z-index:-1;
@@ -58,12 +57,20 @@ div{
 }
 #eo-left-event{
   left:0;
+  background:url('../images/left-arrow-small.png') 10px center no-repeat;
 }
 #eo-right-event{
   right:0;
+  background:url('../images/right-arrow-small.png') 15px center no-repeat;
 }
+#eo-left-event.end,
+#eo-right-event.end{
+  background: none;
+}
+
 #eo-left-event:hover,
 #eo-right-event:hover{
+  background: none;
   width: 150px;
   /*overflow: auto;*/
 }
@@ -105,8 +112,8 @@ div{
   background:url('../images/right-arrow.png') center right no-repeat;
   right:15px;
 }
-#eo-go-left.end,
-#eo-go-right.end{
+#eo-left-event.end #eo-go-left,
+#eo-right-event.end #eo-go-right{
   cursor:auto;
   opacity:0;
 }

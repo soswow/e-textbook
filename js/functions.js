@@ -66,12 +66,12 @@ if(!String.prototype.startsWith){
     //Update statuses of arrows (disabling/enabling)
     //and update current column if needed.
     
-    $("#eo-go-left, #eo-go-right").removeClass("end");
+    $("#eo-left-event, #eo-right-event").removeClass("end");
     if (currentColumn <= 0) {
-      $("#eo-go-left").addClass("end");
+      $("#eo-left-event").addClass("end");
       currentColumn = 0;
     } else if (currentColumn >= totalColumnsCount - onePageColumnsCount) {
-      $("#eo-go-right").addClass("end");
+      $("#eo-right-event").addClass("end");
       currentColumn = totalColumnsCount - onePageColumnsCount;
     }
   }
