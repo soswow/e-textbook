@@ -173,7 +173,7 @@ if(!String.prototype.startsWith){
 
   $(function() {
     //On DOM load event actions
-
+    var sectionChooserDiv = $("#section-chooser");
     article = $("article");
     sections = article.find("section");
     article.css3({
@@ -214,13 +214,18 @@ if(!String.prototype.startsWith){
         $("#pleaseWaitContainer").hide("normal");
       }, 200);
     });
+
+    var sectionChooser = $("<select></select>").appendTo(sectionChooserDiv);
     sections.each(function(){
       var that = $(this), 
-          id = that.attr("id");
+          id = that.attr("id"),
+          h2 = that.find("h2").eq(0);
       if(id && !id.startsWith(idPrefix)){
         that.attr("id", idPrefix+id);
       }
+      sectionChooser.append($("<option></option>").val(h2.attr("id")).html(h2.text()));
     });
+
   });
 
 }(jQuery));

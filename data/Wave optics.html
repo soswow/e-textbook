@@ -1,0 +1,1199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0058)http://www.lightandmatter.com/html_books/lm/ch32/ch32.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Wave optics</title>
+    <link rel="stylesheet" type="text/css" href="./Wave optics_files/banner.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./Wave optics_files/lm.css" media="all">
+    
+    
+  </head>
+  <body>
+  <div class="banner">
+    <div class="banner_contents">
+        <div class="banner_logo" id="logo_div"><img src="./Wave optics_files/logo.png" alt="Light and Matter logo" id="logo_img"></div>
+        <div class="banner_text">
+          <ul>
+            <li> <a href="http://www.lightandmatter.com/">home</a> </li>
+            <li> <a href="http://www.lightandmatter.com/books.html">books</a> </li>
+            <li> <a href="http://www.lightandmatter.com/software.html">software</a> </li>
+            <li> <a href="http://www.lightandmatter.com/courses.html">courses</a> </li>
+            <li> <a href="http://www.lightandmatter.com/area4author.html">contact</a> </li>
+
+          </ul>
+        </div>
+    </div>
+  </div>
+<table style="width:728px;"><tbody><tr><td>    <div class="topstuff">
+    
+    <p>You are viewing the html version of <b>Light and Matter</b>, by Benjamin Crowell. This version is only designed for casual browsing, and may have
+    some formatting problems.
+    For serious reading, you want the <a href="http://www.lightandmatter.com/lm/">Adobe Acrobat version</a>.</p>
+    <p><a href="http://www.lightandmatter.com/html_books/lm/">Table of Contents</a></p>
+    <p>(c) 1998-2011 Benjamin Crowell, licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike license</a>.
+     Photo credits are given at the end of the Adobe Acrobat version.</p>
+    </div>
+</td></tr></tbody></table>
+          <!-- ============== ad =============== -->
+          <script type="text/javascript"><!--
+          google_ad_client = "pub-2202341256191765";
+          google_ad_width = 728;
+          google_ad_height = 90;
+          google_ad_format = "728x90_as";
+          google_ad_type = "text";
+          google_ad_channel ="";
+          google_color_border = "dddddd";
+          google_color_bg = "FFFFFF";
+          google_color_link = "444444";
+          google_color_text = "000000";
+          google_color_url = "000000";
+          //--></script>
+
+          <script type="text/javascript" src="./Wave optics_files/show_ads.js">
+          </script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" frameborder="0" height="90" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+=&#39;.call&#39;;setTimeout(h,0)}else if(h.match){i+=&#39;.nav&#39;;w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" scrolling="no" vspace="0" width="728" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+
+<div class="container">Contents<br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.1">Section 32.1 - Diffraction</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.2">Section 32.2 - Scaling of diffraction</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.3">Section 32.3 - The correspondence principle</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.4">Section 32.4 - Huygens' principle</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.5">Section 32.5 - Double-slit diffraction</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.6">Section 32.6 - Repetition</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.7">Section 32.7 - Single-slit diffraction</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.8">Section 32.8 - The principle of least time (optional calculus-based section)</a><br>
+<a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#Section32.9">Section 32.9 - Summary</a><br>
+</div><div class="container">
+
+
+<img src="./Wave optics_files/pleiades.jpg" alt="pleiades"><a name="fig:pleiades"></a><p class="caption">This image of the Pleiades star cluster shows haloes around the stars due to the wave nature of light.</p>
+<h1><a name="Chapter32"></a>Chapter 32. Wave optics</h1>
+
+<p>Electron microscopes can make images of individual atoms,
+but why will a visible-light microscope never be able to?
+Stereo speakers create the illusion of music that comes from
+a band arranged in your living room, but why doesn't the
+stereo illusion work with bass notes? Why are computer chip
+manufacturers investing billions of dollars in equipment to
+etch chips with x-rays instead of visible light?</p>
+
+<p>The answers to all of these questions have to do with the
+subject of wave optics. So far this book has discussed the
+interaction of light waves with matter, and its practical
+applications to optical devices like mirrors, but we have
+used the ray model of light almost exclusively. Hardly ever
+have we explicitly made use of the fact that light is an
+electromagnetic wave. We were able to get away with the
+simple ray model because the chunks of matter we were
+discussing, such as lenses and mirrors, were thousands of
+times larger than a wavelength of light. We now turn to
+phenomena and devices that can only be understood using the
+wave model of light.</p>
+
+<h2><a name="Section32.1"></a>32.1 Diffraction</h2><div class="margin">
+
+<img src="./Wave optics_files/double-slit-water-waves.png" alt="double-slit-water-waves"><a name="fig:double-slit-water-waves"></a><p class="caption">a / In this view from overhead, a straight, sinusoidal water wave encounters a barrier with two gaps in it. Strong wave vibration occurs at angles X and Z, but there is none at all at angle Y. (The figure has been retouched from a real photo of water waves. In reality, the waves beyond the barrier would be much weaker than the ones before it, and they would therefore be difficult to see.) </p>
+
+<img src="./Wave optics_files/double-slit-no-diffraction.jpg" alt="double-slit-no-diffraction"><a name="fig:double-slit-no-diffraction"></a><p class="caption">b / This doesn't happen.</p>
+
+<img src="./Wave optics_files/double-slit-setup.png" alt="double-slit-setup"><a name="fig:double-slit-setup"></a><p class="caption">c / A practical, low-tech setup for observing diffraction of light. </p>
+
+<img src="./Wave optics_files/scaling.jpg" alt="scaling"><a name="fig:scaling"></a><p class="caption">d / The bottom figure is simply a copy of the middle portion of the top one, scaled up by a factor of two. All the angles are the same. Physically, the angular pattern of the diffraction fringes can't be any different if we scale both λ and <i>d</i> by the same factor, leaving λ/<i>d</i> unchanged. </p>
+</div>
+
+<p>Figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a> shows a typical problem in wave optics, enacted
+with water waves. It may seem surprising that we don't get a
+simple pattern like figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-no-diffraction">b</a>, but the pattern would only
+be that simple if the wavelength was hundreds of times
+shorter than the distance between the gaps in the barrier
+and the widths of the gaps.</p>
+
+<p>Wave optics is a broad subject, but this example will help
+us to pick out a reasonable set of restrictions to make
+things more manageable:</p>
+
+<p>(1) We restrict ourselves to cases in which a wave travels
+through a uniform medium, encounters a certain area in which
+the medium has different properties, and then emerges on the
+other side into a second uniform region.</p>
+
+<p>(2) We assume that the incoming wave is a nice tidy
+sine-wave pattern with wavefronts that are lines (or, in
+three dimensions, planes).</p>
+
+<p>(3) In figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a> we can see that the wave pattern
+immediately beyond the barrier is rather complex, but
+farther on it sorts itself out into a set of wedges
+separated by gaps in which the water is still. We will
+restrict ourselves to studying the simpler wave patterns
+that occur farther away, so that the main question of
+interest is how intense the outgoing wave is at a given angle.</p>
+
+<p>The kind of phenomenon described by restriction (1) is
+called <i>diffraction</i>. Diffraction
+can be defined as the behavior of a wave when it encounters
+an obstacle or a nonuniformity in its medium. In general,
+diffraction causes a wave to bend around obstacles and make
+patterns of strong and weak waves radiating out beyond the
+obstacle. Understanding diffraction is the central problem
+of wave optics. If you understand diffraction, even the
+subset of diffraction problems that fall within restrictions
+(2) and (3), the rest of wave optics is icing on the cake.</p>
+
+<p>Diffraction can be used to find the structure of an unknown
+diffracting object: even if the object is too small to study
+with ordinary imaging, it may be possible to work backward
+from the diffraction pattern to learn about the object. The
+structure of a crystal, for example, can be determined from
+its x-ray diffraction pattern.</p>
+
+<p>Diffraction can also be a bad thing. In a telescope, for
+example, light waves are diffracted by all the parts of the
+instrument. This will cause the image of a star to appear
+fuzzy even when the focus has been adjusted correctly. By
+understanding diffraction, one can learn how a telescope
+must be designed in order to reduce this problem ---
+essentially, it should have the biggest possible diameter.</p>
+
+<p>There are two ways in which restriction (2) might commonly
+be violated. First, the light might be a mixture of
+wavelengths. If we simply want to observe a diffraction
+pattern or to use diffraction as a technique for studying
+the object doing the diffracting (e.g., if the object is too
+small to see with a microscope), then we can pass the light
+through a colored filter before diffracting it.</p>
+
+<p>A second issue is that light from sources such as the sun or
+a lightbulb does not consist of a nice neat plane wave,
+except over very small regions of space. Different parts of
+the wave are out of step with each other, and the wave is
+referred to as <i>incoherent</i>. One way
+of dealing with this is shown in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-setup">c</a>. After filtering
+to select a certain wavelength of red light, we pass the
+light through a small pinhole. The region of the light that
+is intercepted by the pinhole is so small that one part of
+it is not out of step with another. Beyond the pinhole,
+light spreads out in a spherical wave; this is analogous to
+what happens when you speak into one end of a paper towel
+roll and the sound waves spread out in all directions from
+the other end. By the time the spherical wave gets to the
+double slit it has spread out and reduced its curvature, so
+that we can now think of it as a simple plane wave.</p>
+
+<p>If this seems laborious, you may be relieved to know that
+modern technology gives us an easier way to produce a
+single-wavelength, coherent beam of light: the laser.</p>
+
+<p>The parts of the final image on the screen in <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-setup">c</a> are called
+diffraction fringes.
+The center of each fringe is a point of maximum brightness,
+and halfway between two fringes is a minimum.</p>
+
+<h5 class="dq">Discussion Question</h5><div class="dq">
+
+<p>◊
+Why would x-rays rather than visible light be used to find
+the structure of a crystal? Sound waves are used to make
+images of fetuses in the womb. What would influence the
+choice of wavelength?</p>
+
+</div><h2><a name="Section32.2"></a>32.2 Scaling of diffraction</h2>
+
+<p>This chapter has “optics” in its title, so it is nominally
+about light, but we started out with an example involving
+water waves. Water waves are certainly easier to visualize,
+but is this a legitimate comparison? In fact the analogy
+works quite well, despite the fact that a light wave has a
+wavelength about a million times shorter. This is because
+diffraction effects scale uniformly. That is, if we enlarge
+or reduce the whole diffraction situation by the same
+factor, including both the wavelengths and the sizes of the
+obstacles the wave encounters, the result is still a valid solution.</p>
+
+<p>This is unusually simple behavior! In the first book of this
+series we saw many examples of more complex scaling, such as
+the impossibility of bacteria the size of dogs, or the need
+for an elephant to eliminate heat through its ears because
+of its small surface-to-volume ratio, whereas a tiny shrew's
+life-style centers around conserving its body heat.</p>
+
+<p>Of course water waves and light waves differ in many ways,
+not just in scale, but the general facts you will learn
+about diffraction are applicable to all waves. In some ways
+it might have been more appropriate to insert this chapter
+at the end of book 3, Vibrations and Waves, but many of the
+important applications are to light waves, and you would
+probably have found these much more difficult without any
+background in optics.</p>
+
+<p>Another way of stating the simple scaling behavior of
+diffraction is that the diffraction angles we get depend
+only on the unitless ratio λ/d, where λ is
+the wavelength of the wave and <i>d</i> is some dimension of the
+diffracting objects, e.g., the center-to-center spacing
+between the slits in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a>. If, for instance, we scale
+up both λ and <i>d</i> by a factor of 37, the ratio
+λ /<i>d</i> will be unchanged.</p>
+
+<h2><a name="Section32.3"></a>32.3 The correspondence principle</h2><div class="margin">
+
+<img src="./Wave optics_files/huygens.jpg" alt="huygens"><a name="fig:huygens"></a><p class="caption">e / Christiaan Huygens (1629-1695).</p>
+</div>
+
+<p>The only reason we don't usually notice diffraction of light
+in everyday life is that we don't normally deal with objects
+that are comparable in size to a wavelength of visible
+light, which is about a millionth of a meter. Does this mean
+that wave optics contradicts ray optics, or that wave optics
+sometimes gives wrong results? No. If you hold three fingers
+out in the sunlight and cast a shadow with them, <i>either</i>
+wave optics or ray optics can be used to predict the
+straightforward result: a shadow pattern with two bright
+lines where the light has gone through the gaps between your
+fingers. Wave optics is a more general theory than ray
+optics, so in any case where ray optics is valid, the two
+theories will agree. This is an example of a general idea
+enunciated by the physicist Niels Bohr,
+called the <i>correspondence
+principle: </i> when flaws in a physical theory lead to the
+creation of a new and more general theory, the new theory
+must still agree with the old theory within its more
+restricted area of applicability. After all, a theory is
+only created as a way of describing experimental observations.
+If the original theory had not worked in any cases at all,
+it would never have become accepted.</p>
+
+<p>In the case of optics, the correspondence principle tells us
+that when λ /<i>d</i> is small, both the ray and the wave
+model of light must give approximately the same result.
+Suppose you spread your fingers and cast a shadow with them
+using a coherent light source. The quantity λ /<i>d</i> is
+about 10 -4, so the two models will agree very closely. (To
+be specific, the shadows of your fingers will be outlined by
+a series of light and dark fringes, but the angle subtended
+by a fringe will be on the order of 10<sup>-4</sup> radians, so
+they will be invisible and washed out by the natural
+fuzziness of the edges of sun-shadows, caused by the
+finite size of the sun.)</p>
+
+<div class="selfcheck">
+
+<p><i>self-check:</i>
+What kind of wavelength would an electromagnetic wave have
+to have in order to diffract dramatically around your body?
+Does this contradict the correspondence principle?
+(answer in the back of the PDF version of the book)</p>
+
+</div><h2><a name="Section32.4"></a>32.4 Huygens' principle</h2><div class="margin">
+
+<img src="./Wave optics_files/double-slit-water-waves-photo.jpg" alt="double-slit-water-waves-photo"><a name="fig:double-slit-water-waves-photo"></a><p class="caption">f / Double-slit diffraction.</p>
+
+<img src="./Wave optics_files/huygens-1.png" alt="huygens-1"><a name="fig:huygens-1"></a><p class="caption">g / A wavefront can be analyzed by the principle of superposition, breaking it down into many small parts. </p>
+
+<img src="./Wave optics_files/huygens-2.png" alt="huygens-2"><a name="fig:huygens-2"></a><p class="caption">h / If it was by itself, each of the parts would spread out as a circular ripple. </p>
+
+<img src="./Wave optics_files/huygens-3.png" alt="huygens-3"><a name="fig:huygens-3"></a><p class="caption">i / Adding up the ripples produces a new wavefront.</p>
+
+<img src="./Wave optics_files/young.jpg" alt="young"><a name="fig:young"></a><p class="caption">j / Thomas Young</p>
+
+<img src="./Wave optics_files/double-slit-water-waves.png" alt="double-slit-water-waves"><a name="fig:double-slit-water-waves"></a><p class="caption">k / Double-slit diffraction.</p>
+
+<img src="./Wave optics_files/double-slit-overlapping.png" alt="double-slit-overlapping"><a name="fig:double-slit-overlapping"></a><p class="caption">l / Use of Huygens' principle.</p>
+
+<img src="./Wave optics_files/double-slit-path-length.png" alt="double-slit-path-length"><a name="fig:double-slit-path-length"></a><p class="caption">m / Constructive interference along the center-line.</p>
+</div>
+
+<p>Returning to the example of double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves-photo">f</a>,
+note the strong visual impression of two overlapping sets of
+concentric semicircles. This is an example of <i>Huygens' principle</i>, named after a Dutch physicist
+and astronomer. (The first syllable rhymes with “boy.”)
+Huygens' principle states that any wavefront can be broken
+down into many small side-by-side wave peaks, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-1">g</a>, which
+then spread out as circular ripples, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-2">h</a>, and by the
+principle of superposition, the result of adding up these
+sets of ripples must give the same result as allowing the
+wave to propagate forward, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-3">i</a>. In the case of sound or
+light waves, which propagate in three dimensions, the
+“ripples” are actually spherical rather than circular, but
+we can often imagine things in two dimensions for simplicity.</p>
+
+<p>In double-slit diffraction the application of Huygens'
+principle is visually convincing: it is as though all the
+sets of ripples have been blocked except for two. It is a
+rather surprising mathematical fact, however, that Huygens'
+principle gives the right result in the case of an
+unobstructed linear wave, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-2">h</a> and <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-3">i</a>. A theoretically
+infinite number of circular wave patterns somehow conspire
+to add together and produce the simple linear wave motion
+with which we are familiar.</p>
+
+<p>Since Huygens' principle is equivalent to the principle of
+superposition, and superposition is a property of waves,
+what Huygens had created was essentially the first wave
+theory of light. However, he imagined light as a series of
+pulses, like hand claps, rather than as a sinusoidal wave.</p>
+
+<p>The history is interesting. Isaac Newton
+loved the atomic theory of matter so much that he searched
+enthusiastically for evidence that light was also made of
+tiny particles. The paths of his light particles would
+correspond to rays in our description; the only significant
+difference between a ray model and a particle model of light
+would occur if one could isolate individual particles and
+show that light had a “graininess” to it. Newton never did
+this, so although he thought of his model as a particle
+model, it is more accurate to say he was one of the builders
+of the ray model.</p>
+
+<p>Almost all that was known about reflection and refraction of
+light could be interpreted equally well in terms of a
+particle model or a wave
+model, but Newton had one reason for strongly opposing
+Huygens' wave theory. Newton knew
+that waves exhibited diffraction, but diffraction of light
+is difficult to observe, so Newton believed that light did
+not exhibit diffraction, and therefore must not be a wave.
+Although Newton's criticisms were fair enough, the debate
+also took on the overtones of a nationalistic dispute
+between England and continental Europe, fueled by English
+resentment over Leibniz's supposed plagiarism of Newton's
+calculus. Newton wrote a book on optics, and his prestige
+and political prominence tended to discourage questioning of his model.</p>
+
+<p>Thomas Young (1773-1829) was the person
+who finally, a hundred years later, did a careful search for
+wave interference effects with light and analyzed the
+results correctly. He observed double-slit diffraction of
+light as well as a variety of other diffraction effects, all
+of which showed that light exhibited wave interference
+effects, and that the wavelengths of visible light waves
+were extremely short. The crowning achievement was the
+demonstration by the experimentalist Heinrich Hertz and the theorist James Clerk
+Maxwell that light was an
+<i>electromagnetic</i> wave. Maxwell is said to have related
+his discovery to his wife one starry evening and told her
+that she was the only other person in the world who knew what starlight was.</p>
+
+<h2><a name="Section32.5"></a>32.5 Double-slit diffraction</h2><div class="margin">
+
+<img src="./Wave optics_files/double-slit-derivation-1.png" alt="double-slit-derivation-1"><a name="fig:double-slit-derivation-1"></a><p class="caption">n / The waves travel distances <i>L</i> and <i>L</i>' from the two slits to get to the same point in space, at an angle θ from the center line. </p>
+
+<img src="./Wave optics_files/double-slit-derivation-2.png" alt="double-slit-derivation-2"><a name="fig:double-slit-derivation-2"></a><p class="caption">o / A close-up view of figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-derivation-1">n</a>, showing how the path length difference <i>L</i>-<i>L</i>' is related to <i>d</i> and to the angle θ. </p>
+
+<img src="./Wave optics_files/double-slit-d.png" alt="double-slit-d"><a name="fig:double-slit-d"></a><p class="caption">p / Cutting <i>d</i> in half doubles the angles of the diffraction fringes.</p>
+
+<img src="./Wave optics_files/double-slit-wavelength.png" alt="double-slit-wavelength"><a name="fig:double-slit-wavelength"></a><p class="caption">q / Double-slit diffraction patterns of long-wavelength red light (top) and short-wavelength blue light (bottom). </p>
+</div>
+
+<p>Let's now analyze double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves2">k</a>, using
+Huygens' principle. The most interesting question is how to
+compute the angles such as X and Z where the wave
+intensity is at a maximum, and the in-between angles like
+Y where it is minimized. Let's measure all our angles
+with respect to the vertical center line of the figure,
+which was the original direction of propagation of the wave.</p>
+
+<p>If we assume that the width of the slits is small (on the
+order of the wavelength of the wave or less), then we can
+imagine only a single set of Huygens ripples spreading out
+from each one, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-overlapping">l</a>. White lines represent peaks, black
+ones troughs. The only dimension of the diffracting
+slits that has any effect on the geometric pattern of the
+overlapping ripples is then the center-to-center distance,
+<i>d</i>, between the slits.</p>
+
+<p>We know from our discussion of the scaling of diffraction
+that there must be some equation that relates an angle like
+θ<sub><i>Z</i></sub> to the ratio λ /<i>d</i>,
+</p><div class="equation"><img src="./Wave optics_files/eq_41b338e3.png" alt=" frac{lambda}{d} leftrightarrow theta_Z qquad ."></div><p class="noindent">
+If the equation for θ<sub><i>Z</i></sub> depended on some other
+expression such as λ +<i>d</i> or λ<sup>2</sup>/<i>d</i>, then it
+would change when we scaled λ and <i>d</i> by the same
+factor, which would violate what we know about the
+scaling of diffraction.</p>
+
+<p>Along the central maximum line, X, we always have positive
+waves coinciding with positive ones and negative waves
+coinciding with negative ones. (I have arbitrarily chosen to
+take a snapshot of the pattern at a moment when the waves
+emerging from the slit are experiencing a positive peak.)
+The superposition of the two sets of ripples therefore
+results in a doubling of the wave amplitude along this line.
+There is constructive interference. This is easy to explain,
+because by symmetry, each wave has had to travel an equal
+number of wavelengths to get from its slit to the center line, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-path-length">m</a>:
+Because both sets of ripples have ten wavelengths to cover in
+order to reach the point along direction X, they will be in step when they get there.</p>
+
+<p>At the point along direction Y shown in the same figure,
+one wave has traveled ten wavelengths, and is therefore at a
+positive extreme, but the other has traveled only nine and a
+half wavelengths, so it at a negative extreme. There is
+perfect cancellation, so points along this line experience no wave motion.</p>
+
+<p>But the distance traveled does not have to be equal in order
+to get constructive interference. At the point along
+direction Z, one wave has gone nine wavelengths and the
+other ten. They are both at a positive extreme.</p>
+
+<div class="selfcheck">
+
+<p><i>self-check:</i>
+At a point half a wavelength below the point marked along
+direction X, carry out a similar analysis.
+(answer in the back of the PDF version of the book)</p>
+
+</div>
+
+<p>To summarize, we will have perfect constructive interference
+at any point where the distance to one slit differs from the
+distance to the other slit by an integer number of
+wavelengths. Perfect destructive interference will occur
+when the number of wavelengths of path length difference
+equals an integer plus a half.</p>
+
+<p>Now we are ready to find the equation that predicts the
+angles of the maxima and minima. The waves travel different
+distances to get to the same point in space, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-derivation-1">n</a>. We need to
+find whether the waves are in phase (in step) or out of
+phase at this point in order to predict whether there will
+be constructive interference, destructive interference, or
+something in between.</p>
+
+<p>One of our basic assumptions in this chapter is that we will
+only be dealing with the diffracted wave in regions very far
+away from the object that diffracts it, so the triangle is
+long and skinny. Most real-world examples with diffraction
+of light, in fact, would have triangles with even skinner
+proportions than this one. The two long sides are therefore
+very nearly parallel, and we are justified in drawing the
+right triangle shown in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-derivation-2">o</a>, labeling one leg of the
+right triangle as the difference in path length , <i>L</i>-<i>L</i>',
+and labeling the acute angle as θ. (In reality this
+angle is a tiny bit greater than the one labeled θ
+in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-derivation-1">n</a>.)</p>
+
+<p>The difference in path length is related to <i>d</i> and
+θ by the equation
+</p><div class="equation"><img src="./Wave optics_files/eq_8a5eb39f.png" alt=" frac{L-L&#39;}{d} = sin theta qquad ."></div><p class="noindent">
+Constructive interference will result in a maximum at angles
+for which <i>L</i>-<i>L</i>' is an integer number of wavelengths,
+</p><div class="equation"><img src="./Wave optics_files/eq_2b5b643b.png" alt=" L-L&#39; = mlambda qquad . hfill shoveright{text{[condition for a maximum;}}"></div><p class="noindent"></p><div class="equation"><img src="./Wave optics_files/eq_94414de2.png" alt=" text{$m$ is an integer]}"></div><p class="noindent">
+Here <i>m</i> equals 0 for the central maximum, -1 for the first
+maximum to its left, +2 for the second maximum on the right,
+etc. Putting all the ingredients together, we find 
+<i>m</i>λ/<i>d</i>=sin θ, or
+</p><div class="equation"><img src="./Wave optics_files/eq_d69e8e83.png" alt=" frac{lambda}{d} = frac{sintheta}{m} qquad . hfill shoveright{text{[condition for a maximum;}}"></div><p class="noindent"></p><div class="equation"><img src="./Wave optics_files/eq_94414de2.png" alt=" text{$m$ is an integer]}"></div><p class="noindent">
+Similarly, the condition for a minimum is
+</p><div class="equation"><img src="./Wave optics_files/eq_41240aa7.png" alt=" frac{lambda}{d} = frac{sintheta}{m} qquad . hfill shoveright{text{[condition for a minimum;}}"></div><p class="noindent"></p><div class="equation"><img src="./Wave optics_files/eq_bf49b142.png" alt=" text{$m$ is an integer plus $1/2$]}"></div><p class="noindent">
+That is, the minima are about halfway between the maxima.</p>
+
+<p>As expected based on scaling, this equation relates angles
+to the unitless ratio λ /<i>d</i>. Alternatively, we could
+say that we have proven the scaling property in the special
+case of double-slit diffraction. It was inevitable that the
+result would have these scaling properties, since the whole
+proof was geometric, and would have been equally valid when
+enlarged or reduced on a photocopying machine!</p>
+
+<p>Counterintuitively, this means that a diffracting object
+with smaller dimensions produces a bigger diffraction pattern, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-d">p</a>.</p>
+
+<div class="eg"><h5 class="eg">Example 1: Double-slit diffraction of blue and red light</h5>
+
+<p>Blue light has a shorter wavelength than red. For a given
+double-slit spacing <i>d</i>, the smaller value of λ /<i>d</i>
+for leads to smaller values of sin θ, and
+therefore to a more closely spaced set of diffraction fringes, (g)</p>
+
+</div><div class="eg"><h5 class="eg">Example 2: The correspondence principle</h5>
+
+<p>Let's also consider how the equations for double-slit
+diffraction relate to the correspondence principle. When the
+ratio λ /<i>d</i> is very small, we should recover the case
+of simple ray optics. Now if λ /<i>d</i> is small, 
+sinθ must be small as well, and the spacing between the
+diffraction fringes will be small as well. Although we have
+not proven it, the central fringe is always the brightest,
+and the fringes get dimmer and dimmer as we go farther from
+it. For small values of λ /<i>d</i>, the part of the
+diffraction pattern that is bright enough to be detectable
+covers only a small range of angles. This is exactly what we
+would expect from ray optics: the rays passing through the
+two slits would remain parallel, and would continue moving
+in the θ =0 direction. (In fact there would be images
+of the two separate slits on the screen, but our analysis
+was all in terms of angles, so we should not expect it to
+address the issue of whether there is structure within a set
+of rays that are all traveling in the θ =0 direction.)</p>
+
+</div><div class="eg"><h5 class="eg">Example 3: Spacing of the fringes at small angles</h5>
+
+<p>At small angles, we can use the approximation sinθ≈θ, which is
+valid if θ is measured in radians. The equation for
+double-slit diffraction becomes simply
+</p><div class="equation"><img src="./Wave optics_files/eq_6137790f.png" alt=" frac{lambda}{d} = frac{theta}{m} qquad ,"></div><p class="noindent">
+which can be solved for θ to give
+</p><div class="equation"><img src="./Wave optics_files/eq_528ec6c9.png" alt=" theta = frac{mlambda}{d} qquad ."></div><p class="noindent">
+The difference in angle between successive fringes is the
+change in θ that results from changing <i>m</i>
+by plus or minus one,
+</p><div class="equation"><img src="./Wave optics_files/eq_0bcc5356.png" alt=" Deltatheta = frac{lambda}{d} qquad ."></div><p class="noindent">
+For example, if we write θ<sub>7</sub> for the angle of the
+seventh bright fringe on one side of the central maximum and
+θ<sub>8</sub> for the neighboring one, we have
+</p><div class="equation"><img src="./Wave optics_files/eq_634343f5.png" alt=" theta_8-theta_7 = frac{8lambda}{d}-frac{7lambda}{d}"></div><p class="noindent"></p><div class="equation"><img src="./Wave optics_files/eq_1d7debec.png" alt=" = frac{lambda}{d} qquad ,"></div><p class="noindent">
+and similarly for any other neighboring pair of fringes.</p>
+
+</div>
+
+<p>Although the equation λ /<i>d</i>=sin θ /<i>m</i> is only
+valid for a double slit, it is can still be a guide to our
+thinking even if we are observing diffraction of light by a
+virus or a flea's leg: it is always true that</p>
+
+<p>(1) large values of λ /<i>d</i> lead to a broad diffraction pattern, and</p>
+
+<p>(2) diffraction patterns are repetitive.</p>
+
+<p>In many cases the equation looks just like 
+λ /<i>d</i> =sin θ /<i>m</i> but with an extra numerical factor thrown
+in, and with <i>d</i> interpreted as some other dimension of the
+object, e.g., the diameter of a piece of wire.</p>
+
+<h2><a name="Section32.6"></a>32.6 Repetition</h2><div class="margin">
+
+<img src="./Wave optics_files/triple-slit.png" alt="triple-slit"><a name="fig:triple-slit"></a><p class="caption">r / A triple slit.</p>
+
+<img src="./Wave optics_files/two-slits-and-five.jpg" alt="two-slits-and-five"><a name="fig:two-slits-and-five"></a><p class="caption">s / A double-slit diffraction pattern (top), and a pattern made by five slits (bottom).</p>
+</div>
+
+<p>Suppose we replace a double slit with a triple slit, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit">r</a>. We
+can think of this as a third repetition of the structures that were
+present in the double slit. Will this device be an
+improvement over the double slit for any practical reasons?</p>
+
+The answer is yes, as can be shown using figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit-numerical">t</a>.
+ For ease of visualization, I have violated our usual
+rule of only considering points very far from the diffracting
+object. The scale of the drawing is such that a wavelengths
+is one cm. In <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit-numerical">t</a>/1, all three waves travel an integer number
+of wavelengths to reach the same point, so there is a bright
+central spot, as we would expect from our experience with
+the double slit. In figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit-numerical">t</a>/2, we show the path lengths to
+a new point. This point is farther from slit A by a quarter
+of a wavelength, and correspondingly closer to slit C. The
+distance from slit B has hardly changed at all. Because
+the paths lengths traveled from slits A and C differ by
+half a wavelength, there will be perfect destructive
+interference between these two waves. There is still some
+uncanceled wave intensity because of slit B, but the
+amplitude will be three times less than in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit-numerical">t</a>/1,
+resulting in a factor of 9 decrease in brightness. Thus, by
+moving off to the right a little, we have gone from the
+bright central maximum to a point that is quite dark.
+<img src="./Wave optics_files/triple-slit-numerical.png" alt="triple-slit-numerical"><a name="fig:triple-slit-numerical"></a><p class="caption">t / 1. There is a bright central maximum. 2. At this point just off the central maximum, the path lengths traveled by the three waves have changed. </p>
+Now let's compare with what would have happened if slit C
+had been covered, creating a plain old double slit. The
+waves coming from slits A and B would have been out of
+phase by 0.23 wavelengths, but this would not have caused
+very severe interference. The point in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:triple-slit-numerical">t</a>/2 would have
+been quite brightly lit up.
+
+<p>To summarize, we have found that adding a third slit narrows
+down the central fringe dramatically. The same is true for
+all the other fringes as well, and since the same amount of
+energy is concentrated in narrower diffraction fringes, each
+fringe is brighter and easier to see, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:two-slits-and-five">s</a>.</p>
+
+<p>This is an example of a more general fact about diffraction:
+if some feature of the diffracting object is repeated, the
+locations of the maxima and minima are unchanged, but
+they become narrower.</p>
+
+<p>Taking this reasoning to its logical conclusion, a
+diffracting object with thousands of slits would produce
+extremely narrow fringes. Such an object is called a
+diffraction grating.</p>
+
+<h2><a name="Section32.7"></a>32.7 Single-slit diffraction</h2><div class="margin">
+
+<img src="./Wave optics_files/single-slit-water-waves.jpg" alt="single-slit-water-waves"><a name="fig:single-slit-water-waves"></a><p class="caption">u / Single-slit diffraction of water waves.</p>
+
+<img src="./Wave optics_files/single-slit.jpg" alt="single-slit"><a name="fig:single-slit"></a><p class="caption">v / Single-slit diffraction of red light. Note the double width of the central maximum.</p>
+
+<img src="./Wave optics_files/single-slit-simulated-with-three-sources.jpg" alt="single-slit-simulated-with-three-sources"><a name="fig:single-slit-simulated-with-three-sources"></a><p class="caption">w / A pretty good simulation of the single-slit pattern of figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:single-slit-water-waves">u</a>, made by using three motors to produce overlapping ripples from three neighboring points in the water. </p>
+
+<img src="./Wave optics_files/pleiades-closeup.jpg" alt="pleiades-closeup"><a name="fig:pleiades-closeup"></a><p class="caption">x / An image of the Pleiades star cluster. The circular rings around the bright stars are due to single-slit diffraction at the mouth of the telescope's tube. </p>
+
+<img src="./Wave optics_files/very-large-array.jpg" alt="very-large-array"><a name="fig:very-large-array"></a><p class="caption">y / A radio telescope.</p>
+</div>
+
+<p>If we use only a single slit, is there diffraction? If the
+slit is not wide compared to a wavelength of light, then we
+can approximate its behavior by using only a single set of
+Huygens ripples. There are no other sets of ripples to add
+to it, so there are no constructive or destructive
+interference effects, and no maxima or minima. The result
+will be a uniform spherical wave of light spreading out in
+all directions, like what we would expect from a tiny
+lightbulb. We could call this a diffraction pattern, but it
+is a completely featureless one, and it could not be used,
+for instance, to determine the wavelength of the light, as
+other diffraction patterns could.</p>
+
+<p>All of this, however, assumes that the slit is narrow
+compared to a wavelength of light. If, on the other hand,
+the slit is broader, there will indeed be interference among
+the sets of ripples spreading out from various points along
+the opening. Figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:single-slit-water-waves">u</a> shows an example with water waves,
+and figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:single-slit">v</a> with light.</p>
+
+<div class="selfcheck">
+
+<p><i>self-check:</i>
+How does the wavelength of the waves compare with the width
+of the slit in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:single-slit-water-waves">u</a>?
+(answer in the back of the PDF version of the book)</p>
+
+</div>
+
+<p>We will not go into the details of the analysis of
+single-slit diffraction, but let us see how its properties
+can be related to the general things we've learned about
+diffraction. We know based on scaling arguments that the
+angular sizes of features in the diffraction pattern must be
+related to the wavelength and the width, <i>a</i>, of the slit by
+some relationship of the form
+</p><div class="equation"><img src="./Wave optics_files/eq_8d4a800d.png" alt=" frac{lambda}{a} leftrightarrow theta qquad ."></div><p class="noindent">
+This is indeed true, and for instance the angle between the
+maximum of the central fringe and the maximum of the next
+fringe on one side equals 1.5λ/<i>a</i>. Scaling arguments will
+never produce factors such as the 1.5, but they tell us that
+the answer must involve λ /<i>a</i>, so all the familiar
+qualitative facts are true. For instance, shorter-wavelength
+light will produce a more closely spaced diffraction pattern.</p>
+
+<p>An important scientific example of single-slit diffraction
+is in telescopes. Images of individual stars, as in
+figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:pleiades-closeup">x</a>, are a good way to examine diffraction effects,
+because all stars except the sun are so far away that no
+telescope, even at the highest magnification, can image
+their disks or surface features. Thus any features of a
+star's image must be due purely to optical effects such as
+diffraction. A prominent cross appears around the brightest
+star, and dimmer ones surround the dimmer stars. Something
+like this is seen in most telescope photos, and indicates
+that inside the tube of the telescope there were two
+perpendicular struts or supports. Light diffracted around
+these struts. You might think that diffraction could be
+eliminated entirely by getting rid of all obstructions in
+the tube, but the circles around the stars are diffraction
+effects arising from single-slit diffraction at the mouth of
+the telescope's tube! (Actually we have not
+even talked about diffraction through a circular opening, but
+the idea is the same.) Since the angular sizes of the
+diffracted images depend on λ/a, the only way to
+improve the resolution of the images is to increase the
+diameter, <i>a</i>, of the tube. This is one of the main reasons
+(in addition to light-gathering power) why the best
+telescopes must be very large in diameter.</p>
+
+<div class="selfcheck">
+
+<p><i>self-check:</i>
+What would this imply about radio telescopes as compared
+with visible-light telescopes?
+(answer in the back of the PDF version of the book)</p>
+
+</div>
+
+<p>Double-slit diffraction is easier to understand conceptually
+than single-slit diffraction, but if you do a double-slit
+diffraction experiment in real life, you are likely to
+encounter a complicated pattern like figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-fringes-realistic">z</a>/1,
+rather than the simpler one, 2, you were expecting.
+This is because the slits are fairly big compared to the
+wavelength of the light being used. We really have two
+different distances in our pair of slits: <i>d</i>, the distance
+between the slits, and <i>w</i>, the width of each slit. Remember
+that smaller distances on the object the light diffracts
+around correspond to larger features of the diffraction
+pattern. The pattern 1 thus has two spacings in it: a short
+spacing corresponding to the large distance <i>d</i>, and a long
+spacing that relates to the small dimension <i>w</i>.</p>
+
+<img src="./Wave optics_files/double-slit-fringes-realistic.jpg" alt="double-slit-fringes-realistic"><a name="fig:double-slit-fringes-realistic"></a><p class="caption">z / 1. A diffraction pattern formed by a real double slit. The width of each slit is fairly big compared to the wavelength of the light. This is a real photo. 2. This idealized pattern is not likely to occur in real life. To get it, you would need each slit to be so narrow that its width was comparable to the wavelength of the light, but that's not usually possible. This is not a real photo. 3. A real photo of a single-slit diffraction pattern caused by a slit whose width is the same as the widths of the slits used to make the top pattern. </p>
+<h5 class="dq">Discussion Question</h5><div class="dq">
+
+<p>◊
+Why is it optically impossible for bacteria to evolve eyes
+that use visible light to form images?</p>
+
+</div><h2><a name="Section32.8"></a>32.8 The principle of least time (optional calculus-based section)</h2><div class="margin">
+
+<img src="./Wave optics_files/reflection-least-time.png" alt="reflection-least-time"><a name="fig:reflection-least-time"></a><p class="caption">aa / Light could take many different paths from A to B.</p>
+</div>
+
+<p>In section 
+section <a href="http://www.lightandmatter.com/html_books/lm/ch28/ch28.html#sec:least-time-reflection">28.5</a> 
+and
+section <a href="http://www.lightandmatter.com/html_books/lm/ch31/ch31.html#sec:least-time-refraction">31.4</a>,
+we saw how in the ray model of
+light, both refraction and reflection can be described in an
+elegant and beautiful way by a single principle, the
+principle of least time. We can now justify the principle of
+least time based on the wave model of light. Consider an
+example involving reflection, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:reflection-least-time">aa</a>. Starting at point A,
+Huygens' principle for waves tells us that we can think of
+the wave as spreading out in all directions. Suppose we
+imagine all the possible ways that a ray could travel from A
+to B. We show this by drawing 25 possible paths, of which
+the central one is the shortest. Since the principle of
+least time connects the wave model to the ray model, we
+should expect to get the most accurate results when the
+wavelength is much shorter than the distances involved ---
+for the sake of this numerical example, let's say that a
+wavelength is 1/10 of the shortest reflected path from A to
+B. The table, 2, shows the distances traveled by the 25 rays.</p>
+
+<p>Note how similar are the distances traveled by the group of
+7 rays, indicated with a bracket, that come closest to
+obeying the principle of least time. If we think of each one
+as a wave, then all 7 are again nearly in phase at point
+B. However, the rays that are farther from satisfying the
+principle of least time show more rapidly changing
+distances; on reuniting at point B, their phases are a
+random jumble, and they will very nearly cancel each other
+out. Thus, almost none of the wave energy delivered to point
+B goes by these longer paths. Physically we find, for
+instance, that a wave pulse emitted at A is observed at B
+after a time interval corresponding very nearly to the
+shortest possible path, and the pulse is not very “smeared
+out” when it gets there. The shorter the wavelength
+compared to the dimensions of the figure, the more accurate
+these approximate statements become.</p>
+
+<p>Instead of drawing a finite number of rays, such 25, what
+happens if we think of the angle, θ, of emission of
+the ray as a continuously varying variable? Minimizing the
+distance <i>L</i> requires
+</p><div class="equation"><img src="./Wave optics_files/eq_fa03302b.png" alt=" frac{der L}{dertheta} = 0 qquad ."></div><p class="noindent"></p>
+
+<p>Because <i>L</i> is changing slowly in the vicinity of the angle
+that satisfies the principle of least time, all the rays
+that come out close to this angle have very nearly the same
+<i>L</i>, and remain very nearly in phase when they reach B.
+This is the basic reason why the discrete table, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:reflection-least-time">aa</a>/2, turned
+out to have a group of rays that all traveled nearly the same distance.</p>
+
+<p>As discussed in section <a href="http://www.lightandmatter.com/html_books/lm/ch28/ch28.html#sec:least-time-reflection">28.5</a>, the principle of least time is
+really a principle of least <i>or greatest</i> time. This
+makes perfect sense, since d <i>L</i>/d θ =0 can in general
+describe either a minimum or a maximum</p>
+
+<p>The principle of least time is very general. It does not
+apply just to refraction and reflection --- it can even be
+used to prove that light rays travel in a straight line
+through empty space, without taking detours! This general
+approach to wave motion was used by Richard Feynman, one of
+the pioneers who in the 1950's reconciled quantum mechanics
+with relativity (book 6 in this series). A very readable explanation is
+given in a book Feynman wrote for laypeople, QED: The
+Strange Theory of Light and Matter.</p>
+
+<h2><a name="Section32.9"></a> Summary</h2><div class="vocab"><h3>Vocabulary</h3>
+
+<p><i>diffraction</i> — the behavior of a wave when it encounters an
+obstacle or a nonuniformity in its medium; in general,
+diffraction causes a wave to bend around obstacles and make
+patterns of strong and weak waves radiating out beyond the obstacle.</p>
+
+<p><i>coherent</i> — a light wave whose parts are all in phase with each other</p>
+
+</div><div class="othernotation"><h3>Other Notation</h3>
+
+<p><i>wavelets</i> — the ripples in Huygens' principle</p>
+
+</div><div class="summarytext"><h3>Summary</h3>
+
+<p>Wave optics is a more general theory of light than ray
+optics. When light interacts with material objects that are
+much larger then one wavelength of the light, the ray model
+of light is approximately correct, but in other cases the
+wave model is required.</p>
+
+<p>Huygens' principle states that, given a wavefront at one
+moment in time, the future behavior of the wave can be found
+by breaking the wavefront up into a large number of small,
+side-by-side wave peaks, each of which then creates a
+pattern of circular or spherical ripples. As these sets of
+ripples add together, the wave evolves and moves through
+space. Since Huygens' principle is a purely geometrical
+construction, diffraction effects obey a simple scaling
+rule: the behavior is unchanged if the wavelength and the
+dimensions of the diffracting objects are both scaled up or
+down by the same factor. If we wish to predict the angles at
+which various features of the diffraction pattern radiate
+out, scaling requires that these angles depend only on the
+unitless ratio λ/d, where <i>d</i> is the size of some
+feature of the diffracting object.</p>
+
+<p>Double-slit diffraction is easily analyzed using Huygens'
+principle if the slits are narrower than one wavelength. We
+need only construct two sets of ripples, one spreading out
+from each slit. The angles of the maxima (brightest points
+in the bright fringes) and minima (darkest points in the
+dark fringes) are given by the equation
+</p><div class="equation"><img src="./Wave optics_files/eq_df7ab635.png" alt=" frac{lambda}{d} = frac{sintheta}{m} qquad ,"></div><p class="noindent">
+where <i>d</i> is the center-to-center spacing of the slits, and
+<i>m</i> is an integer at a maximum or an integer plus 1/2 at a minimum.</p>
+
+<p>If some feature of a diffracting object is repeated, the
+diffraction fringes remain in the same places, but become
+narrower with each repetition. By repeating a double-slit
+pattern hundreds or thousands of times, we obtain a
+diffraction grating.</p>
+
+<p>A single slit can produce diffraction fringes if it is
+larger than one wavelength. Many practical instances of
+diffraction can be interpreted as single-slit diffraction,
+e.g., diffraction in telescopes. The main thing to realize
+about single-slit diffraction is that it exhibits the same
+kind of relationship between λ, <i>d</i>, and angles of
+fringes as in any other type of diffraction.</p>
+
+</div><h2><a name="Section32.10"></a> Homework Problems</h2><div class="margin">
+
+<img src="./Wave optics_files/hw-with-ruler.jpg" alt="hw-with-ruler"><a name="fig:hw-with-ruler"></a><p class="caption">ab / Problems <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#hw:find-actual-wavelength">12</a> and <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#hw:label-fringes">13</a>.</p>
+</div><div class="homework">
+
+<p><a name="hw:microscopeblue"></a><b>1</b>. Why would blue or violet light be the best for microscopy?</p>
+
+</div><div class="homework">
+
+<p><a name="hw:matchpatterns"></a><b>2</b>. Match gratings A-C with the diffraction patterns 1-3 that
+they produce. Explain.</p>
+
+<p><img src="./Wave optics_files/hw-matching.jpg" alt="hw-matching"><a name="fig:hw-matching"></a></p>
+
+</div><div class="homework">
+
+<p><a name="hw:grating"></a><b>3</b>. (answer check available at lightandmatter.com) The beam of a laser passes through a diffraction
+grating, fans out, and illuminates a wall that is perpendicular
+to the original beam, lying at a distance of 2.0 m from
+the grating. The beam is produced by a helium-neon laser,
+and has a wavelength of 694.3 nm. The grating has 2000 lines
+per centimeter. (a) What is the distance on the wall between
+the central maximum and the maxima immediately to its right
+and left? (b) How much does your answer change when you
+use the small-angle approximations θ≈sinθ≈tanθ?</p>
+
+</div><div class="homework">
+
+<p><a name="hw:overlappingrainbows"></a><b>4</b>. When white light passes through a diffraction grating,
+what is the smallest value of <i>m</i> for which the visible
+spectrum of order <i>m</i> overlaps the next one, of order <img src="./Wave optics_files/eq_6b0e26fc.png" alt="m+1?">
+(The visible spectrum runs from about 400 nm to about 700 nm.)</p>
+
+</div><div class="homework">
+
+<p><a name="hw:kidney"></a><b>5</b>. Ultrasound, i.e., sound waves with frequencies too high
+to be audible, can be used for imaging fetuses in the womb
+or for breaking up kidney stones so that they can be
+eliminated by the body. Consider the latter application.
+Lenses can be built to focus sound waves, but because the
+wavelength of the sound is not all that small compared to
+the diameter of the lens, the sound will not be concentrated
+exactly at the geometrical focal point. Instead, a
+diffraction pattern will be created with an intense central
+spot surrounded by fainter rings. About 85% of the power
+is concentrated within the central spot. The angle of the
+first minimum (surrounding the central spot) is given by
+sin θ =λ/<i>b</i>, where <i>b</i> is the diameter of the
+lens. This is similar to the corresponding equation for a
+single slit, but with a factor of 1.22 in front which arises
+from the circular shape of the aperture. Let the distance
+from the lens to the patient's kidney stone be <i>L</i>=20 cm.
+You will want <i>f</i>&gt;20 kHz, so that the sound is inaudible.
+Find values of <i>b</i> and <i>f</i> that would result in a usable
+design, where the central spot is small enough to lie within
+a kidney stone 1 cm in diameter.</p>
+
+</div><div class="homework">
+
+<p><a name="hw:star"></a><b>6</b>. For star images such as the ones in figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:pleiades-closeup">x</a>,
+estimate the angular width of the diffraction spot due
+to diffraction at the mouth of the telescope. Assume a
+telescope with a diameter of 10 meters (the largest
+currently in existence), and light with a wavelength in the
+middle of the visible range. Compare with the actual angular
+size of a star of diameter 10<sup>9</sup> m seen from a distance of
+10<sup>17</sup> m. What does this tell you?</p>
+
+</div><div class="homework">
+
+<p><a name="hw:unphysical-diffraction"></a><b>7</b>. Under what circumstances could one get a mathematically
+undefined result by solving the double-slit diffraction
+equation for θ? Give a physical interpretation of
+what would actually be observed.</p>
+
+</div><div class="homework">
+
+<p><a name="hw:ultrasound-imaging-versus-heating"></a><b>8</b>. When ultrasound is used for medical imaging, the
+frequency may be as high as 5-20 MHz. Another medical
+application of ultrasound is for therapeutic heating of
+tissues inside the body; here, the frequency is typically
+1-3 MHz. What fundamental physical reasons could you suggest
+for the use of higher frequencies for imaging?</p>
+
+</div><div class="homework">
+
+<p><a name="hw:compare-diffraction-same-light"></a><b>9</b>. The figure below shows two diffraction patterns, both
+made with the same wavelength of red light. (a) What type of
+slits made the patterns? Is it a single slit, double slits,
+or something else? Explain. (b) Compare the dimensions of
+the slits used to make the top and bottom pattern. Give a
+numerical ratio, and state which way the ratio is, i.e.,
+which slit pattern was the larger one. Explain.</p>
+
+<p><img src="./Wave optics_files/hw-compare-single-slits.jpg" alt="hw-compare-single-slits"><a name="fig:hw-compare-single-slits"></a></p>
+
+</div><div class="homework">
+
+<p><a name="hw:yellow-red"></a><b>10</b>. The figure below shows two diffraction patterns. The top
+one was made with yellow light, and the bottom one with red.
+Could the slits used to make the two patterns have been the same?</p>
+
+<p><img src="./Wave optics_files/hw-yellow-and-red.jpg" alt="hw-yellow-and-red"><a name="fig:hw-yellow-and-red"></a></p>
+
+</div><div class="homework">
+
+<p><a name="hw:compare-double-slits"></a><b>11</b>. The figure below shows three diffraction patterns. All
+were made under identical conditions, except that a
+different set of double slits was used for each one. The
+slits used to make the top pattern had a center-to-center
+separation <i>d</i>=0.50 mm, and each slit was <i>w</i>=0.04 mm wide.
+(a) Determine <i>d</i> and <i>w</i> for the slits used to make the
+pattern in the middle. (b) Do the same for the slits used to
+make the bottom pattern.</p>
+
+<p><img src="./Wave optics_files/hw-compare-double-slits.jpg" alt="hw-compare-double-slits"><a name="fig:hw-compare-double-slits"></a></p>
+
+</div><div class="homework">
+
+<p><a name="hw:find-actual-wavelength"></a><b>12</b>. The figure shows a diffraction pattern made by a double
+slit, along with an image of a meter stick to show the
+scale. The slits were 146 cm away from the screen on which
+the diffraction pattern was projected. The spacing of the
+slits was 0.050 mm. What was the wavelength of the light?</p>
+
+</div><div class="homework">
+
+<p><a name="hw:label-fringes"></a><b>13</b>. The figure shows a diffraction pattern made by a double
+slit, along with an image of a meter stick to show the
+scale. Sketch the diffraction pattern from the figure on your
+paper. Now consider the four variables in the equation
+λ /<i>d</i>=sin θ /<i>m</i>. Which of these are the same
+for all five fringes, and which are different for each
+fringe? Which variable would you naturally use in order to
+label which fringe was which? Label the fringes on your
+sketch using the values of that variable.</p>
+
+</div><div class="homework">
+
+<p><a name="hw:spider-diffraction-limited"></a><b>14</b>. Figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:jumping-spider">r</a> on p. 838 shows the anatomy of a
+jumping spider's principal eye. The smallest feature the spider can distinguish is limited
+by the size of the receptor cells in its retina. (a) By making measurements on the diagram,
+estimate this limiting angular size in units of minutes of arc (60 minutes = 1 degree).
+(b) Show that this is greater than, but roughly within a factor of two of, the limit imposed
+by diffraction for visible light.
+</p><div class="hwremark">Evolution is a scientific theory that makes testable predictions, and if observations
+contradict its predictions, the theory can be disproved. It would be maladaptive for the spider
+to have retinal receptor cells with sizes less than the limit imposed by diffraction, since it
+would increase complexity without giving any improvement in visual acuity. The results of this
+problem confirm that, as predicted by Darwinian evolution, this is not the case. Work by M.F. Land
+in 1969 shows that in this spider's eye, aberration is a somewhat bigger effect than diffraction,
+so that the size of the receptors is very nearly at an evolutionary optimum.</div><p class="noindent"></p>
+
+</div>
+
+<p>\ifthenelse{\isodd{\value{page}}}{}{\hbox{}\newpage}</p>
+
+<p>\begin{handson}{A}{Double-source interference}{\onecolumn}</p>
+
+<p>1. Two sources separated by a distance <i>d</i>=2 cm make circular ripples
+with a wavelength of λ=1 cm.
+On a piece of paper, make a life-size drawing of the two
+sources in the default setup, and locate the following points:</p>
+
+<p>	A. The point that is 10 wavelengths from source #1 and 10
+wavelengths from source #2.</p>
+
+<p> B. The point that is 10.5 wavelengths from #1 and 10.5 from #2.</p>
+
+<p>	C. The point that is 11 wavelengths from #1 and 11 from #2.</p>
+
+<p>	D. The point that is 10 wavelengths from #1 and 10.5 from #2.</p>
+
+<p>	E. The point that is 11 wavelengths from #1 and 11.5 from #2.</p>
+
+<p>	F. The point that is 10 wavelengths from #1 and 11 from #2.</p>
+
+<p>	G. The point that is 11 wavelengths from #1 and 12 from #2.</p>
+
+<p>You can do this either using a compass or by putting the
+next page under your paper and tracing. It is not necessary to trace
+all the arcs completely, and doing so is unnecessarily time-consuming;
+you can fairly easily estimate where these points would lie, and just
+trace arcs long enough to find the relevant intersections.</p>
+
+<p>What do these points correspond to in the real wave pattern?</p>
+
+<p>2. Make a fresh copy of your drawing, showing only point F
+and the two sources, which form a long, skinny triangle. Now
+suppose you were to change the setup by doubling
+<i>d</i>, while leaving λ the same. It's easiest to understand what's
+happening on the drawing if you move both sources outward,
+keeping the center fixed. Based on your drawing, what will
+happen to the position of point F when you double <i>d</i>? Measure
+its angle with a protractor.</p>
+
+<p>3. What would happen if you doubled <i>both</i> λ and <i>d</i>
+compared to the standard setup?\_\_\_\_\_\_\_\_\_</p>
+
+<p>4. Combining the ideas from parts 2 and 3, what
+do you think would happen to your angles if, starting from
+the standard setup, you doubled λ while leaving <i>d</i>
+the same?\_\_\_\_\_\_\_\_\_</p>
+
+<p>5. Suppose λ was a millionth of a centimeter, while
+<i>d</i> was still as in the standard setup. What would happen to
+the angles? What does this tell you about observing
+diffraction of light?</p>
+
+<p><img src="./Wave optics_files/ripples.png" alt="ripples">
+\end{handson}
+\begin{handson}{B}{Single-slit diffraction}{\onecolumn}</p>
+
+<p> Equipment:</p>
+
+<div class="indentedblock"><p>
+	rulers</p>
+
+<p>	computer with web browser
+</p></div><p class="noindent"></p>
+
+<p>The following page is a diagram of a single slit and a
+screen onto which its diffraction pattern is projected. The
+class will make a numerical prediction of the intensity of
+the pattern at the different points on the screen. Each
+group will be responsible for calculating the intensity at
+one of the points. (Either 11 groups or six will work nicely
+-- in the latter case, only points a, c, e, g, i,
+and k are used.) The idea is to break up the wavefront in
+the mouth of the slit into nine parts, each of which is
+assumed to radiate semicircular ripples as in Huygens'
+principle. The wavelength of the wave is 1 cm, and we assume
+for simplicity that each set of ripples has an amplitude of
+1 unit when it reaches the screen.</p>
+
+<p>1. For simplicity, let's imagine that we were only to use
+two sets of ripples rather than nine. You could measure the
+distance from each of the two points inside the slit to your
+point on the screen. Suppose the distances were both 25.0
+cm. What would be the amplitude of the superimposed waves at
+this point on the screen?</p>
+
+<p>Suppose one distance was 24.0 cm and the other was 25.0
+cm. What would happen?</p>
+
+<p>What if one was 24.0 cm and the other was 26.0 cm?</p>
+
+<p>What if one was 24.5 cm and the other was 25.0 cm?</p>
+
+<p>In general, what combinations of distances will lead to
+completely destructive and completely constructive interference?</p>
+
+<p>Can you estimate the answer in the case where the distances
+are 24.7 and 25.0 cm?</p>
+
+<p>2. Although it is possible to calculate mathematically the
+amplitude of the sine wave that results from superimposing
+two sine waves with an arbitrary phase difference between
+them, the algebra is rather laborious, and it become even
+more tedious when we have more than two waves to superimpose.
+Instead, one can simply use a computer spreadsheet or some
+other computer program to add up the sine waves numerically
+at a series of points covering one complete cycle. This is
+what we will actually do. You just need to enter the
+relevant data into the computer, then examine the results
+and pick off the amplitude from the resulting list of numbers.
+You can run the software through a web interface at 
+<span class="monospace">http://lightandmatter.com/cgi-bin/diffraction1.cgi</span>.</p>
+
+<p>3. Measure all nine distances to your group's point on the
+screen, and write them on the board - that way everyone can
+see everyone else's data, and the class can try to make
+sense of why the results came out the way they did.
+Determine the amplitude of the combined wave, and write it
+on the board as well.</p>
+
+<p>The class will discuss why the results came out the way they did.</p>
+
+<p><img src="./Wave optics_files/diffraction-ex.png" alt="diffraction-ex"></p>
+
+<p>\end{handson}
+\begin{handson}{C}{Diffraction of light}{\onecolumn}</p>
+
+<p> Equipment:</p>
+
+<div class="indentedblock"><p>
+ slit patterns,
+ lasers, 
+ straight-filament bulbs
+</p></div><p class="noindent"></p>
+
+<p></p><h3>station 1</h3><br>
+You have a mask with a bunch of different double slits cut out of it. The values of w and d are as follows:<p></p>
+
+<table class="tabular"><colgroup><col><col><col></colgroup><tbody><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern A</td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.04 mm</td><td style="white-space:nowrap; text-align:left;" class="td11">d=.250 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern B </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.04 mm</td><td style="white-space:nowrap; text-align:left;" class="td11">d=.500 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern C </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.08 mm</td><td style="white-space:nowrap; text-align:left;" class="td11">d=.250 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern D </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.08 mm</td><td style="white-space:nowrap; text-align:left;" class="td11">d=.500 mm</td> </tr></tbody></table>
+
+<p> Predict how the patterns will look different, and test your prediction. The easiest way to get the laser to point at different sets of slits is to stick folded up pieces of paper in one side or the other of the holders.</p>
+
+<p></p><h3>station 2</h3><br>
+This is just like station 1, but with single slits:<p></p>
+
+<table class="tabular"><colgroup><col><col></colgroup><tbody><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern A</td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.02 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern B </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.04 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern C </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.08 mm</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern D </td><td style="white-space:nowrap; text-align:left;" class="td11">w=0.16 mm</td> </tr></tbody></table>
+
+<p> Predict what will happen, and test your predictions. If you have time, check the actual numerical ratios of the w values against the ratios of the sizes of the diffraction patterns</p>
+
+<p></p><h3>station 3</h3><br>
+This is like station 1, but the only difference among the sets of slits is how many slits there are:<p></p>
+
+<table class="tabular"><colgroup><col><col></colgroup><tbody><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern A</td><td style="white-space:nowrap; text-align:left;" class="td11">double slit</td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern B </td><td style="white-space:nowrap; text-align:left;" class="td11">3 slits </td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern C </td><td style="white-space:nowrap; text-align:left;" class="td11">4 slits </td>
+</tr><tr style="vertical-align:baseline;"><td style="white-space:nowrap; text-align:left;" class="td11">pattern D </td><td style="white-space:nowrap; text-align:left;" class="td11">5 slits </td> </tr></tbody></table>
+
+<p></p><h3>station 4</h3><br>
+Hold the diffraction grating up to your eye, and look through it at the straight-filament light bulb. If you orient the grating correctly, you should be able to see the <i>m</i>=1 
+and <i>m</i>=-1 diffraction patterns off the left and right. If you have it oriented the wrong way, they'll be above and below the bulb instead, which is inconvenient
+ because the bulb's filament is vertical. Where is the <i>m</i>=0 fringe? Can you see <i>m</i>=2, etc.?<p></p>
+
+<p><i>Station 5 has the same equipment as station 4. If you're assigned to station 5 first, you should actually do activity 4 first, because it's easier.</i></p>
+
+<p></p><h3>station 5</h3><br>
+Use the transformer to increase and decrease the voltage across the bulb. This allows 
+you to control the filament's temperature. Sketch graphs of intensity as a function of wavelength for various temperatures. The
+ inability of the wave model of light to explain the mathematical shapes of these curves was historically one of the reasons
+ for creating a new model, in which light is both a particle and a wave.
+\end{handson}<p></p>
+
+</div>
+
+</body></html>

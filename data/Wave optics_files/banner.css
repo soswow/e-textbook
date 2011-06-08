@@ -1,0 +1,31 @@
+/* mostly duplicated verbatim from new.css; this is to be used by the html versions of the books, which don't want all their css stuff interfered with by new.css */
+div.banner {
+  background-color: #97b4e4;
+  height: 100px;
+  max-width: 1000px; /* only matters for pages that don't use new.css, just use banner.css */
+  margin-left: 27px; /* different from new.css */
+}
+
+div.banner_contents {
+}
+
+div.banner_logo {
+  padding-top:15px;
+  margin-left: -27px;
+  height:0px;
+}
+
+div.banner_text {
+  padding-top:0px;
+  margin-right: 50px;
+  margin-bottom:25px;
+  font-family: sans-serif; font-weight: bold; font-size: 14px; text-align:right; text-transform: uppercase;
+  color: #366fcc; /* actually has no effect, since everything is a link; see a:visited and a:link below */
+}
+div.banner_text a:visited {color: #818181;}
+div.banner_text a:link    {color: #366fcc;}
+div.banner_text li {
+  list-style-type: none;
+  display: inline;
+  padding-left: 20px;
+}

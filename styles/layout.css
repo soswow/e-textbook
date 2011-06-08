@@ -111,6 +111,15 @@ div{
   opacity:0;
 }
 
+#section-chooser{
+  float: left;
+  margin: 5px 40px;
+}
+
+h2.hidden{
+  display: none;
+}
+
 /* column counter */
 #eo-columncounter{
   color:#545454;
@@ -123,6 +132,6 @@ div{
   text-shadow:#fff 1px 1px 0;
 }
 #eo-top-panel{
-    width:100%; height:40px;
-    border-bottom:2px solid #ccc;
+    width:100%; height:35px;
+    border-bottom:1px solid #ccc;
 }

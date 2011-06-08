@@ -27,87 +27,449 @@
   <div id="eo-go-right"><div class='arrow'></div></div>
 </div>
 <div id="eo-top-panel">
+    <div id="section-chooser"></div>
     <div id="eo-columncounter"></div>
 </div>
 
 <div id="eo-viewport">
   <article lang="et"> 
     <header>
-      <h1>Kujutise tekitamine läätse abil</h1>
+      <h1>Chapter 32. Wave optics</h1>
     </header>
-    <section id="first">
-      <figure>
-      <img src="media/lens.svg" width="360">
-      <figcaption><b>Joonis.</b> Kaks kera keskpunktidega O<sub>1</sub> ja O<sub>2</sub>, mille pinna osad moodustavad läätse pinnad. Lääts on joonisel viirutatud ja selle optiline peatelg on sirge läbi O<sub>1</sub> ja O<sub>2</sub>.</figcaption>
-      </figure>
-      <p><span title="Läätse nimetus tuleneb söödava taime harilik lääts ladinakeelsest nimetusest Lens culinaris. Selle taime viljad meenutavad oma kujult kumerläätsi.">Läätsedi</span> on optilised detailid, mida kasutatakse kas valguse koondamiseks või hajutamiseks. Neid on vaja optilistes seadmetes nagu fotoaparaadid, mikroskoobid, pikksilmad. Tavaelus kasutame ka läätse, mida nimetatakse luubiks ehk suurendusklaasiks. <em>Läätseks</em> nimetatakse kõverpindadega piiratud läbipaistvat keha. Tavaliselt on kõverpindadeks kerapinna ehk sfääri osad ja materjaliks klaas. Sirget, mis läbib läätse pindade  kõveruskeskpunkte, nimetatakse <em>optiliseks peateljeks</em>.</p>
-    </section>
-    <section>
-      <figure>
-        <!-- <video controls preload width="400px" class="video-js" poster="media/Optika.1.3.png">
-          <source src="media/Optika.1.3.1.webm" type="video/webm">
-          <source src="media/Optika.1.3.1.m4v" type="video/mp4">
-        </video> --> <!-- Workaround -->
-        <iframe src="video1.html" width="300" height="219"></iframe>
 
-        <figcaption><b>Video.</b> peale kumerlätse läbimist valguskiired koonduvad.</figcaption>
+    <section id='Chapter32'>
+      <h2 class="hidden">Chapter 32. Wave optics</h2>
+      <p>Electron microscopes can make images of individual atoms,
+        but why will a visible-light microscope never be able to?
+        Stereo speakers create the illusion of music that comes from
+        a band arranged in your living room, but why doesn't the
+        stereo illusion work with bass notes? Why are computer chip
+        manufacturers investing billions of dollars in equipment to
+        etch chips with x-rays instead of visible light?</p>
+
+      <p>The answers to all of these questions have to do with the
+        subject of wave optics. So far this book has discussed the
+        interaction of light waves with matter, and its practical
+        applications to optical devices like mirrors, but we have
+        used the ray model of light almost exclusively. Hardly ever
+        have we explicitly made use of the fact that light is an
+        electromagnetic wave. We were able to get away with the
+        simple ray model because the chunks of matter we were
+        discussing, such as lenses and mirrors, were thousands of
+        times larger than a wavelength of light. We now turn to
+        phenomena and devices that can only be understood using the
+        wave model of light.</p>
+    </section>
+
+    <section id='Chapter32.1'>
+      <h2>32.1 Diffraction</h2>
+      <figure id="fig:double-slit-water-waves">
+        <img src="./data/Wave optics_files/double-slit-water-waves.png" alt="double-slit-water-waves">
+        <figcaption>a / In this view from overhead, a straight, sinusoidal water wave encounters a barrier with two
+        gaps in it. Strong wave vibration occurs at angles X and Z, but there is none at all at angle Y. (The figure has
+        been retouched from a real photo of water waves. In reality, the waves beyond the barrier would be much weaker
+        than the ones before it, and they would therefore be difficult to see.)</figcaption>
       </figure>
-      <p>Läätsesid jaotatakse kumer- ja nõgusläätsedeks. <em>Kumerläätsed</em> on keskelt paksemad kui äärtest ja need koondavad valgust. <em>Nõgusläätsed</em> on keskelt õhemad kui äärtest ja need hajutavad valgust.</p>
-      <p>Kumerläätse sümbol on <img src="images/icons/kumer.svg" height="15" class="inline" />, nõgusläätse sümbol on <img src="images/icons/nogu.svg" height="15" class="inline" />.</p>
-    </section>
-    <section id="second">
-      <figure>
-        <iframe src="video2.html" width="300" height="219"></iframe>
-        <figcaption><b>Video:</b> peale nõguslätse läbimist valguskiired hajuvad.</figcaption>
+      <figure id="fig:double-slit-no-diffraction">
+        <img src="./data/Wave optics_files/double-slit-no-diffraction.jpg" alt="double-slit-no-diffraction">
+        <figcaption>b / This doesn't happen.</figcaption>
       </figure>
-      <p>Kui kumerläätsele suunata paralleelnen kiirtekimp, siis pärast läätse läbimist kiired lõikuvad ühes peatelje punktis. Seda punkti nimetatakse läätse <i>fookuseks</i>. Fookuse kaugust läätse <i>keskpunktist O</i>, nimetatakse läätse <i>fookuskauguseks <math><mi>f</mi></math></i>. Valgust koondava toime tõttu nimetatakse kumerläätsi ka <i>koondavateks läätsedeks</i>.</p>
-      <p>Nõgusläätsele langev paralleelene kiirtekimp hajub pärast läätse läbimist. Hajunud kiirte pikendused lõikuvad kõik ühes peatelje punktis. Seda punkti nimetatakse näivaks fookuseks ja selle kaugust läätse keskpunktist nimetatakse samuti fookuskauguseks. Ainult nõgusläätse fookuskaugust loetakse negatiivseks.</p>
-      <p>Valgust hajutava toime tõttu nimetatakse nõgusläätsi ka hajutavataeks läätsedeks.</p>
-      <p>Järgnevalt vaatame, kuidas läätsedega on võimalik <span title="Esemeks on optikas tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole ots määrab ära ka terve noole kujutise, sest noole kujutis on ikka risti teljega (seda siin ei tõestata).">esemestest</span> kujutisi saada. Alustame kumerläätsest. Kujutise asukoha leidmiseks ehk kujutise konstrueerimiseks valime vähemalt kaks esemest väljuvat kiirt, joonistame nende tee läbi läätse ja kohas kus need kiired lõikuvad on ka vastav kujutise punkt.</p>
-    </section>
-    <section>
-      <figure>
-        <embed src="media/lens_simulation.swf" width="100%" />
-        <figcaption><b>Simulatsioon.</b> Uuri kujutise asukoha ja suuruse sõltuvust eseme kaugusest ja läätse fookuskaugusest.</figcaption>
+      <figure id="fig:double-slit-setup">
+        <img src="./data/Wave optics_files/double-slit-setup.png" alt="double-slit-setup">
+        <figcaption>c / A practical, low-tech setup for observing diffraction of light.</figcaption>
       </figure>
-      <p>Kujutise konstrueerimiseks kasutame esemest väljuvaid kiiri, mille käik on meil teada.</p>
-      <ul>
-        <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist <span title="Miks see nii on?">läheb läbi fookuse</span>;</li>
-        <li>fookust läbivat kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
-        <li>läätse keskpunkti  läbiva kiir, mis pärast läätse <span title="Miks see nii on? Vihje: lääts on kaunis õhuke">läbimist suunda ei muuda</span>.</li>
-      </ul>
-      <p>Optikas on esemeks tavaliselt nool, mis on risti optilise peateljega ja mille teravik asub sellest eemal.Kujutise korral eeldatakse, et noole otsa asukoht määrab ära ka terve noole kujutise asukoha. Eeldatakse, et noole kujutis on ikka risti teljega, kuigi tavaliselt seda ei tõestata.</p>
-      <p>Kui oleme leidnud kujutise otspunkti asukoha, siis tõmmates ristsirge optilise peateljeni olemegi leidnud <i>kujutise</i>.</p>
+      <figure id="fig:scaling">
+        <img src="./data/Wave optics_files/scaling.jpg" alt="scaling">
+        <figcaption>d / The bottom figure is simply a copy of the middle portion of the top one, scaled up by a
+        factor of two. All the angles are the same. Physically, the angular pattern of the diffraction fringes can't be
+        any different if we scale both λ and <i>d</i> by the same factor, leaving λ/<i>d</i> unchanged.</figcaption>
+      </figure>
+
+      <p>Figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a>
+        shows a typical problem in wave optics, enacted
+        with water waves. It may seem surprising that we don't get a
+        simple pattern like figure <a
+            href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-no-diffraction">b</a>, but
+        the pattern would only
+        be that simple if the wavelength was hundreds of times
+        shorter than the distance between the gaps in the barrier
+        and the widths of the gaps.</p>
+
+      <p>Wave optics is a broad subject, but this example will help
+        us to pick out a reasonable set of restrictions to make
+        things more manageable:</p>
+
+      <p>(1) We restrict ourselves to cases in which a wave travels
+        through a uniform medium, encounters a certain area in which
+        the medium has different properties, and then emerges on the
+        other side into a second uniform region.</p>
+
+      <p>(2) We assume that the incoming wave is a nice tidy
+        sine-wave pattern with wavefronts that are lines (or, in
+        three dimensions, planes).</p>
+
+      <p>(3) In figure <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a>
+        we can see that the wave pattern
+        immediately beyond the barrier is rather complex, but
+        farther on it sorts itself out into a set of wedges
+        separated by gaps in which the water is still. We will
+        restrict ourselves to studying the simpler wave patterns
+        that occur farther away, so that the main question of
+        interest is how intense the outgoing wave is at a given angle.</p>
+
+      <p>The kind of phenomenon described by restriction (1) is
+        called <i>diffraction</i>. Diffraction
+        can be defined as the behavior of a wave when it encounters
+        an obstacle or a nonuniformity in its medium. In general,
+        diffraction causes a wave to bend around obstacles and make
+        patterns of strong and weak waves radiating out beyond the
+        obstacle. Understanding diffraction is the central problem
+        of wave optics. If you understand diffraction, even the
+        subset of diffraction problems that fall within restrictions
+        (2) and (3), the rest of wave optics is icing on the cake.</p>
+
+      <p>Diffraction can be used to find the structure of an unknown
+        diffracting object: even if the object is too small to study
+        with ordinary imaging, it may be possible to work backward
+        from the diffraction pattern to learn about the object. The
+        structure of a crystal, for example, can be determined from
+        its x-ray diffraction pattern.</p>
+
+      <p>Diffraction can also be a bad thing. In a telescope, for
+        example, light waves are diffracted by all the parts of the
+        instrument. This will cause the image of a star to appear
+        fuzzy even when the focus has been adjusted correctly. By
+        understanding diffraction, one can learn how a telescope
+        must be designed in order to reduce this problem ---
+        essentially, it should have the biggest possible diameter.</p>
+
+      <p>There are two ways in which restriction (2) might commonly
+        be violated. First, the light might be a mixture of
+        wavelengths. If we simply want to observe a diffraction
+        pattern or to use diffraction as a technique for studying
+        the object doing the diffracting (e.g., if the object is too
+        small to see with a microscope), then we can pass the light
+        through a colored filter before diffracting it.</p>
+
+      <p>A second issue is that light from sources such as the sun or
+        a lightbulb does not consist of a nice neat plane wave,
+        except over very small regions of space. Different parts of
+        the wave are out of step with each other, and the wave is
+        referred to as <i>incoherent</i>. One way
+        of dealing with this is shown in figure <a
+            href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-setup">c</a>. After
+        filtering
+        to select a certain wavelength of red light, we pass the
+        light through a small pinhole. The region of the light that
+        is intercepted by the pinhole is so small that one part of
+        it is not out of step with another. Beyond the pinhole,
+        light spreads out in a spherical wave; this is analogous to
+        what happens when you speak into one end of a paper towel
+        roll and the sound waves spread out in all directions from
+        the other end. By the time the spherical wave gets to the
+        double slit it has spread out and reduced its curvature, so
+        that we can now think of it as a simple plane wave.</p>
+
+      <p>If this seems laborious, you may be relieved to know that
+        modern technology gives us an easier way to produce a
+        single-wavelength, coherent beam of light: the laser.</p>
+
+      <p>The parts of the final image on the screen in <a
+          href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-setup">c</a> are called
+        diffraction fringes.
+        The center of each fringe is a point of maximum brightness,
+        and halfway between two fringes is a minimum.</p>
+
+      <p class="discussion"><i>Discussion Question</i>Why would x-rays rather than visible light be used to find
+      the structure of a crystal? Sound waves are used to make
+      images of fetuses in the womb. What would influence the
+      choice of wavelength?</p>
     </section>
-    <section>
-      <p><b>Nõgusläätse</b> korral toimime kujutise asukoha leidmisel sarnaselt eelmisega. Ikka valime vähemalt kaks kiirt, mille tee läätse läbimisel on teada. Nendeks võivad olla</p>
-      <ul>
-       <li>optilise teljega paralleelne kiir, mis pärast läätse läbimist läheb nii, et selle pikendus <span title="Miks see nii on?">läheb läbi näiva fookuse</span>;</li>
-       <li>näivasse fookusse suunatud kiir, mis pärast läätse läbimist on optilise teljega paralleelne;</li>
-       <li>läätse keskpunkti  läbiv kiir, mis pärast läätse läbimist suunda ei muuda.</li>
-      </ul>
-      <p>Nõgusläätse korral ei määra kujutise asukohta mitte kiirte lõikumise koht, vaid nende pikenduste lõikumise koht. See aga asub samal pool läätse kui ese ja sellepärast pole seda võimalik ekraanil nähtavaks teha, kuigi <span title="Miks silmaga näeme, aga ekraanile ei saa tekitada?">silmaga me seda näeme</span>. Sellist kujutist nimetatakse <i>näivaks kujutiseks</i>. Seda ei saa projekteerida ekraanile, külla aga silmaga näha.</p>
+    
+    <section id="Section32.2">
+      <h2>32.2 Scaling of diffraction</h2>
+
+      <p>This chapter has “optics” in its title, so it is nominally
+        about light, but we started out with an example involving
+        water waves. Water waves are certainly easier to visualize,
+        but is this a legitimate comparison? In fact the analogy
+        works quite well, despite the fact that a light wave has a
+        wavelength about a million times shorter. This is because
+        diffraction effects scale uniformly. That is, if we enlarge
+        or reduce the whole diffraction situation by the same
+        factor, including both the wavelengths and the sizes of the
+        obstacles the wave encounters, the result is still a valid solution.</p>
+
+      <p>This is unusually simple behavior! In the first book of this
+        series we saw many examples of more complex scaling, such as
+        the impossibility of bacteria the size of dogs, or the need
+        for an elephant to eliminate heat through its ears because
+        of its small surface-to-volume ratio, whereas a tiny shrew's
+        life-style centers around conserving its body heat.</p>
+
+      <p>Of course water waves and light waves differ in many ways,
+        not just in scale, but the general facts you will learn
+        about diffraction are applicable to all waves. In some ways
+        it might have been more appropriate to insert this chapter
+        at the end of book 3, Vibrations and Waves, but many of the
+        important applications are to light waves, and you would
+        probably have found these much more difficult without any
+        background in optics.</p>
+
+      <p>Another way of stating the simple scaling behavior of
+        diffraction is that the diffraction angles we get depend
+        only on the unitless ratio λ/d, where λ is
+        the wavelength of the wave and <i>d</i> is some dimension of the
+        diffracting objects, e.g., the center-to-center spacing
+        between the slits in figure <a
+            href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves">a</a>. If, for
+        instance, we scale
+        up both λ and <i>d</i> by a factor of 37, the ratio
+        λ /<i>d</i> will be unchanged.</p>
     </section>
-    <section id="test">
-      <h2>Läätse valem</h2>
-      <p>Kujutise asukohta saab leida ka arvutuste teel, mitte ainult konstrueerides. Selleks kasutatakse kolme suurust – <i>eseme kaugust</i> läätsest <math><mo>(</mo><mi>a</mi><mo>)</mo></math>, <i>kujutise kaugust</i> läätsest <math><mo>(</mo><mi>k</mi><mo>)</mo></math> ja <i>läätse fookuskaugust</i> <math><mo>(</mo><mi>f</mi><mo>)</mo></math>.</p>
+    <section id="Section32.3">
+      <h2>32.3 The correspondence principle</h2>
+      <figure id="fig:huygens">
+        <img src="./data/Wave optics_files/huygens.jpg" alt="huygens">
+        <figcaption>e / Christiaan Huygens (1629-1695).</figcaption>
+      </figure>
+      <p>The only reason we don't usually notice diffraction of light
+        in everyday life is that we don't normally deal with objects
+        that are comparable in size to a wavelength of visible
+        light, which is about a millionth of a meter. Does this mean
+        that wave optics contradicts ray optics, or that wave optics
+        sometimes gives wrong results? No. If you hold three fingers
+        out in the sunlight and cast a shadow with them, <i>either</i>
+        wave optics or ray optics can be used to predict the
+        straightforward result: a shadow pattern with two bright
+        lines where the light has gone through the gaps between your
+        fingers. Wave optics is a more general theory than ray
+        optics, so in any case where ray optics is valid, the two
+        theories will agree. This is an example of a general idea
+        enunciated by the physicist Niels Bohr,
+        called the <i>correspondence
+          principle: </i> when flaws in a physical theory lead to the
+        creation of a new and more general theory, the new theory
+        must still agree with the old theory within its more
+        restricted area of applicability. After all, a theory is
+        only created as a way of describing experimental observations.
+        If the original theory had not worked in any cases at all,
+        it would never have become accepted.</p>
+
+      <p>In the case of optics, the correspondence principle tells us
+        that when λ /<i>d</i> is small, both the ray and the wave
+        model of light must give approximately the same result.
+        Suppose you spread your fingers and cast a shadow with them
+        using a coherent light source. The quantity λ /<i>d</i> is
+        about 10 -4, so the two models will agree very closely. (To
+        be specific, the shadows of your fingers will be outlined by
+        a series of light and dark fringes, but the angle subtended
+        by a fringe will be on the order of 10<sup>-4</sup> radians, so
+        they will be invisible and washed out by the natural
+        fuzziness of the edges of sun-shadows, caused by the
+        finite size of the sun.)</p>
+
+        <p class="self-check"><i>Self Check</i>What kind of wavelength would an electromagnetic wave have
+to have in order to diffract dramatically around your body?
+Does this contradict the correspondence principle?
+(answer in the back of the PDF version of the book)</p>
     </section>
-    <section>
-      <aside>
-        <p>Kui katses asetati küünal läätsest 20 sentimeetri kaugusele, tekkis küünla terav kujutis 25 sentimeetri kaugusel asuvale ekraanile. Arvuta läätse optiline tugevus ja ligikaudne fookuskaugus sentimeetrites.</p>
-        <hr>
-        <p>Lätse optiline tugevus: <math id="id1" class="mode-mathEq" display="block"><mi>D</mi><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo class="math-edit">□</mo><mfrac><mn>1</mn><mi class="math-edit">□</mi></mfrac><mo>=</mo><mi class="math-edit">□</mi><mtext> dptr</mtext></math></p>
-        <p>Fookuskaugus: <math id="id2" class="mode-mathEq" display="block"><mi>f</mi><mo>=</mo><mi class="math-edit">□</mi><mo>=</mo><mi class="math-edit">□</mi><mtext> cm</mtext></math></p>
-      </aside>
-      <p>Need kolm suurust on omavahel seotud ja seda seost kutsutakse <i>läätse valemiks</i>.</p>
-      <p>Kumerläätse korral: <math display="block">
-      <mfrac><mn>1</mn><mi>a</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac>
-      </math></p>
-      <p>Nõgusläätse korral kehtib samasugune valem, ainult näivate suuruste (<math><mi>k</mi></math> ja <math><mi>f</mi></math>)  ees kasutame miinusmärki:</p>
-      <math display="block"><mfrac><mn>1</mn><mi>a</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>k</mi></mfrac><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>
-      <p>Sageli kasutatakse fookuskauguse asemel optilist tugevust <math><mi>D</mi><mo>=</mo><mfrac><mn>1</mn><mi>f</mi></mfrac></math>. Ühikuks on
-      1 dioptria (dptr), see on läätse optiline tugevus, mille fookuskaugus <math><mi>f</mi><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><mtext>m</mtext></math>,
-      st <math><mn>1</mn><mtext>&#x00A0;</mtext><mtext>dptr</mtext><mo>=</mo><mn>1</mn><mtext>&#x00A0;</mtext><msup><mtext>m</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></math>.</p>
+
+    <section id="Section32.4">
+      <h2>32.4 Huygens' principle</h2>
+      <figure id="fig:double-slit-water-waves-photo"><img
+          src="./data/Wave optics_files/double-slit-water-waves-photo.jpg" alt="double-slit-water-waves-photo">
+        <figcaption>f / Double-slit diffraction.</figcaption>
+      </figure>
+
+      <figure id="fig:huygens-1"><img src="./data/Wave optics_files/huygens-1.png" alt="huygens-1">
+        <figcaption>g / A wavefront can be analyzed by the principle of superposition, breaking it down into many small
+          parts.
+        </figcaption>
+      </figure>
+
+      <figure id="fig:huygens-2"><img src="./data/Wave optics_files/huygens-2.png" alt="huygens-2">
+        <figcaption>h / If it was by itself, each of the parts would spread out as a circular ripple.</figcaption>
+      </figure>
+
+      <figure id="fig:huygens-3"><img src="./data/Wave optics_files/huygens-3.png" alt="huygens-3">
+        <figcaption>i / Adding up the ripples produces a new wavefront.</figcaption>
+      </figure>
+
+      <figure id="fig:young"><img src="./data/Wave optics_files/young.jpg" alt="young">
+        <figcaption>j / Thomas Young</figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-water-waves2"><img src="./data/Wave optics_files/double-slit-water-waves.png"
+                                                    alt="double-slit-water-waves">
+        <figcaption>k / Double-slit diffraction.</figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-overlapping"><img src="./data/Wave optics_files/double-slit-overlapping.png"
+                                                    alt="double-slit-overlapping">
+        <figcaption>l / Use of Huygens' principle.</figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-path-length"><img src="./data/Wave optics_files/double-slit-path-length.png"
+                                                    alt="double-slit-path-length">
+        <figcaption>m / Constructive interference along the center-line.</figcaption>
+      </figure>
+
+      <p>Returning to the example of double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves-photo">f</a>,
+note the strong visual impression of two overlapping sets of
+concentric semicircles. This is an example of <i>Huygens' principle</i>, named after a Dutch physicist
+and astronomer. (The first syllable rhymes with “boy.”)
+Huygens' principle states that any wavefront can be broken
+down into many small side-by-side wave peaks, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-1">g</a>, which
+then spread out as circular ripples, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-2">h</a>, and by the
+principle of superposition, the result of adding up these
+sets of ripples must give the same result as allowing the
+wave to propagate forward, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-3">i</a>. In the case of sound or
+light waves, which propagate in three dimensions, the
+“ripples” are actually spherical rather than circular, but
+we can often imagine things in two dimensions for simplicity.</p>
+
+<p>In double-slit diffraction the application of Huygens'
+principle is visually convincing: it is as though all the
+sets of ripples have been blocked except for two. It is a
+rather surprising mathematical fact, however, that Huygens'
+principle gives the right result in the case of an
+unobstructed linear wave, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-2">h</a> and <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:huygens-3">i</a>. A theoretically
+infinite number of circular wave patterns somehow conspire
+to add together and produce the simple linear wave motion
+with which we are familiar.</p>
+
+<p>Since Huygens' principle is equivalent to the principle of
+superposition, and superposition is a property of waves,
+what Huygens had created was essentially the first wave
+theory of light. However, he imagined light as a series of
+pulses, like hand claps, rather than as a sinusoidal wave.</p>
+
+<p>The history is interesting. Isaac Newton
+loved the atomic theory of matter so much that he searched
+enthusiastically for evidence that light was also made of
+tiny particles. The paths of his light particles would
+correspond to rays in our description; the only significant
+difference between a ray model and a particle model of light
+would occur if one could isolate individual particles and
+show that light had a “graininess” to it. Newton never did
+this, so although he thought of his model as a particle
+model, it is more accurate to say he was one of the builders
+of the ray model.</p>
+
+<p>Almost all that was known about reflection and refraction of
+light could be interpreted equally well in terms of a
+particle model or a wave
+model, but Newton had one reason for strongly opposing
+Huygens' wave theory. Newton knew
+that waves exhibited diffraction, but diffraction of light
+is difficult to observe, so Newton believed that light did
+not exhibit diffraction, and therefore must not be a wave.
+Although Newton's criticisms were fair enough, the debate
+also took on the overtones of a nationalistic dispute
+between England and continental Europe, fueled by English
+resentment over Leibniz's supposed plagiarism of Newton's
+calculus. Newton wrote a book on optics, and his prestige
+and political prominence tended to discourage questioning of his model.</p>
+
+<p>Thomas Young (1773-1829) was the person
+who finally, a hundred years later, did a careful search for
+wave interference effects with light and analyzed the
+results correctly. He observed double-slit diffraction of
+light as well as a variety of other diffraction effects, all
+of which showed that light exhibited wave interference
+effects, and that the wavelengths of visible light waves
+were extremely short. The crowning achievement was the
+demonstration by the experimentalist Heinrich Hertz and the theorist James Clerk
+Maxwell that light was an
+<i>electromagnetic</i> wave. Maxwell is said to have related
+his discovery to his wife one starry evening and told her
+that she was the only other person in the world who knew what starlight was.</p>
+    </section>
+
+    <section id="Section32.5">
+      <h2>32.5 Double-slit diffraction</h2>
+
+      <figure id="fig:double-slit-derivation-1">
+        <img src="./data/Wave optics_files/double-slit-derivation-1.png" alt="double-slit-derivation-1">
+        <figcaption>n / The waves travel distances <i>L</i> and <i>L</i>' from the two slits to get to the same point in
+          space, at an angle θ from the center line.
+        </figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-derivation-2">
+        <img src="./data/Wave optics_files/double-slit-derivation-2.png" alt="double-slit-derivation-2">
+        <figcaption>o / A close-up view of figure <a
+            href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-derivation-1">n</a>,
+          showing how the path length difference <i>L</i>-<i>L</i>' is related to <i>d</i> and to the angle θ.
+        </figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-d">
+        <img src="./data/Wave optics_files/double-slit-d.png" alt="double-slit-d">
+        <figcaption>p / Cutting <i>d</i> in half doubles the angles of the diffraction fringes.</figcaption>
+      </figure>
+
+      <figure id="fig:double-slit-wavelength">
+        <img src="./data/Wave optics_files/double-slit-wavelength.png" alt="double-slit-wavelength">
+        <figcaption>q / Double-slit diffraction patterns of long-wavelength red light (top) and short-wavelength blue
+          light (bottom).
+        </figcaption>
+      </figure>
+
+      <p>Let's now analyze double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-water-waves2">k</a>, using
+Huygens' principle. The most interesting question is how to
+compute the angles such as X and Z where the wave
+intensity is at a maximum, and the in-between angles like
+Y where it is minimized. Let's measure all our angles
+with respect to the vertical center line of the figure,
+which was the original direction of propagation of the wave.</p>
+
+<p>If we assume that the width of the slits is small (on the
+order of the wavelength of the wave or less), then we can
+imagine only a single set of Huygens ripples spreading out
+from each one, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-overlapping">l</a>. White lines represent peaks, black
+ones troughs. The only dimension of the diffracting
+slits that has any effect on the geometric pattern of the
+overlapping ripples is then the center-to-center distance,
+<i>d</i>, between the slits.</p>
+
+<p>We know from our discussion of the scaling of diffraction
+that there must be some equation that relates an angle like
+θ<sub><i>Z</i></sub> to the ratio λ /<i>d</i>,
+</p><div class="equation"><img src="./data/Wave optics_files/eq_41b338e3.png" alt=" frac{lambda}{d} leftrightarrow theta_Z qquad ."></div><p class="noindent">
+If the equation for θ<sub><i>Z</i></sub> depended on some other
+expression such as λ +<i>d</i> or λ<sup>2</sup>/<i>d</i>, then it
+would change when we scaled λ and <i>d</i> by the same
+factor, which would violate what we know about the
+scaling of diffraction.</p>
+
+<p>Along the central maximum line, X, we always have positive
+waves coinciding with positive ones and negative waves
+coinciding with negative ones. (I have arbitrarily chosen to
+take a snapshot of the pattern at a moment when the waves
+emerging from the slit are experiencing a positive peak.)
+The superposition of the two sets of ripples therefore
+results in a doubling of the wave amplitude along this line.
+There is constructive interference. This is easy to explain,
+because by symmetry, each wave has had to travel an equal
+number of wavelengths to get from its slit to the center line, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig:double-slit-path-length">m</a>:
+Because both sets of ripples have ten wavelengths to cover in
+order to reach the point along direction X, they will be in step when they get there.</p>
+
+<p>At the point along direction Y shown in the same figure,
+one wave has traveled ten wavelengths, and is therefore at a
+positive extreme, but the other has traveled only nine and a
+half wavelengths, so it at a negative extreme. There is
+perfect cancellation, so points along this line experience no wave motion.</p>
+
+<p>But the distance traveled does not have to be equal in order
+to get constructive interference. At the point along
+direction Z, one wave has gone nine wavelengths and the
+other ten. They are both at a positive extreme.</p>
+      <p class="self-check"><i>self-check:</i>At a point half a wavelength below the point marked along
+direction X, carry out a similar analysis.
+(answer in the back of the PDF version of the book)</p>
     </section>
   </article>
 </div>
