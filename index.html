@@ -14,6 +14,13 @@
   <script type="text/javascript" src="js/localstorage.js"></script>
   <script type="text/javascript" src="js/functions.js"></script>
   <script type="text/javascript" src="js/math.js"></script>
+
+  <script type="text/javascript" src="highslide/highslide-full.js"></script>
+  <!--<script type="text/javascript" src="highslide/highslide.config.js" charset="utf-8"></script>-->
+  <link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+  <!--[if lt IE 7]>
+  <link rel="stylesheet" type="text/css" href="highslide/highslide-ie6.css" />
+  <![endif]-->
 </head>
 <body>
 <div id="pleaseWaitContainer">
@@ -63,26 +70,19 @@
 
     <section id='Chapter32.1'>
       <h2>32.1 Diffraction</h2>
-      <figure id="fig-double-slit-water-waves">
-        <a href='#' class='openclose'>open</a>
-        <div class="title">Figure A:</div>
-        <div class="container">
-          <img src="./data/Wave optics_files/double-slit-water-waves.png" alt="double-slit-water-waves">
-          <figcaption>In this view from overhead, a straight, sinusoidal water wave encounters a barrier with two
-          gaps in it. Strong wave vibration occurs at angles X and Z, but there is none at all at angle Y. (The figure has
-          been retouched from a real photo of water waves. In reality, the waves beyond the barrier would be much weaker
-          than the ones before it, and they would therefore be difficult to see.)</figcaption>
-        </div>
-      </figure>
-      <figure id="fig-double-slit-no-diffraction">
-        <a href='#' class='openclose'>open</a>
-        <div class="title">Figure B:</div>
-        <div class="container">
-        <img src="./data/Wave optics_files/double-slit-no-diffraction.jpg" alt="double-slit-no-diffraction">
-        <figcaption>This doesn't happen.</figcaption>
-          </div>
+
+      <figure id="fig-double-slit-water-waves" title="Figure A">
+        <img src="./data/Wave optics_files/double-slit-water-waves.png" alt="double-slit-water-waves">
+        <figcaption>In this view from overhead, a straight, sinusoidal water wave encounters a barrier with two
+        gaps in it. Strong wave vibration occurs at angles X and Z, but there is none at all at angle Y. (The figure has
+        been retouched from a real photo of water waves. In reality, the waves beyond the barrier would be much weaker
+        than the ones before it, and they would therefore be difficult to see.)</figcaption>
       </figure>
 
+      <figure id="fig-double-slit-no-diffraction" title="Figure B">
+          <img src="./data/Wave optics_files/double-slit-no-diffraction.jpg" alt="double-slit-no-diffraction">
+          <figcaption>This doesn't happen.</figcaption>
+      </figure>
 
       <p><a class="gotoFigure" href="#fig-double-slit-water-waves">Figure A</a>
         shows a typical problem in wave optics, enacted
@@ -148,13 +148,9 @@
         the object doing the diffracting (e.g., if the object is too
         small to see with a microscope), then we can pass the light
         through a colored filter before diffracting it.</p>
-      <figure id="fig-double-slit-setup">
-        <a href='#' class='openclose'>open</a>
-        <div class="title">Figure C:</div>
-        <div class="container">
-          <img src="./data/Wave optics_files/double-slit-setup.png" alt="double-slit-setup">
-          <figcaption>A practical, low-tech setup for observing diffraction of light.</figcaption>
-        </div>
+      <figure id="fig-double-slit-setup" title="Figure C">
+        <img src="./data/Wave optics_files/double-slit-setup.png" alt="double-slit-setup">
+        <figcaption>A practical, low-tech setup for observing diffraction of light.</figcaption>
       </figure>
       <!--<figure id="fig-scaling">-->
         <!--<div class="title">Figure D:<a href='#' class='openclose'>open</a></div>-->
@@ -189,8 +185,8 @@
         modern technology gives us an easier way to produce a
         single-wavelength, coherent beam of light: the laser.</p>
 
-      <p>The parts of the final image on the screen in <a
-             class="gotoFigure" href="#fig-double-slit-setup">figure C</a> are called
+      <p>The parts of the final image on the screen in
+          <a class="gotoFigure" href="#fig-double-slit-setup">figure C</a> are called
         diffraction fringes.
         The center of each fringe is a point of maximum brightness,
         and halfway between two fringes is a minimum.</p>
@@ -243,10 +239,12 @@
     </section>
     <section id="Section32.3">
       <h2>32.3 The correspondence principle</h2>
-      <figure id="fig-huygens">
+
+      <figure id="fig-huygens" title="Figure E:">
         <img src="./data/Wave optics_files/huygens.jpg" alt="huygens">
-        <figcaption>e / Christiaan Huygens (1629-1695).</figcaption>
+        <figcaption>Christiaan Huygens (1629-1695).</figcaption>
       </figure>
+
       <p>The only reason we don't usually notice diffraction of light
         in everyday life is that we don't normally deal with objects
         that are comparable in size to a wavelength of visible
@@ -283,122 +281,137 @@
         fuzziness of the edges of sun-shadows, caused by the
         finite size of the sun.)</p>
 
-        <p class="self-check"><i>Self Check</i>What kind of wavelength would an electromagnetic wave have
-to have in order to diffract dramatically around your body?
-Does this contradict the correspondence principle?
-(answer in the back of the PDF version of the book)</p>
+      <p class="self-check"><i>Self Check</i>What kind of wavelength would an electromagnetic wave have
+        to have in order to diffract dramatically around your body?
+        Does this contradict the correspondence principle?
+        (answer in the back of the PDF version of the book)</p>
     </section>
 
     <section id="Section32.4">
       <h2>32.4 Huygens' principle</h2>
-      <figure id="fig-double-slit-water-waves-photo"><img
-          src="./data/Wave optics_files/double-slit-water-waves-photo.jpg" alt="double-slit-water-waves-photo">
-        <figcaption>f / Double-slit diffraction.</figcaption>
+      <figure id="fig-double-slit-water-waves-photo" title="Figure F">
+        <img src="./data/Wave optics_files/double-slit-water-waves-photo.jpg"
+             alt="double-slit-water-waves-photo">
+        <figcaption>Double-slit diffraction.</figcaption>
       </figure>
 
-      <figure id="fig-huygens-1"><img src="./data/Wave optics_files/huygens-1.png" alt="huygens-1">
-        <figcaption>g / A wavefront can be analyzed by the principle of superposition, breaking it down into many small
+      <figure id="fig-huygens-1" title="Figure G">
+        <img src="./data/Wave optics_files/huygens-1.png" alt="huygens-1">
+        <figcaption>A wavefront can be analyzed by the principle of superposition, breaking it down into many small
           parts.
         </figcaption>
       </figure>
 
-      <figure id="fig-huygens-2"><img src="./data/Wave optics_files/huygens-2.png" alt="huygens-2">
-        <figcaption>h / If it was by itself, each of the parts would spread out as a circular ripple.</figcaption>
+      <figure id="fig-huygens-2" title="Figure H">
+        <img src="./data/Wave optics_files/huygens-2.png" alt="huygens-2">
+        <figcaption>If it was by itself, each of the parts would spread out as a circular ripple.</figcaption>
       </figure>
 
-      <figure id="fig-huygens-3"><img src="./data/Wave optics_files/huygens-3.png" alt="huygens-3">
-        <figcaption>i / Adding up the ripples produces a new wavefront.</figcaption>
+      <figure id="fig-huygens-3" title="Figure I">
+        <img src="./data/Wave optics_files/huygens-3.png" alt="huygens-3">
+        <figcaption>Adding up the ripples produces a new wavefront.</figcaption>
       </figure>
 
-      <figure id="fig-young"><img src="./data/Wave optics_files/young.jpg" alt="young">
-        <figcaption>j / Thomas Young</figcaption>
+      <figure id="fig-young" title="Figure J">
+        <img src="./data/Wave optics_files/young.jpg" alt="young">
+        <figcaption>Thomas Young</figcaption>
       </figure>
 
-      <figure id="fig-double-slit-water-waves2"><img src="./data/Wave optics_files/double-slit-water-waves.png"
-                                                    alt="double-slit-water-waves">
-        <figcaption>k / Double-slit diffraction.</figcaption>
+      <figure id="fig-double-slit-water-waves2" title="Figure K">
+        <img src="./data/Wave optics_files/double-slit-water-waves.png"
+             alt="double-slit-water-waves">
+        <figcaption>Double-slit diffraction.</figcaption>
       </figure>
 
-      <figure id="fig-double-slit-overlapping"><img src="./data/Wave optics_files/double-slit-overlapping.png"
-                                                    alt="double-slit-overlapping">
-        <figcaption>l / Use of Huygens' principle.</figcaption>
+      <figure id="fig-double-slit-overlapping" title="Figure L">
+        <img src="./data/Wave optics_files/double-slit-overlapping.png"
+             alt="double-slit-overlapping">
+        <figcaption>Use of Huygens' principle.</figcaption>
       </figure>
 
-      <figure id="fig-double-slit-path-length"><img src="./data/Wave optics_files/double-slit-path-length.png"
-                                                    alt="double-slit-path-length">
-        <figcaption>m / Constructive interference along the center-line.</figcaption>
+      <figure id="fig-double-slit-path-length" title="Figure M">
+        <img src="./data/Wave optics_files/double-slit-path-length.png"
+             alt="double-slit-path-length">
+        <figcaption>Constructive interference along the center-line.</figcaption>
       </figure>
 
-      <p>Returning to the example of double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-double-slit-water-waves-photo">f</a>,
-note the strong visual impression of two overlapping sets of
-concentric semicircles. This is an example of <i>Huygens' principle</i>, named after a Dutch physicist
-and astronomer. (The first syllable rhymes with “boy.”)
-Huygens' principle states that any wavefront can be broken
-down into many small side-by-side wave peaks, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-huygens-1">g</a>, which
-then spread out as circular ripples, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-huygens-2">h</a>, and by the
-principle of superposition, the result of adding up these
-sets of ripples must give the same result as allowing the
-wave to propagate forward, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-huygens-3">i</a>. In the case of sound or
-light waves, which propagate in three dimensions, the
-“ripples” are actually spherical rather than circular, but
-we can often imagine things in two dimensions for simplicity.</p>
+      <p>Returning to the example of double-slit diffraction, <a
+              class="gotoFigure" href="#fig-double-slit-water-waves-photo">F</a>,
+        note the strong visual impression of two overlapping sets of
+        concentric semicircles. This is an example of <i>Huygens' principle</i>, named after a Dutch physicist
+        and astronomer. (The first syllable rhymes with “boy.”)
+        Huygens' principle states that any wavefront can be broken
+        down into many small side-by-side wave peaks, <a
+                class="gotoFigure" href="#fig-huygens-1">G</a>, which
+        then spread out as circular ripples, <a
+                class="gotoFigure" href="#fig-huygens-2">H</a>, and by the
+        principle of superposition, the result of adding up these
+        sets of ripples must give the same result as allowing the
+        wave to propagate forward, <a
+                class="gotoFigure" href="#fig-huygens-3">I</a>. In the case of
+        sound or
+        light waves, which propagate in three dimensions, the
+        “ripples” are actually spherical rather than circular, but
+        we can often imagine things in two dimensions for simplicity.</p>
 
-<p>In double-slit diffraction the application of Huygens'
-principle is visually convincing: it is as though all the
-sets of ripples have been blocked except for two. It is a
-rather surprising mathematical fact, however, that Huygens'
-principle gives the right result in the case of an
-unobstructed linear wave, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-huygens-2">h</a> and <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-huygens-3">i</a>. A theoretically
-infinite number of circular wave patterns somehow conspire
-to add together and produce the simple linear wave motion
-with which we are familiar.</p>
+      <p>In double-slit diffraction the application of Huygens'
+        principle is visually convincing: it is as though all the
+        sets of ripples have been blocked except for two. It is a
+        rather surprising mathematical fact, however, that Huygens'
+        principle gives the right result in the case of an
+        unobstructed linear wave, <a
+                class="gotoFigure" href="#fig-huygens-2">H</a> and <a
+                class="gotoFigure" href="#fig-huygens-3">I</a>. A theoretically
+        infinite number of circular wave patterns somehow conspire
+        to add together and produce the simple linear wave motion
+        with which we are familiar.</p>
 
-<p>Since Huygens' principle is equivalent to the principle of
-superposition, and superposition is a property of waves,
-what Huygens had created was essentially the first wave
-theory of light. However, he imagined light as a series of
-pulses, like hand claps, rather than as a sinusoidal wave.</p>
+      <p>Since Huygens' principle is equivalent to the principle of
+        superposition, and superposition is a property of waves,
+        what Huygens had created was essentially the first wave
+        theory of light. However, he imagined light as a series of
+        pulses, like hand claps, rather than as a sinusoidal wave.</p>
 
-<p>The history is interesting. Isaac Newton
-loved the atomic theory of matter so much that he searched
-enthusiastically for evidence that light was also made of
-tiny particles. The paths of his light particles would
-correspond to rays in our description; the only significant
-difference between a ray model and a particle model of light
-would occur if one could isolate individual particles and
-show that light had a “graininess” to it. Newton never did
-this, so although he thought of his model as a particle
-model, it is more accurate to say he was one of the builders
-of the ray model.</p>
+      <p>The history is interesting. Isaac Newton
+        loved the atomic theory of matter so much that he searched
+        enthusiastically for evidence that light was also made of
+        tiny particles. The paths of his light particles would
+        correspond to rays in our description; the only significant
+        difference between a ray model and a particle model of light
+        would occur if one could isolate individual particles and
+        show that light had a “graininess” to it. Newton never did
+        this, so although he thought of his model as a particle
+        model, it is more accurate to say he was one of the builders
+        of the ray model.</p>
 
-<p>Almost all that was known about reflection and refraction of
-light could be interpreted equally well in terms of a
-particle model or a wave
-model, but Newton had one reason for strongly opposing
-Huygens' wave theory. Newton knew
-that waves exhibited diffraction, but diffraction of light
-is difficult to observe, so Newton believed that light did
-not exhibit diffraction, and therefore must not be a wave.
-Although Newton's criticisms were fair enough, the debate
-also took on the overtones of a nationalistic dispute
-between England and continental Europe, fueled by English
-resentment over Leibniz's supposed plagiarism of Newton's
-calculus. Newton wrote a book on optics, and his prestige
-and political prominence tended to discourage questioning of his model.</p>
+      <p>Almost all that was known about reflection and refraction of
+        light could be interpreted equally well in terms of a
+        particle model or a wave
+        model, but Newton had one reason for strongly opposing
+        Huygens' wave theory. Newton knew
+        that waves exhibited diffraction, but diffraction of light
+        is difficult to observe, so Newton believed that light did
+        not exhibit diffraction, and therefore must not be a wave.
+        Although Newton's criticisms were fair enough, the debate
+        also took on the overtones of a nationalistic dispute
+        between England and continental Europe, fueled by English
+        resentment over Leibniz's supposed plagiarism of Newton's
+        calculus. Newton wrote a book on optics, and his prestige
+        and political prominence tended to discourage questioning of his model.</p>
 
-<p>Thomas Young (1773-1829) was the person
-who finally, a hundred years later, did a careful search for
-wave interference effects with light and analyzed the
-results correctly. He observed double-slit diffraction of
-light as well as a variety of other diffraction effects, all
-of which showed that light exhibited wave interference
-effects, and that the wavelengths of visible light waves
-were extremely short. The crowning achievement was the
-demonstration by the experimentalist Heinrich Hertz and the theorist James Clerk
-Maxwell that light was an
-<i>electromagnetic</i> wave. Maxwell is said to have related
-his discovery to his wife one starry evening and told her
-that she was the only other person in the world who knew what starlight was.</p>
+      <p>Thomas Young (1773-1829) was the person
+        who finally, a hundred years later, did a careful search for
+        wave interference effects with light and analyzed the
+        results correctly. He observed double-slit diffraction of
+        light as well as a variety of other diffraction effects, all
+        of which showed that light exhibited wave interference
+        effects, and that the wavelengths of visible light waves
+        were extremely short. The crowning achievement was the
+        demonstration by the experimentalist Heinrich Hertz and the theorist James Clerk
+        Maxwell that light was an
+        <i>electromagnetic</i> wave. Maxwell is said to have related
+        his discovery to his wife one starry evening and told her
+        that she was the only other person in the world who knew what starlight was.</p>
     </section>
 
     <section id="Section32.5">
@@ -414,7 +427,7 @@ that she was the only other person in the world who knew what starlight was.</p>
       <figure id="fig-double-slit-derivation-2">
         <img src="./data/Wave optics_files/double-slit-derivation-2.png" alt="double-slit-derivation-2">
         <figcaption>o / A close-up view of figure <a
-            href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-double-slit-derivation-1">n</a>,
+            href="#fig-double-slit-derivation-1">n</a>,
           showing how the path length difference <i>L</i>-<i>L</i>' is related to <i>d</i> and to the angle θ.
         </figcaption>
       </figure>
@@ -431,7 +444,7 @@ that she was the only other person in the world who knew what starlight was.</p>
         </figcaption>
       </figure>
 
-      <p>Let's now analyze double-slit diffraction, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-double-slit-water-waves2">k</a>, using
+      <p>Let's now analyze double-slit diffraction, <a href="#fig-double-slit-water-waves2">k</a>, using
 Huygens' principle. The most interesting question is how to
 compute the angles such as X and Z where the wave
 intensity is at a maximum, and the in-between angles like
@@ -442,7 +455,7 @@ which was the original direction of propagation of the wave.</p>
 <p>If we assume that the width of the slits is small (on the
 order of the wavelength of the wave or less), then we can
 imagine only a single set of Huygens ripples spreading out
-from each one, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-double-slit-overlapping">l</a>. White lines represent peaks, black
+from each one, <a href="#fig-double-slit-overlapping">l</a>. White lines represent peaks, black
 ones troughs. The only dimension of the diffracting
 slits that has any effect on the geometric pattern of the
 overlapping ripples is then the center-to-center distance,
@@ -467,7 +480,7 @@ The superposition of the two sets of ripples therefore
 results in a doubling of the wave amplitude along this line.
 There is constructive interference. This is easy to explain,
 because by symmetry, each wave has had to travel an equal
-number of wavelengths to get from its slit to the center line, <a href="http://www.lightandmatter.com/html_books/lm/ch32/ch32.html#fig-double-slit-path-length">m</a>:
+number of wavelengths to get from its slit to the center line, <a href="#fig-double-slit-path-length">m</a>:
 Because both sets of ripples have ten wavelengths to cover in
 order to reach the point along direction X, they will be in step when they get there.</p>
 

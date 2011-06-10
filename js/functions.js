@@ -172,6 +172,68 @@ if(!String.prototype.startsWith){
     return id;
   }
 
+  function initializeFigures() {
+    $("figure").each(function(){
+      var self = $(this),
+          title = self.attr("title"),
+          img = self.find("img"),
+          caption = self.find("figcaption");
+
+      self.wrapInner($('<div class="container"></div>'))
+        .prepend($('<div class="title">'+title+':</div>'))
+        .prepend($('<a href="#" class="openclose">open</a>'));
+
+      img.click(function(){
+          return hs.expand(this, {
+            src: img.attr("src"),
+            wrapperClassName: 'wide-border',//'borderless floating-caption',
+            dimmingOpacity: 0.3,
+            align: 'center',
+            captionText: caption.html(),
+            captionOverlay: {
+              padding:5+'px',
+              width: 300 + 'px',
+              position: 'rightpanel'
+            }
+          });
+        })
+    });
+
+    $(".openclose").click(function (){
+      var that = $(this),
+          figure = that.parents("figure").eq(0),
+          cont = figure.find(".container"),
+          toOpen = that.text() == openCloseWords[0];
+      if(toOpen){
+        cont.slideDown();
+        that.html(openCloseWords[1]);
+      }else{
+        cont.slideUp();
+        that.html(openCloseWords[0]);
+      }
+    }).each(function(){
+      var that = $(this);
+      that.parents("figure").eq(0).find(".title").click(function(){
+        that.trigger("click");
+      });
+    });
+    $("A.gotoFigure").click(function(){
+      var that = $(this),
+          id = that.attr("href"),
+          figure = $(id),
+          toggleButton = figure.find(".openclose"),
+          isCosed = toggleButton.text() == openCloseWords[0];
+      figure.find("img").click();
+      if(figure){
+        if(isCosed){
+          toggleButton.click();
+        }
+        scrollToColumn(columnOfObject(figure));
+      }
+      return false;
+    });
+  }
+
   $(function() {
     //On DOM load event actions
     var sectionChooserDiv = $("#section-chooser");
@@ -227,42 +289,28 @@ if(!String.prototype.startsWith){
       sectionChooser.append($("<option></option>").val(h2.attr("id")).html(h2.text()));
     });
 
-    $(".openclose").click(function (){
-      var that = $(this),
-          figure = that.parents("figure").eq(0),
-          cont = figure.find(".container"),
-          toOpen = that.text() == openCloseWords[0];
-      if(toOpen){
-        cont.slideDown();
-        that.html(openCloseWords[1]);
-      }else{
-        cont.slideUp();
-        that.html(openCloseWords[0]);
-      }
-    }).each(function(){
-      var that = $(this);
-      that.parents("figure").eq(0).find(".title").click(function(){
-        that.trigger("click");
-      });
-    });
-    $("A.gotoFigure").click(function(){
-      var that = $(this),
-          id = that.attr("href"),
-          figure = $(id),
-          toggleButton = figure.find(".openclose"),
-          isCosed = toggleButton.text() == openCloseWords[0];
-      if(figure){
-        if(isCosed){
-          toggleButton.click();
-        }
-        scrollToColumn(columnOfObject(figure));
-      }
-      return false;
-    });
-    $("figure .container img").each(function(){
-      var that = $(this);
-      that.wrap($("<a href='"+that.attr("src")+"' class='popup'></a>"));
-    });
+    initializeFigures();
+
+//    hs.showCredits = 0;
+//    hs.padToMinWidth = true;
+//    if (hs.registerOverlay) {
+//      // The white controlbar overlay
+//      hs.registerOverlay({
+//        thumbnailId: 'thumb3',
+//          overlayId: 'controlbar',
+//          position: 'top right',
+//          hideOnMouseOut: true
+//      });
+//      // The simple semitransparent close button overlay
+//      hs.registerOverlay({
+//        thumbnailId: 'thumb2',
+//        html: '<div class="closebutton"	onclick="return hs.close(this)" title="Close"></div>',
+//        position: 'top right',
+//        fade: 2 // fading the semi-transparent overlay looks bad in IE
+//      });
+//    }
+
+
   });
 
 }(jQuery));
