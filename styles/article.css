@@ -8,7 +8,7 @@ article{
   height:100%;
   overflow-x:hidden;
   overflow-y:hidden;
-  padding:40px 0 20px 0;
+  padding:50px 0 20px 0;
   position:relative;
 }
 
@@ -42,15 +42,58 @@ article h3{
 }
 
 article figure{
- display:inline-block;
- break-inside:avoid-column;
- text-align:center;
- width:100%;
+  display:inline-block;
+  break-inside:avoid-column;
+  text-align:center;
+  width:100%;
+
+  background: #F0F0EB;
+  border-top: dashed 1px #AAA;
+  border-bottom: dashed 1px #AAA;
 }
-article figure>*:first-child {
-  border: 1px dotted gray;
-  width: 40%;
+
+article figure img{
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-top: 8px;
+  max-height: 100px;
+  max-width: 150px;
+  padding-left: 14px;
 }
+
+article figure figcaption{
+  font-size: 80%;
+  font-style: italic;
+  padding: 3px 14px;
+}
+article figure .container{
+  display: none;
+  overflow: hidden;
+}
+article figure .title{
+  font-size: 90%;
+  font-weight: bold;
+  font-style: italic;
+  text-align: left;
+  border-bottom: dashed 1px #AAA;
+  padding: 3px;
+  background: #E6E6DC;
+  cursor: pointer;
+}
+article figure .openclose{
+  /*width: 30px;*/
+  font-size: 90%;
+  height: 23px;
+  padding-top: 2px;
+  width:30px;
+  margin-right: 10px;
+  float:right;
+}
+/*article figure>*:first-child {*/
+  /*border: 1px dotted gray;*/
+  /*width: 40%;*/
+/*}*/
 
 article iframe{
  border:0;
