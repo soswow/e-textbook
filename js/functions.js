@@ -36,7 +36,7 @@ if(!String.prototype.startsWith){
 (function($) {
   //Initializing local variables.
   var cons = {
-    columnWidth: 400,
+    columnWidth: 500,
     columnGap: 40
   },
   keys = {
@@ -48,7 +48,8 @@ if(!String.prototype.startsWith){
   onePageColumnsCount, totalColumnsCount, columnWidth, currentColumn,
   sectionIndexMap,
   article, sections,
-  idPrefix = "book-";
+  idPrefix = "book-",
+  openCloseWords = ["open", "close"];
 
   function getColumnCount(width, colWidth) {
     //Finds number of columns fitted into specified width.
@@ -226,6 +227,42 @@ if(!String.prototype.startsWith){
       sectionChooser.append($("<option></option>").val(h2.attr("id")).html(h2.text()));
     });
 
+    $(".openclose").click(function (){
+      var that = $(this),
+          figure = that.parents("figure").eq(0),
+          cont = figure.find(".container"),
+          toOpen = that.text() == openCloseWords[0];
+      if(toOpen){
+        cont.slideDown();
+        that.html(openCloseWords[1]);
+      }else{
+        cont.slideUp();
+        that.html(openCloseWords[0]);
+      }
+    }).each(function(){
+      var that = $(this);
+      that.parents("figure").eq(0).find(".title").click(function(){
+        that.trigger("click");
+      });
+    });
+    $("A.gotoFigure").click(function(){
+      var that = $(this),
+          id = that.attr("href"),
+          figure = $(id),
+          toggleButton = figure.find(".openclose"),
+          isCosed = toggleButton.text() == openCloseWords[0];
+      if(figure){
+        if(isCosed){
+          toggleButton.click();
+        }
+        scrollToColumn(columnOfObject(figure));
+      }
+      return false;
+    });
+    $("figure .container img").each(function(){
+      var that = $(this);
+      that.wrap($("<a href='"+that.attr("src")+"' class='popup'></a>"));
+    });
   });
 
 }(jQuery));
